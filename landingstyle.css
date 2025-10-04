@@ -1,0 +1,609 @@
+/* VARIÃVEIS GLOBAIS - Define cores e estilos que serÃ£o usados em todo o site */
+
+        /*Amatic SC--Titulos  Nunito-- Textos e botões    */
+         @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        
+        :root {
+            
+            --main-color: #d3ad7f;  /* Cor principal (dourado) */
+            --headercolor: #FFA726; /*Cor do Header Principal*/
+            --footercolor: #FB8C00;
+            --borderadius: 1rem;
+
+
+            --hover-color: #383838; /*Cor hover do menu principal*/
+            --color-btn: #FFB74D;   /*Cor do botao*/
+            --hover-btn: #D84315;   /*Cor hover dos botoes de compra*/
+
+
+            --corcards: #FB8C00;
+            --textcard: #383838;
+            --fundocardsdestaque: #FFE0B2;
+
+            --text: #161313;        /* Cor escura para textos */
+            --bg: #FFF3E0;           /* Cor de fundo escura */
+            --border: 0.1rem solid rgba(255,255,255,0.3);  /* Borda semitransparente */
+            --gradiente: linear-gradient(135deg, #FF9800, #E65100);
+            
+            font-size: 12px;         /* Tamanho base para uso de unidades rem */
+            --borderadius: 10px
+            }
+
+        /* RESET CSS - Remove estilos padrão dos navegadores */
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: 0.2s linear;   /* TransiÃ§Ã£o suave para efeitos hover */
+
+        }
+
+
+        /* CORPO DO DOCUMENTO - Estilos gerais da pagina */
+        body {
+            font-family: 'Amatic SC';
+            background-image: url("Images/Fundo.png");
+            color: white;
+            padding-top: 80px; /* Espaço para o cabeçalho fixo */
+        }
+
+        /* Seções - Container principal para o conteudo */
+        section {
+            padding: 3rem 2rem;
+            margin: 0 auto;
+        }
+
+        /* Cabeçalho - Menu de navegação fixo no topo */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            border-bottom: var(--border);
+            background-color: var(--headercolor);
+        }
+
+        /* Conteudo do cabeçalho - Alinha logo, menu e i­cones */
+        .header section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .logo-e-marca{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* LOGO - Estilização da imagem da logo */
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* LINKS DE NAVEGAÇÃO - Estilização do menu */
+        .menu-principal a {
+            margin: 0 1rem;
+            font-size: 1.8rem;
+            font-family: 'Nunito';
+            color: #fff;
+
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+ 
+        }
+
+        .menu-principal a::after{
+            content: "👈🏻"; /*Deixa o icone escondido*/
+            opacity: 0;
+            margin-left: 8px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(-5px);
+        }
+
+    
+
+        /* EFEITO HOVER NOS LINKS - Mudança de cor e tamanho ao passar o mouse */
+        .menu-principal a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .menu-principal a:hover {
+        color: var(--hover-color);
+        }
+
+        .dropdown-content{
+            list-style: none;
+            border-radius: var(--borderadius);
+        }
+
+        /* Icones /BARRA DE PESQUISA - Estilização dos I­cones de pesquisa e carrinho */
+
+        .icones{
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            flex: auto;
+            gap: 10px;      
+    
+         }
+
+         .icones  #pesquisar{
+            font-family: 'Nunito';
+            padding: 8px;
+            border-radius: var(--borderadius);
+            width: 100%;
+            transition: all 0.s ease; 
+         }
+
+         #pesquisar:hover{
+            border: 1px solid #000000;
+
+         }
+
+        .icones img {
+            margin: 1rem;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+        }
+
+        /* EFEITO HOVER NOS ICONES - Aumenta levemente ao passar o mouse */
+        .icones img:hover {
+
+            width: 40px;
+            height: 40px;
+        }
+
+        /* BOTÕES - Estilo base para todos os botões do site */
+        .botao-produtos {
+            background: var(--color-btn);
+            color: #fff;
+            padding: 1rem 3rem;
+            font-size: 1.7rem;
+            cursor: pointer;
+            margin: 1rem 0.5rem;
+            display: inline-block;
+            border-radius: var(--borderadius);
+ }
+
+        /* EFEITO HOVER NOS BOTÕES - Leve escurecimento e aumento suave */
+        .botao-produtos:hover {
+            background: var(--hover-btn);
+            font-weight: bold;
+            transform: scale(1.05);
+        }
+
+
+
+/* Estilo para o dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  text-decoration: none;
+  color: inherit;
+  padding: px 15px;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff; /* fundo do menu */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Mostra o submenu ao passar o mouse */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+        /*MENU-CATEGORIAS -- Menu com as bolinhas das categorias*/
+        .menu-categorias{
+            /*     Cima Dir Baixo Esquerda */
+            margin: 3px 40px 20px 40px;
+            border: 1px solid black transparent; 
+            border-radius: var(--borderadius);
+            background-color: var(--corcards);
+            display: flex;
+            font-family: 'Nunito';
+            font-size: large;
+        }
+
+        .escolhas{
+            text-align: center;
+            width: 100%;
+            border: 1px solid transparent; /*Ignora, to usando só para eu saber onde ta localizado na tela esse elemento*/
+        }
+
+        .escolhas div{
+            cursor: pointer;
+            border: 1px solid black;
+            display: grid;
+            display: inline-block;
+            flex-direction: row;
+
+             /*     Cima Dir Baixo Esquerda */
+            margin: 3px 20px 20px 20px;
+  
+        }
+
+        .escolhas img{
+            width: 50px;
+            border-radius: 200px;
+    
+        }
+    
+          
+           
+        
+
+
+
+        /* SEÇÃO INICIAL - Imagem de fundo com texto sobreposto */
+        .iniciar {
+            
+            background: var(--gradiente);
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        
+        /* TITULO PRINCIPAL - Estilização do titulo da seção inicial */
+        .iniciar h3 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Paragrafo da seção Inicial - Estilização do texto descritivo */
+        .iniciar p {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #eee;
+        }
+
+        /* Titulo das seções - Estilo para titulos das seções */
+        .titulo-secoes {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            color: var(--headercolor);
+            padding-top: 2rem;
+        }
+
+        /* Seção SOBRE - Espaçamento e organização do conteudo */
+        .sobre-nos {
+            padding: 5rem 2rem;
+        }
+
+        /* Conteudo da Seção SOBRE - Layout em duas colunas */
+        .conteudo-sobre {
+            
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        /* IMAGEM DA SEÇÃO SOBRE - Ajuste de tamanho e arredondamento */
+        .imagem-sobre {
+            flex: 0.4;
+        }
+
+        .imagem-sobre img {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--borderadius);
+        }
+
+        /* TEXTO DA SEÇÃO SOBRE - FormataÃ§Ã£o do conteÃºdo textual */
+        .texto-sobre {
+            color: #484343;
+            flex: 1;
+            font-size: 1.8rem;
+            line-height: 1.6;
+        }
+
+        /* SEÇÃO DE PRODUTOS - Fundo levemente diferente e espaÃ§amento */
+        .conteiner-produtos {
+            padding: 5rem 2rem;
+        }
+
+                /* GRADE DE PRODUTOS - Layout responsivo em grid */
+        .grid-produtos {
+            display: grid;
+        
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        /* CARTAO DE PRODUTO - Estilo individual para cada produto */
+        .card-produtos  {
+            background-color: var(--corcards);
+            padding: 2rem;
+            border-radius: var(--borderadius);
+            text-align: left;
+            color: var(--);
+
+            /*Esses ajudam a deixar o botão "comprar" fixos abaixo dos preços, ajustados ao card*/
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+        }
+
+        /* IMAGEM DO PRODUTO - Dimensões e arredondamento */
+        .card-produtos  img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--borderadius);
+            margin-bottom: 1.5rem;
+        }
+
+
+        /* NOME DO PRODUTO*/
+        .card-produtos  h4 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        /*NOME DA MARCA*/
+
+         .card-produtos h5{
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* PREÇO DO PRODUTO - Destaque com cor principal */
+        .card-produtos p {
+            font-size: 3.0rem;
+            font-weight: bold;
+            color: var(--textcard);
+            margin-bottom: -1rem;
+        }
+
+
+        /* PREÇO DO PRODUTO ANTES DA OFERTA*/
+
+        .card-produtos #texto-preço-original {
+            font-size: 1.5rem;
+            font-weight: lighter;
+            text-decoration: line-through;
+            color: var(--textcard);
+            margin-bottom: .5rem;
+        }
+
+
+
+        .botao-comprar{
+            background-color: var(--color-btn);
+            font-family: 'Nunito';
+            font-weight: 800;
+            font-size: 13px;
+            border-radius: var(--borderadius);
+            width: 100%;
+            height: 50px;
+
+
+            /*Fica alinhado pela amor*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .botao-comprar:hover{
+            cursor: pointer;
+            font-size: 1.4rem;
+            box-shadow:  0px 4px 12px #E92E8950;
+            color: white    ;
+            font-weight: bold;
+            background: var(--hover-btn);
+        }
+
+        /* SEÇÃO DE AVALIAÇÕES - Espaçamento e alinhamento */
+        .avaliacoes {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        /* CONTAINER DE AVALIAÇÕES - Layout para exibir cards lado a lado */
+        .conteiner-avaliacoes {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* CARTAO DE AVALIAÇÃO - Estilo individual para cada avaliação */
+        .card-avaliacao {
+            background-color: #1a1a24;
+            padding: 2rem;
+            border-radius: var(--borderadius);
+            max-width: 300px;
+        }
+
+        /* NOME DO CLIENTE - Destaque com cor principal */
+        .card-avaliacao h3 {
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+
+        /* TEXTO DA AAVALIAÇÃO - Formatação do conteudo */
+        .card-avaliacao p {
+            font-style: italic;
+            font-size: 1.6rem;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: var(--footercolor);
+            padding: 2rem;
+            font-size: 1.6rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .menu a {
+            color: white;
+            padding: 4px;
+            text-decoration: none;
+            width: 100px;
+            margin: 0 1rem;
+            display: grid;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        /*Parte dos "Siga-Nos*/
+        .redes-sociais,
+        .Formulário {
+            text-align: right;
+        position: absolute;
+        right: 2rem;
+        }
+
+        .redes-sociais {
+            top: 2rem;
+        }
+
+        .redes-sociais a {
+            color: white;
+            display: grid;
+            padding: 4px;
+        }
+
+        .redes-sociais a:hover {
+            text-decoration: underline;
+        }
+
+        /*Parte do Formulário*/
+        .Formulário {
+            top: 15rem;
+        }
+
+        .Formulário p {
+            margin-bottom: 3px;
+        }
+
+        footer form {
+            border-radius: var(--borderadius);
+            background: #6955B2;
+            padding: 10px;
+        }
+
+        #Fixo-baixo {
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+            background-color: var(--);
+        }
+
+        #email {
+            font-family: 'Poppins';
+            background: var(--bg);
+            border-radius: var(--borderadius);
+            padding: 10px;
+            width: 280px;
+        }
+
+        #cadastro {
+            font-family: 'Poppins';
+            color: #484343;
+            font-weight: 700;
+            background-color: var(--color-btn);
+            height: 40px;
+            width: 100px;
+            margin-left: 10px;
+            border-radius: var(--borderadius);
+        }
+
+        #cadastro:hover {
+            cursor: pointer;
+            transform: scale(0.9);
+            color: white;
+            background-color: var(--hover-btn);
+        }
+
+
+    /* .menu{
+            border: 1px solid black;
+            text-align: left;
+            display: grid;
+            grid-template-columns: repeat(1)
+
+        }*/
+
+    
+
+
+
+        /* RESPONSIVIDADE - Ajustes para telas menores (mobile) */
+
+
+        
+        @media (max-width: 768px) { /*Limita o tamanho da tela para 768*/
+            .header section { /*Faz que todas as sections dentro do header fiquem alinhadas em uma coluna, em cima do outro*/
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            
+            .menu-principal {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .conteudo-sobre {
+                flex-direction: column;
+            }
+            
+            .iniciar h3 {
+                font-size: 3.5rem;
+            }
+            
+            .conteiner-avaliacoes {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
