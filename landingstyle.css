@@ -249,12 +249,12 @@
         .escolhas div{
             cursor: pointer;
             border: 1px solid black;
-            display: grid;
             display: inline-block;
+              /*     Cima Dir Baixo Esquerda */
+            margin: 20px;
             flex-direction: row;
 
-             /*     Cima Dir Baixo Esquerda */
-            margin: 3px 20px 20px 20px;
+         
   
         }
 
@@ -263,9 +263,124 @@
             border-radius: 200px;
     
         }
-    
-          
-           
+
+        /*MENU CENTRAL -- Parte com os botões dos setores */
+        .menu-central{
+            color: var(--text);
+            text-align: center;
+            border: 1px solid black transparent;
+            background: var(--fundocardsdestaque);
+            width: auto;
+            height: auto;
+        }
+        
+        .menu-central h1{
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px ;
+        }
+
+        .menu-central h2{
+            font-size: 36px;
+            font-weight: lighter;
+            margin-bottom: 30px;
+        }
+
+        .btn-setores{
+            border: solid 1px transparent;
+        }
+        
+        .btn-setores a{
+            font-size: 32px;
+            font-weight: bolder;
+            background-color: var(--color-btn);
+            color: var(--textcard);
+            position: relative;
+
+
+
+            border: 1px solid black transparent;
+            border-radius: var(--borderadius);
+            display: flex;
+            display: inline-block;
+            /*     Cima Dir Baixo Esquerda */
+            margin: 20px 20px 20px 20px;
+            
+            padding: 50px 120px;
+        }
+
+        .btn-setores a:hover{
+            background: var(--hover-btn);
+            font-size: 3.0rem;
+            color: white;
+            box-shadow:  0px 4px 12px #E92E8950;
+        }
+
+
+        /*HOVER dos Icones do MENU-CENTRAL*/
+
+        /*--Icone Padaria-*/
+        .botao-produtos-padaria::after{
+            content: "🥖"; /*Deixa o icone escondido*/
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        .botao-produtos-padaria:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /*--Icone Açougue-*/
+        .botao-produtos-acougue::after{
+            content: "🥩"; /*Deixa o icone escondido*/
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        .botao-produtos-hortifruti:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+
+        /*--Icone Hortifruti-*/
+        .botao-produtos-hortifruti::after{
+            content: "🥕"; /*Deixa o icone escondido*/
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        .botao-produtos-acougue:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+
+        /*--Icone Mercado-*/
+        .botao-produtos-mercado::after{
+            content: "🧺"; /*Deixa o icone escondido*/
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        .botao-produtos-mercado:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
         
 
 
@@ -308,38 +423,7 @@
             padding-top: 2rem;
         }
 
-        /* Seção SOBRE - Espaçamento e organização do conteudo */
-        .sobre-nos {
-            padding: 5rem 2rem;
-        }
-
-        /* Conteudo da Seção SOBRE - Layout em duas colunas */
-        .conteudo-sobre {
-            
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        /* IMAGEM DA SEÇÃO SOBRE - Ajuste de tamanho e arredondamento */
-        .imagem-sobre {
-            flex: 0.4;
-        }
-
-        .imagem-sobre img {
-            width: 100%;
-            height: 100%;
-            border-radius: var(--borderadius);
-        }
-
-        /* TEXTO DA SEÇÃO SOBRE - FormataÃ§Ã£o do conteÃºdo textual */
-        .texto-sobre {
-            color: #484343;
-            flex: 1;
-            font-size: 1.8rem;
-            line-height: 1.6;
-        }
-
+    
         /* SEÇÃO DE PRODUTOS - Fundo levemente diferente e espaÃ§amento */
         .conteiner-produtos {
             padding: 5rem 2rem;
