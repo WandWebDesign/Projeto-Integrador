@@ -522,6 +522,10 @@
             margin-bottom: 0.5rem;
         }
 
+        .produto-ofertas #texto-preço-original{
+            text-decoration: line-through;
+        }
+
 
 
         .botao-comprar{
