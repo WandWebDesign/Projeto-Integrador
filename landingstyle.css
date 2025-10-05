@@ -642,6 +642,14 @@
             width: 280px;
         }
 
+        #tel {
+            font-family: 'Nunito';
+            background: var(--bg);
+            border-radius: var(--borderadius);
+            padding: 10px;
+            width: 280px;
+        }
+
         #cadastro {
             font-family: 'Nunito';
             color: var(--bg);
