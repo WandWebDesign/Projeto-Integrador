@@ -3,36 +3,43 @@ body{
     font-family: 'Nunito', Arial, sans-serif;
 }
 
-section{
-    display: flex;
-}
-
 #logo-cadastro{
+    display: flex;
+    gap: 20%;
+}
+
+#cadastro-esquerda{
     background: #818181;
+    width: 50%;
+    height: auto;
 }
 
-.logo-cadastro #nome1{
-    color: #ffffff;
-    font-size: 20px;
-    text-align: center;
-    border: solid black;
-    margin-bottom: 0px;
-}
-
-.logo-cadastro #nome2{
-    color: #ffa726;
-    font-size: 70px;
-    border: solid black;
-    text-align: center;
-    margin-top: 0px;
-}
-
-#cadastro{
+#cadastro-direita{
     background: #ffffff;
+    width: 50%;
+    height: auto;
 }
 
-#cadastro h1{
+#cadastro-direita h1{
     color: #fb8c00;
+    text-align: center;
+}
+
+.logo-cadastro{
+    text-align: center;
+    height: 100vh;
+}
+
+#nome1{
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+}
+
+#nome2{
+    color: #ffa726;
+    font-size: 100px;
+    text-align: center;
 }
 
 .email-cadastro, .senha-cadastro{
@@ -40,7 +47,7 @@ section{
     color: #ffffff;
     margin: 10px;
     border-radius: 5px;
-    text-align: center;
+    text-align: left;
     padding: 20px;
 }
 
@@ -49,10 +56,18 @@ input{
     background: #ffa726;
 }
 
-button{
+.botao-cadastro, button{
+    
     background: #fb8c00;
     color: #ffffff;
     border: 0;
     border-radius: 5px;
-    
+    text-align: center;
+    padding: 1px;
+    margin: 10px;
+}
+
+fieldset{
+    margin: 0;
+    border: #ffffff;
 }
