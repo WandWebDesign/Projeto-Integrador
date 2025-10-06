@@ -1,0 +1,58 @@
+body{
+    background: #fff3e0;
+    font-family: 'Nunito', Arial, sans-serif;
+}
+
+section{
+    display: flex;
+}
+
+#logo-cadastro{
+    background: #818181;
+}
+
+.logo-cadastro #nome1{
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    border: solid black;
+    margin-bottom: 0px;
+}
+
+.logo-cadastro #nome2{
+    color: #ffa726;
+    font-size: 70px;
+    border: solid black;
+    text-align: center;
+    margin-top: 0px;
+}
+
+#cadastro{
+    background: #ffffff;
+}
+
+#cadastro h1{
+    color: #fb8c00;
+}
+
+.email-cadastro, .senha-cadastro{
+    background: #ffa726;
+    color: #ffffff;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+}
+
+input{
+    border: 0;
+    background: #ffa726;
+}
+
+button{
+    background: #fb8c00;
+    color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    
+}
