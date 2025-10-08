@@ -213,30 +213,31 @@
         /*MENU-CATEGORIAS -- Menu com as bolinhas das categorias*/
         .menu-categorias{
             /*     Cima Dir Baixo Esquerda */
-            margin: 3px 40px 20px 40px;
-            border: 1px solid black transparent; 
-            border-radius: var(--borderadius);
+            margin: 3px 20px 20px 20px;
+            border: 1px solid var(--corcards);
+            border-radius: 1rem;
             background-color: var(--corcards);
             display: flex;
             font-family: 'Nunito';
             font-size: large;
+            justify-content: space-around;
+
         }
 
         .escolhas{
             text-align: center;
             width: 100%;
+            border-radius: 20px;
             border: 1px solid transparent; /*Ignora, to usando só para eu saber onde ta localizado na tela esse elemento*/
+           
         }
 
-        .escolhas div{
+        .escolhas li{
             cursor: pointer;
-            border: 1px solid black;
             display: inline-block;
               /*     Cima Dir Baixo Esquerda */
             margin: 20px;
-            flex-direction: row;
-
-         
+          
   
         }
 
