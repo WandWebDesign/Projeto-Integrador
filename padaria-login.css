@@ -1,10 +1,12 @@
 body{
-    background: #fff3e0;
+    background: #dadada;
     font-family: 'Nunito', Arial, sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .pagina-login{
@@ -12,6 +14,7 @@ body{
     width: 100%;
     max-width: 1200px;
     height: 100%;
+    max-height: 700px;
     box-shadow: 0 4px 20px;
     border-radius: 10px;
     overflow: hidden;
@@ -30,7 +33,7 @@ body{
 }
 
 #logo-login .logo{
-    width: 70%;
+    width: 150px;
     margin-bottom: 30px;
 }
 
@@ -43,18 +46,18 @@ body{
     color: #ffa726;
 }
 
-
 .conteiner-login{
     background: #ffffff;
     flex-basis: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .form-login{
     position: relative;
-    width: 80%;
+    width: 100%;
     max-width: 400px;
     display: flex;
     flex-direction: column;
@@ -87,6 +90,7 @@ body{
     outline: 0; /*remove a borda do input*/
     color: #818181;
     font-size: large;
+    font-weight: bold;
 }
 
 .esqueceu-senha{
@@ -103,6 +107,7 @@ body{
     border-radius: 8px;
     padding: 15px;
     font-size: large;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -112,6 +117,40 @@ body{
 }
 
 .login-colaborador{
+    margin-top: 15px;
     text-align: center;
     color: #fb8c00;
+    font-size: large;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    body {
+        height: auto;
+        padding: 0;
+    }
+
+    .pagina-login {
+        flex-direction: column; /*deixa os itens em ordem vertical*/
+        height: 100vh;
+        max-height: none;
+        border-radius: 0;
+    }
+
+    #logo-login {
+        display: none;
+    }
+
+    .conteiner-login {
+        flex-basis: 100%;
+        padding: 40px 20px;
+    }
+
+    .form-login{
+        border: 2px solid #8181813c;
+        border-radius: 15px;
+        padding: 100px 20px;
+        background: #ffffff;
+        box-shadow:  0px 13px 12px 2px #36363628;
+    }
 }
