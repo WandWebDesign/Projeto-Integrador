@@ -1,0 +1,107 @@
+body{
+    background: #fff3e0;
+    font-family: 'Nunito', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagina-login{
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    box-shadow: 0 4px 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#logo-login{
+    background: #818181;
+    color: #ffffff;
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+#logo-login .logo{
+    width: 70%;
+    margin-bottom: 30px;
+}
+
+#logo-login h1{
+    font-size: 28px;
+}
+
+#logo-login .diniz{
+    font-size: 85px;
+    color: #ffa726;
+}
+
+
+.conteiner-login{
+    background: #ffffff;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-login{
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-login h2{
+    color: #fb8c00;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login{
+    background: #ffa726;
+    border-radius: 8px;
+    padding: 12px 15px;
+}
+
+.login label{
+    display: block;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.login input{
+    width: 100%;
+    border: 0;
+    background: 0;
+    outline: 0; /*remove a borda do input*/
+    color: #818181;
+    font-size: large;
+}
+
+.botao-cadastro, button{
+    background: #fb8c00;
+    color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    text-align: center;
+    padding: 1px;
+    margin: 10px;
+}
+
+.esqueceu-senha{
+    color: #fb8c00;
+    text-decoration: none;
+    font-size: large;
+    text-align: center;
+}
