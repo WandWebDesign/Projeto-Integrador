@@ -110,3 +110,8 @@ body{
 .botao-login:hover{
     background: #fb8c00;
 }
+
+.login-colaborador{
+    text-align: center;
+    color: #fb8c00;
+}
