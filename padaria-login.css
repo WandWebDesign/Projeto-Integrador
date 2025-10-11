@@ -124,6 +124,14 @@ body{
     font-weight: bold;
 }
 
+.fazer-cadastro{
+    margin-top: 15px;
+    text-align: center;
+    color: #fb8c00;
+    font-size: large;
+    font-weight: bold;
+}
+
 @media (max-width: 900px) {
     body {
         height: auto;
