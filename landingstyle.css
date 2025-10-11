@@ -605,6 +605,33 @@
             text-decoration: underline;
         }
 
+        /*ÍCONE FLUTUANTE WHATSAPP*/
+        
+        .zap{
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            padding: 0;
+            background-color: #25D366;
+            border: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .zap img{
+            width: 35px;
+            height: auto;
+        }
+
+        html{
+            scroll-behavior: smooth; /*Rolagem suave: faz com que a página role suavemente até o formulário em vez de pular instantaneamente.*/ 
+        }
+
         /*Parte do Formulário*/
         form{
             display: grid;
