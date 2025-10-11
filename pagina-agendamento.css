@@ -1,1 +1,434 @@
 
+/* VARIÃVEIS GLOBAIS - Define cores e estilos que serÃ£o usados em todo o site */
+
+        /*Amatic SC--Titulos  Nunito-- Textos e botões    */
+         @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        
+        :root {
+            
+            --main-color: #d3ad7f;  /* Cor principal (dourado) */
+            --headercolor: #FFA726; /*Cor do Header Principal*/
+            --footercolor: #FB8C00;
+            --borderadius: 1rem;
+
+
+            --hover-color: #383838; /*Cor hover do menu principal*/
+            --color-btn: #FFB74D;   /*Cor do botao*/
+            --hover-btn: #D84315;   /*Cor hover dos botoes de compra*/
+
+
+            --corcards: #FB8C00;
+            --textcard: #383838;
+            --fundocardsdestaque: #FFE0B2;
+
+            --text: #161313;        /* Cor escura para textos */
+            --bg: #FFF3E0;           /* Cor de fundo escura */
+            --border: 0.1rem solid rgba(255,255,255,0.3);  /* Borda semitransparente */
+            --gradiente: linear-gradient(135deg, #FF9800, #E65100);
+            
+            font-size: 12px;         /* Tamanho base para uso de unidades rem */
+            --borderadius: 10px
+            }
+
+        /* RESET CSS - Remove estilos padrão dos navegadores */
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            transition: 0.2s linear;   /* TransiÃ§Ã£o suave para efeitos hover */
+
+        }
+
+
+        /* CORPO DO DOCUMENTO - Estilos gerais da pagina */
+        body {
+            font-family: 'Amatic SC';
+            background-image: url("Images/Fundo.png");
+            color: white;
+            padding-top: 80px; /* Espaço para o cabeçalho fixo */
+        }
+
+        /* Seções - Container principal para o conteudo */
+        section {
+            padding: 3rem 2rem;
+            margin: 0 auto;
+        }
+
+        /* Cabeçalho - Menu de navegação fixo no topo */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            border-bottom: var(--border);
+            background-color: var(--headercolor);
+        }
+
+        /* Conteudo do cabeçalho - Alinha logo, menu e i­cones */
+        .header section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .logo-e-marca{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* LOGO - Estilização da imagem da logo */
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* LINKS DE NAVEGAÇÃO - Estilização do menu */
+        .menu-principal a {
+            margin: 0 1rem;
+            font-size: 1.8rem;
+            font-family: 'Nunito';
+            color: #fff;
+
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+ 
+        }
+
+        .menu-principal a:hover {
+        color: var(--hover-color);
+        font-size: 1.9rem;
+        border-bottom: 1px solid #383838
+        }
+
+
+
+        /* Icones /BARRA DE PESQUISA - Estilização dos I­cones de pesquisa */
+
+        .icones{
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            flex: auto;
+            gap: 10px;      
+    
+         }
+
+         .icones  #pesquisar{
+            font-family: 'Nunito';
+            padding: 8px;
+            border-radius: var(--borderadius);
+            width: 100%;
+            transition: all 0.s ease; 
+         }
+
+         #pesquisar:hover{
+            border: 1px solid #000000;
+
+         }
+
+        .icones img {
+            margin: 1rem;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+        }
+
+
+        /* EFEITO HOVER NOS ICONES - Aumenta levemente ao passar o mouse */
+        .icones img:hover {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* BOTÕES - Estilo base para todos os botões do site */
+        .botao-produtos {
+            background: var(--color-btn);
+            color: #fff;
+            padding: 1rem 3rem;
+            font-size: 1.7rem;
+            cursor: pointer;
+            margin: 1rem 0.5rem;
+            display: inline-block;
+            border-radius: var(--borderadius);
+ }
+
+        /* EFEITO HOVER NOS BOTÕES - Leve escurecimento e aumento suave */
+        .botao-produtos:hover {
+            background: var(--hover-btn);
+            font-weight: bold;
+            transform: scale(1.05);
+        }
+
+        /*Pagina de Agendamento*/
+
+        .container-produtos{
+            color: black;
+            margin-top: 40px;
+        }
+
+        .container-produtos{
+            display: flex;
+            background-color: #e8a94f;
+            padding: 25px;
+            border-radius: var(--borderadius);
+            max-width: 900px;
+            width: 100%;
+            gap: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Coluna da Esquerda (Imagens) */
+        .coluna-da-esquerda{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: space-around;
+        }
+
+        .imagem-principal img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--borderadius);
+            object-fit:fill;
+        }
+
+        .lista-imagens img{
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: var(--borderadius);
+        }
+
+        .lista-imagens {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            flex-wrap: nowrap;
+            flex-direction: row;
+        }
+
+        /* Coluna da Direita (Detalhes) */
+        .coluna-da-direita{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .titulo-produto{
+            width: auto;
+            font-size: 3.8em;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            color: #4a3f35;
+        }
+
+        .label-descrição{
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .Descrição{
+            background-color: #ffffff;
+            border-radius: var(--borderadius);
+            padding: 15px;
+            font-family: 'Nunito';
+            font-weight: lighter;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /*Parte dos Botões Iterativos com JAVA-------------------------*/
+        
+       .container {
+            display: flex;
+            align-items: flex-end; /* Alinha os itens na base */
+            gap: 20px; /* Espaço entre os seletores */
+            color: #4a3f35;
+            font-weight: bold;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--borderadius);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+        }
+        .container-qtd {
+            display: flex;
+            flex-direction: column;
+        }
+        .container-qtd label {
+            margin-bottom: 8px;
+            font-size: 1.5em;
+            text-transform: uppercase;
+        }
+
+        #preço-final{
+            font-size: 1.50rem;
+        }
+        .preço-box {
+            background-color: #fdfdfd;
+            border: 1px solid #ddd;
+            border-radius: var(--borderadius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            height: 30px; /* Altura fixa para alinhar */
+        }
+        .qtd-box {
+            width: 100px;
+        }
+        .qtd-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #555;
+            font-weight: bold;
+        }
+        #Qtd {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .valor-box {
+            width: 150px; /* Reduzi um pouco para caber melhor */
+            justify-content: flex-start; /* Alinha o texto à esquerda */
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .btn-baixo{
+            display: flex;
+            gap: 20px;
+        }
+
+        .botao-voltar{
+            font-family: 'Nunito';
+            width: 15%;
+            text-align: center;
+            padding: 15px;
+            background-color: var(--hover-color);
+            color: white;
+            border: none;
+            border-radius: var(--borderadius);
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px; /* Espaço acima do botão */
+            transition: background-color 0.3s ease;
+        }
+
+        .botao-voltar:hover{
+            background-color: var(--footercolor);
+
+        }
+
+        .botao-agendar {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--hover-btn);
+            color: white;
+            border: none;
+            border-radius: var(--borderadius);
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px; /* Espaço acima do botão */
+            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease;
+        }
+        .botao-agendar:hover {
+            background-color: #00972d;
+            transform: scale(1.05);
+        }
+
+
+
+        /* ============================================ */
+/* ESTILOS PARA TELAS MENORES          */
+/* ============================================ */
+
+@media (max-width: 768px) {
+
+    .container-produtos {
+        /* Altera o layout de duas colunas (lado a lado) 
+           para uma única coluna (uma em cima da outra) */
+        flex-direction: column; 
+        
+        /* Reduz o espaçamento interno para aproveitar melhor o espaço */
+        padding: 15px; 
+    }
+
+    .coluna-da-esquerda, .coluna-da-direita {
+        /* Garante que as colunas ocupem toda a largura disponível */
+        width: 100%;
+    }
+
+    .container {
+        /* Empilha os seletores de quantidade e valor final */
+        flex-direction: column;
+        align-items: stretch; /* Faz os itens internos ocuparem a largura total */
+        gap: 15px; /* Ajusta o espaço entre os seletores */
+        padding: 20px;
+    }
+
+    .qtd-box, .valor-box {
+        /* Faz as caixas de quantidade e valor ocuparem a largura total 
+           para um visual mais limpo e alinhado */
+        width: 100%; 
+        justify-content: center; /* Centraliza o conteúdo dentro das caixas */
+    }
+
+    .valor-box {
+        justify-content: center; /* Mantém a consistência */
+    }
+    
+    .titulo-produto {
+        /* Opcional: Reduz um pouco o tamanho do título em telas menores */
+        font-size: 1.6em;
+        text-align: center; /* Centraliza o título */
+    }
+
+    .label-descrição {
+        text-align: center; /* Centraliza o label da descrição */
+    }
+}
+
+ @media (max-width: 768px) { /*Limita o tamanho da tela para 768*/
+            .header section { /*Faz que todas as sections dentro do header fiquem alinhadas em uma coluna, em cima do outro*/
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            
+            .menu-principal {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .iniciar h3 {
+                font-size: 3.5rem;
+            }
+            
+        }
+        
