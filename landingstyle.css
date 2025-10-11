@@ -168,48 +168,6 @@
 
 
 
-/* Estilo para o dropdown */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn {
-  text-decoration: none;
-  color: inherit;
-  padding: px 15px;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff; /* fundo do menu */
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  color: black;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-/* Mostra o submenu ao passar o mouse */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-
-
-
         /*MENU-CATEGORIAS -- Menu com as bolinhas das categorias*/
         .menu-categorias{
             /*     Cima Dir Baixo Esquerda */
@@ -379,15 +337,13 @@
 
         
 
-
-
         /* SEÇÃO INICIAL - Imagem de fundo com texto sobreposto */
         .iniciar {
             
             background: var(--gradiente);
             background-position: center;
             height: 100vh;
-            width: 100%;
+            width: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -451,8 +407,6 @@
 
         }
         
-
-    
         /* SEÇÃO DE PRODUTOS - Fundo levemente diferente e espaçamento */
         .conteiner-produtos {
             padding: 5rem 2rem;
@@ -460,10 +414,27 @@
 
                 /* GRADE DE PRODUTOS - Layout responsivo em grid */
         .grid-produtos {
-            display: grid;
+            position: relative;
+            width: 90%;
+            max-width: auto;
+            margin: auto;
         
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        }
+
+        /*FORMATAÇÃO DO CARROCEL DE PRODUTOS*/
+
+        .carrossel-conjunto{
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+
+        }
+
+        .carrossel-conjunto::-webkit-scrollbar{
+            display: none;
+
         }
 
         /* CARTAO DE PRODUTO - Estilo individual para cada produto */
@@ -476,10 +447,12 @@
             color: var(--textcard);
 
             /*Esses ajudam a deixar o botão "comprar" fixos abaixo dos preços, ajustados ao card*/
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            
+            flex: 0 0 220px;
+            margin: 10px;
+        }
+
+        .card-produtos:hover{
+            transform: translateY(-5px);
         }
 
         /* IMAGEM DO PRODUTO - Dimensões e arredondamento */
@@ -489,6 +462,34 @@
             object-fit:contain;
             border-radius: var(--borderadius);
             margin-bottom: 1.5rem;
+        }
+
+        .botao-carrossel{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0,3s ease;
+        }
+
+        .botao-carrossel:hover{
+            background-color:  rgba(0, 0, 0, 0.8);
+        }
+
+        .antes{
+            left: -20px;
+        }
+
+        .depois{
+            right: -20px;
         }
 
 
@@ -526,8 +527,6 @@
         .produto-ofertas #texto-preço-original{
             text-decoration: line-through;
         }
-
-
 
         .botao-comprar{
             background-color: var(--color-btn);
@@ -714,8 +713,4 @@
                 font-size: 3.5rem;
             }
             
-            .conteiner-avaliacoes {
-                flex-direction: column;
-                align-items: center;
-            }
         }
