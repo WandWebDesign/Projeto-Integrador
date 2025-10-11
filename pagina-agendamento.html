@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padaria Diniz</title>
+
+    <link rel="stylesheet" href="pagina-agendamento.css">
+
+
+
+
+</head>
+
+<body>
+    <header class="header">
+        <section>
+            <div class="logo-e-marca">
+
+                <div class="marca">
+                    <h1>Padaria Diniz</h1>
+                </div>
+
+                <div class="logo">
+                    <a href="padaria-landingpage.html" class="logo img">
+                        <img src="/Imagens/Logo.png" alt="Logo da Padaria">
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="icones">
+                <input type="text" id="pesquisar" placeholder="Digite O Produto Desejado...">
+                <img src="">
+            </div>
+
+            <nav class="menu-principal">
+                <a href="#pedidos"> Meus pedidos </a>
+                <a href="padaria-login.html"> Login </a>
+
+            </nav>
+        </section>
+
+    </header>
+
+
+
+    <section class="container-produtos">
+        <div class="coluna-da-esquerda">
+            <div class="imagem-principal">
+                <img id="produtoimagem" alt="Variedade de pães">
+            </div>
+            <div class="lista-imagens">
+                <img id="img1" alt="imagem 1">
+                <img id="img2" alt="imagem 2">
+                <img id="img3" alt="imagem 3">
+            </div>
+        </div>
+
+        <div class="coluna-da-direita">
+            <h1 id="tituloproduto" class="titulo-produto"> </h1>
+            <p class="label-descrição">Descrição do Produto:</p>
+            <div class="Descrição">
+                <p id="descricao"> </p>
+            </div>
+
+            <div class="container">
+                <div class="container-qtd">
+                    <label for="Qtd">Quantidade</label>
+                    <div class="preço-box qtd-box">
+                        <button id="ret-btn" class="qtd-btn">-</button>
+                        <span id="Qtd">1</span>
+                        <button id="plus-btn" class="qtd-btn">+</button>
+                    </div>
+                </div>
+
+                <div class="container-qtd">
+                    <label for="preço-final">Valor Final</label>
+                    <div id="preço-final" class="preço-box valor-box">
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-baixo">
+                <button class="botao-agendar">Agendar</button>
+                <a  href="padaria-landingpage.html" class="botao-voltar"> Voltar </a>
+            </div>
+
+            <script src="script.js"></script>
+        </div>
+    </section>
+
+
+</body>
