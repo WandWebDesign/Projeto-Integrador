@@ -1,4 +1,4 @@
-/* VARIÃVEIS GLOBAIS - Define cores e estilos que serÃ£o usados em todo o site */
+/* VARIÁVEIS GLOBAIS - Define cores e estilos que serão usados em todo o site */
 
         /*Amatic SC--Titulos  Nunito-- Textos e botões    */
          @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
@@ -553,6 +553,31 @@
             background: var(--hover-btn);
         }
 
+        /* ÍCONE FLUTUANTE WHATSAPP*/
+        .zap{
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            padding: 0;
+            background-color: #25D366;
+            border: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .zap img{
+            width: 35px;
+            height: auto;
+        }
+
+        html{
+            scroll-behavior: smooth; /*Rolagem suave: faz com que a página role suavemente até o formulário em vez de pular instantaneamente.*/ 
+        }
 
         /* RODAPÉ */
         footer {
