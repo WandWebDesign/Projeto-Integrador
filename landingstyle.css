@@ -606,7 +606,7 @@
         }
 
         /*ÍCONE FLUTUANTE WHATSAPP*/
-        
+
         .zap{
             position: fixed;
             bottom: 25px;
@@ -650,7 +650,7 @@
 
         footer form {
             border-radius: var(--borderadius);
-            background: var(--headercolor);
+            background: var(--textcard);
             padding: 10px;
         }
 
@@ -681,7 +681,7 @@
             font-family: 'Nunito';
             color: var(--bg);
             font-weight: 700;
-            background-color: var(--hover-color);
+            background-color: var(--headercolor);
             height: 40px;
             width: 100px;
             border-radius: var(--borderadius);
