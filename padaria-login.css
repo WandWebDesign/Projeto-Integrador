@@ -1,4 +1,5 @@
-body{
+/* --- Configurações Globais --- */
+body {
     background: #dadada;
     font-family: 'Nunito', Arial, sans-serif;
     height: 100vh;
@@ -7,165 +8,264 @@ body{
     align-items: center;
     padding: 15px;
     box-sizing: border-box;
+    color: #333; /* Cor de texto padrão melhor */
 }
 
-.pagina-login{
+/* --- Container Principal --- */
+.pagina-login {
+    position: relative;
     display: flex;
     width: 100%;
     max-width: 1200px;
     height: 100%;
     max-height: 700px;
-    box-shadow: 0 4px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
     border-radius: 10px;
     overflow: hidden;
+    background: #ffffff; 
 }
 
-#logo-login{
-    background: #818181;
+/* --- Seção Esquerda (Logo) --- */
+#logo-login {
+    background: #fb8c00; /* Cor principal da marca */
     color: #ffffff;
     display: flex;
     flex-basis: 50%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px;
     text-align: center;
 }
 
-#logo-login .logo{
+#logo-login .logo {
     width: 150px;
     margin-bottom: 30px;
 }
 
-#logo-login h1{
+#logo-login h1 {
     font-size: 28px;
+    margin: 5px 0; 
 }
 
-#logo-login .diniz{
+#logo-login .diniz {
     font-size: 85px;
-    color: #ffa726;
+    color: #ffffff; /* Logo DINIZ em branco */
+    font-weight: 900; 
 }
 
-.conteiner-login{
+/* --- Seção Direita (Formulário) --- */
+.conteiner-login {
     background: #ffffff;
     flex-basis: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px;
+    box-sizing: border-box;
 }
 
-.form-login{
-    position: relative;
+.form-login {
     width: 100%;
     max-width: 400px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
-h2{
+h2 {
     color: #fb8c00;
     font-size: 32px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
-h3{
-    color: #ffa726;
+h3 {
+    color: #555;
     font-size: 16px;
     text-align: center;
     margin-bottom: 10px;
+    font-weight: normal;
 }
 
-.login{
-    background: #ffa726;
-    border-radius: 8px;
-    padding: 12px 15px;
-}
-
-.login label{
-    display: block;
-    color: #ffffff;
-    margin-bottom: 5px;
-}
-
-.login input{
+.login {
     width: 100%;
-    border: 0;
-    background: 0;
-    outline: 0; /*remove a borda do input*/
-    color: #818181;
-    font-size: large;
+}
+
+.login label {
+    display: block;
+    color: #555;
+    margin-bottom: 8px;
     font-weight: bold;
+    font-size: 14px;
 }
 
-.esqueceu-senha{
-    color: #fb8c00;
+.login input {
+    width: 100%;
+    border: 1px solid #ddd;
+    background: #f9f9f9; 
+    outline: 0;
+    color: #333;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Feedback visual ao focar no input */
+.login input:focus {
+    border-color: #fb8c00;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(251, 140, 0, 0.15);
+}
+
+/* Estilização do placeholder */
+.login input::placeholder {
+    color: #999;
+}
+
+/* --- Links e Botões --- */
+.esqueceu-senha {
+    color: #555;
     text-decoration: none;
-    font-size: large;
-    text-align: center;
+    font-size: 14px;
+    text-align: right;
+    margin-top: -10px;
+    transition: color 0.3s ease;
 }
 
-.botao-login{
+.esqueceu-senha:hover {
+    color: #fb8c00;
+    text-decoration: underline;
+}
+
+.botao-login {
     background: #ffa726;
     color: #ffffff;
     border: 0;
     border-radius: 8px;
     padding: 15px;
-    font-size: large;
+    font-size: 18px; 
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.botao-login:hover{
-    background: #fb8c00;
+.botao-login:hover {
+    background: #fb8c00; 
 }
 
-.login-colaborador{
-    margin-top: 15px;
+/* Botão secundário (Ghost Button) */
+.fazer-cadastro {
+    display: block;
     text-align: center;
     color: #fb8c00;
-    font-size: large;
+    border: 2px solid #ffa726;
+    border-radius: 8px;
+    padding: 13px;
+    font-size: 16px;
     font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.fazer-cadastro{
-    margin-top: 15px;
+.fazer-cadastro:hover {
+    background: #ffa726;
+    color: #ffffff;
+}
+
+/* Link terciário */
+.login-colaborador {
     text-align: center;
-    color: #fb8c00;
-    font-size: large;
-    font-weight: bold;
+    color: #888;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
+.login-colaborador:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+/*Estilo do Botão Fechar*/
+.botao-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100; /* Garante que ele fique por cima de tudo */
+
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 300; /* Mais fino para um 'X' elegante */
+    line-height: 1;
+    text-decoration: none;
+    
+    /* Fundo sutil para melhor contraste */
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    
+    /* Centraliza o 'X' perfeitamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: background-color 0.3s ease;
+}
+
+.botao-fechar:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* --- Responsividade (Mobile) --- */
 @media (max-width: 900px) {
     body {
-        height: auto;
+        height: 100%;
         padding: 0;
     }
 
     .pagina-login {
-        flex-direction: column; /*deixa os itens em ordem vertical*/
-        height: 100vh;
+        flex-direction: column;
+        height: 100%;
+        min-height: 100vh; 
         max-height: none;
         border-radius: 0;
+        box-shadow: none; /* Remove sombra no mobile */
     }
 
     #logo-login {
-        display: none;
+        display: flex; 
+        flex-basis: auto; /* Altura automática */
+        padding: 30px 20px;
+    }
+
+    #logo-login .logo {
+        width: 100px;
+        margin-bottom: 15px;
+    }
+
+    #logo-login h1 {
+        font-size: 20px;
+    }
+
+    #logo-login .diniz {
+        font-size: 50px;
     }
 
     .conteiner-login {
-        flex-basis: 100%;
-        padding: 40px 20px;
+        flex-basis: auto;
+        flex-grow: 1; /* Faz o container do form preencher o espaço */
+        padding: 30px 20px;
     }
 
-    .form-login{
-        border: 2px solid #8181813c;
-        border-radius: 15px;
-        padding: 100px 20px;
-        background: #ffffff;
-        box-shadow:  0px 13px 12px 2px #36363628;
+    .form-login {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background: none;
     }
 }
