@@ -7,10 +7,6 @@
     <title>Padaria Diniz</title>
 
     <link rel="stylesheet" href="pagina-agendamento.css">
-
-
-
-
 </head>
 
 <body>
@@ -24,7 +20,7 @@
 
                 <div class="logo">
                     <a href="padaria-landingpage.html" class="logo img">
-                        <img src="./Imagens/Logo.png" alt="Logo da Padaria">
+                        <img src="/Imagens/Logo.png" alt="Logo da Padaria">
                     </a>
                 </div>
 
@@ -32,13 +28,12 @@
 
             <div class="icones">
                 <input type="text" id="pesquisar" placeholder="Digite O Produto Desejado...">
-                <img src="">
+                <img src="./Imagens Secundarias/search-alt-2-svgrepo-com (1).svg">
             </div>
 
             <nav class="menu-principal">
                 <a href="#pedidos"> Meus pedidos </a>
                 <a href="padaria-login.html"> Login </a>
-
             </nav>
         </section>
 
@@ -82,6 +77,38 @@
                 </div>
             </div>
 
+            <div class="container-data" id="data-picker-container" style="display: none;">
+                <label for="data-retirada">Escolha a data de retirada:</label>
+                <input type="date" id="data-retirada">
+            </div>
+
+            <div class="container-pagamento" id="pagamento-container" style="display: none;">
+                <label>Escolha a forma de pagamento:</label>
+                <div class="opcoes-pagamento">
+                    
+                    <label class="payment-option">
+                        <input type="radio" name="pagamento" value="Pix">
+                        <span>Pix (via QR Code na retirada)</span>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="pagamento" value="Cartão de Crédito">
+                        <span>Cartão de Crédito (na retirada)</span>
+                    </label>
+                    
+                    <label class="payment-option">
+                        <input type="radio" name="pagamento" value="Cartão de Débito">
+                        <span>Cartão de Débito (na retirada)</span>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="pagamento" value="Dinheiro">
+                        <span>Dinheiro (na retirada)</span>
+                    </label>
+
+                </div>
+            </div>
+
             <div class="btn-baixo">
                 <button class="botao-agendar">Agendar</button>
                 <a  href="padaria-landingpage.html" class="botao-voltar"> Voltar </a>
@@ -90,4 +117,6 @@
             <script src="script.js"></script>
         </div>
     </section>
+
+
 </body>
