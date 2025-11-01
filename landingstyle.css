@@ -7,26 +7,23 @@
             
             --main-color: #d3ad7f;  /* Cor principal (dourado) */
             --headercolor: #FFA726; /*Cor do Header Principal*/
+            --header-height: 70px;
             --footercolor: #FB8C00;
             --borderadius: 1rem;
-
-
             --hover-color: #383838; /*Cor hover do menu principal*/
             --color-btn: #FFB74D;   /*Cor do botao*/
             --hover-btn: #D84315;   /*Cor hover dos botoes de compra*/
-
-
             --corcards: #FB8C00;
             --textcard: #383838;
             --fundocardsdestaque: #FFE0B2;
-
             --text: #161313;        /* Cor escura para textos */
             --bg: #FFF3E0;           /* Cor de fundo escura */
             --border: 0.1rem solid rgba(255,255,255,0.3);  /* Borda semitransparente */
             --gradiente: linear-gradient(135deg, #FF9800, #E65100);
-            
             font-size: 12px;         /* Tamanho base para uso de unidades rem */
-            --borderadius: 10px
+            --borderadius: 10px;
+
+
             }
 
         /* RESET CSS - Remove estilos padrão dos navegadores */
@@ -37,7 +34,7 @@
             border: none;
             text-decoration: none;
             text-transform: capitalize;
-            transition: 0.2s linear;   /* TransiÃ§Ã£o suave para efeitos hover */
+            transition: 0.2s linear;
 
         }
 
@@ -47,7 +44,8 @@
             font-family: 'Amatic SC';
             background-image: url("Images/Fundo.png");
             color: white;
-            padding-top: 80px; /* Espaço para o cabeçalho fixo */
+            padding-top: var(--header-height); /* Espaço para o cabeçalho fixo */
+            margin: 0;
         }
 
         /* Seções - Container principal para o conteudo */
@@ -57,96 +55,123 @@
         }
 
         /* Cabeçalho - Menu de navegação fixo no topo */
-        .header {
+       .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 99;
-            border-bottom: var(--border);
+
+            height: var(--header-height);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             background-color: var(--headercolor);
+            padding: 0 2rem; 
         }
 
-        /* Conteudo do cabeçalho - Alinha logo, menu e i­cones */
+        /* Conteudo do cabeçalho - Alinha logo, menu e ícones */
         .header section {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 0;
+            gap: 2rem;
         }
 
-        .logo-e-marca{
+        .logo-e-marca {
             display: flex;
             align-items: center;
             gap: 10px;
+            /* Impede que a logo e a marca sejam espremidas */
+            flex-shrink: 0; 
         }
 
         /* LOGO - Estilização da imagem da logo */
         .logo img {
             height: 50px;
             width: auto;
+            /* Garante que a imagem não tenha espaços extras embaixo */
+            display: block; 
         }
 
         /* LINKS DE NAVEGAÇÃO - Estilização do menu */
+        .menu-principal {
+            /* Impede que o menu seja espremido */
+            flex-shrink: 0;
+        }
+
         .menu-principal a {
             margin: 0 1rem;
-            font-size: 1.8rem;
-            font-family: 'Nunito';
-            color: #fff;
 
+            font-size: 1.6rem; 
+            font-family: 'Nunito', sans-serif;
+            color: #fff;
+            text-decoration: none; /* Remove sublinhado padrão */
             position: relative;
-            display: inline-block;
-            cursor: pointer;
- 
+            padding-bottom: 5px; /* Espaço para o sublinhado animado */
+            transition: color 0.3s ease;
+        }
+
+        .menu-principal a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%; /* Começa no meio */
+            transform: translateX(-50%); /* Centraliza */
+            width: 0; /* Começa invisível */
+            height: 2px;
+            background-color: var(--hover-color);
+            transition: width 0.3s ease;
         }
 
         .menu-principal a:hover {
-        color: var(--hover-color);
-        font-size: 1.9rem;
-        border-bottom: 1px solid #383838
+            color: var(--hover-color);
         }
 
+        /* Anima o sublinhado no hover */
+        .menu-principal a:hover::after {
+            width: 100%;
+        }
 
-
-        /* Icones /BARRA DE PESQUISA - Estilização dos I­cones de pesquisa */
-
-        .icones{
-            font-size: 1.8rem;
+        /* Icones / BARRA DE PESQUISA */
+        .icones {
             display: flex;
             align-items: center;
-            padding-left: 10px;
-            flex: auto;
-            gap: 10px;      
-    
-         }
+            gap: 10px;
+            flex: 1;
+            /* Define uma largura máxima para a barra não ficar gigante */
+            max-width: 450px; 
+        }
 
-         .icones  #pesquisar{
-            font-family: 'Nunito';
-            padding: 8px;
-            border-radius: var(--borderadius);
+        .icones #pesquisar {
+            font-family: 'Nunito', sans-serif;
+            padding: 5px 20px; 
+            border-radius: 1.5rem;
             width: 100%;
-            transition: all 0.s ease; 
-         }
+            border: 1px solid transparent; 
+            outline: none;
+            font-size: 1.2rem; 
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-         #pesquisar:hover{
-            border: 1px solid #000000;
 
-         }
+        #pesquisar:focus {
+            border-color: #000000; 
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
 
         .icones img {
-            margin: 1rem;
             cursor: pointer;
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
         }
 
-        /* EFEITO HOVER NOS ICONES - Aumenta levemente ao passar o mouse */
+        /* EFEITO HOVER NOS ICONES */
         .icones img:hover {
-            width: 40px;
-            height: 40px;
+            transform: scale(1.15);
         }
-
         /* BOTÕES - Estilo base para todos os botões do site */
         .botao-produtos {
             background: var(--color-btn);
@@ -157,7 +182,7 @@
             margin: 1rem 0.5rem;
             display: inline-block;
             border-radius: var(--borderadius);
- }
+        }
 
         /* EFEITO HOVER NOS BOTÕES - Leve escurecimento e aumento suave */
         .botao-produtos:hover {
@@ -167,42 +192,56 @@
         }
 
 
-
         /*MENU-CATEGORIAS -- Menu com as bolinhas das categorias*/
-        .menu-categorias{
-            /*     Cima Dir Baixo Esquerda */
-            margin: 3px 20px 20px 20px;
+        .menu-categorias {
             border: 1px solid var(--corcards);
-            border-radius: 1rem;
             background-color: var(--corcards);
-            display: flex;
             font-family: 'Nunito';
             font-size: large;
-            justify-content: space-around;
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-out;
+            /* 1. Faz a barra "grudar" no topo da tela */
+            position: sticky; 
+            top: var(--header-height);
+            /*Garante que ela fique ABAIXO do header (que é z-index: 99) */
+            z-index: 98; 
+            width: 100%; 
+            margin: 0; 
         }
 
+
         .escolhas{
-            text-align: center;
-            width: 100%;
-            border-radius: 20px;
-            border: 1px solid transparent; /*Ignora, to usando só para eu saber onde ta localizado na tela esse elemento*/
-           
+            list-style-type: none; /* Remove as "bolinhas" da lista */
+            display: flex;         /* Transforma a <ul> em um container flex */
+            flex-wrap: wrap;       /* Permite que os ícones quebrem a linha em telas menores */
+            justify-content: center; /* Centraliza os ícones (os <li>) */
         }
 
         .escolhas li{
             cursor: pointer;
-            display: inline-block;
-              /*     Cima Dir Baixo Esquerda */
             margin: 20px;
-          
-  
+            text-align: center; /* Garante que o <p> fique centralizado abaixo da <img> */
         }
 
-        .escolhas img{
+        .escolhas img {
+            background-color: rgba(187, 187, 187, 0.5);
             width: 50px;
             border-radius: 200px;
-    
+            box-shadow: 1px 6px 12px 0px #0000002e;
+            transition: transform 0.3s ease; /* animação suave */
+        }
+
+        /* Quando o mouse estiver sobre o LI */
+        .escolhas li:hover img {
+            transform: rotate(15deg);
+        }
+        
+        /*FAZER DESPARECE ESSA BARRA*/
+        .menu-categorias.hidden-scroll {
+            transform: translateY(-100%);
         }
 
         /*CTA INICIAL DO SITE*/
@@ -213,10 +252,6 @@
             font-size: 32px;
             text-align: center;
         }
-
-
-
-
 
         /*MENU CENTRAL -- Parte com os botões dos setores */
         .menu-central{
@@ -250,9 +285,6 @@
             background-color: var(--color-btn);
             color: var(--textcard);
             position: relative;
-
-
-
             border: 1px solid black transparent;
             border-radius: var(--borderadius);
             display: flex;
@@ -269,7 +301,6 @@
             color: white;
             box-shadow:  0px 4px 12px #E92E8950;
         }
-
 
         /*HOVER dos Icones do MENU-CENTRAL*/
 
@@ -339,7 +370,6 @@
 
         /* SEÇÃO INICIAL - Imagem de fundo com texto sobreposto */
         .iniciar {
-            
             background: var(--gradiente);
             background-position: center;
             height: 100vh;
@@ -440,14 +470,14 @@
         /* CARTAO DE PRODUTO - Estilo individual para cada produto */
         .card-produtos  {
             background-color: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: var(--borderadius);
             border: 0.03rem solid #e6e6e6;
             text-align: left;
             color: var(--textcard);
 
             /*Esses ajudam a deixar o botão "comprar" fixos abaixo dos preços, ajustados ao card*/
-            flex: 0 0 220px;
+            flex: 0 0 190px;
             margin: 10px;
         }
 
@@ -458,10 +488,10 @@
         /* IMAGEM DO PRODUTO - Dimensões e arredondamento */
         .card-produtos  img {
             width: 100%;
-            height: 200px;
+            height: 150px;
             object-fit:contain;
             border-radius: var(--borderadius);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .botao-carrossel{
@@ -495,15 +525,15 @@
 
         /* NOME DO PRODUTO*/
         .card-produtos  h4 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 0.2rem;
         }
 
         /*NOME DA MARCA*/
 
          .card-produtos h5{
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
         /* PREÇO DO PRODUTO - Destaque com cor principal */
@@ -513,15 +543,22 @@
             margin-bottom: -0.1rem;
         }
 
+        /*TEXTO DO PREÇO*/
+        .card-produtos #texto-preço {
+            font-size: 2.0rem; /* Muito Reduzido (era 3.0rem) */
+            font-weight: bold;
+            margin-bottom: 0.1rem; /* Ajustado */
+        }
+
 
         /* PREÇO DO PRODUTO ANTES DA OFERTA*/
 
         .card-produtos #texto-info {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: lighter;
             text-decoration: none;
             color: var(--textcard);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .produto-ofertas #texto-info{
@@ -532,10 +569,10 @@
             background-color: var(--color-btn);
             font-family: 'Nunito';
             font-weight: 800;
-            font-size: 13px;
+            font-size: 12px;
             border-radius: var(--borderadius);
             width: 100%;
-            height: 50px;
+            height: 40px;
 
 
             /*Fica alinhado pela amor*/
@@ -615,7 +652,6 @@
             height: 60px;
             border-radius: 50px;
             padding: 0;
-            background-color: #25D366;
             border: 0;
             cursor: pointer;
             display: flex;
@@ -624,10 +660,11 @@
         }
 
         .zap img{
-            width: 35px;
+            width: 45px;
             height: auto;
         }
 
+    
         html{
             scroll-behavior: smooth; /*Rolagem suave: faz com que a página role suavemente até o formulário em vez de pular instantaneamente.*/ 
         }
@@ -699,42 +736,63 @@
             background-color: var(--hover-btn);
         }
 
-     
-
-
-    /* .menu{
-            border: 1px solid black;
-            text-align: left;
-            display: grid;
-            grid-template-columns: repeat(1)
-
-        }*/
-
-    
-
-
-
         /* RESPONSIVIDADE - Ajustes para telas menores (mobile) */
-
-
-        
         @media (max-width: 768px) { /*Limita o tamanho da tela para 768*/
             .header section { /*Faz que todas as sections dentro do header fiquem alinhadas em uma coluna, em cima do outro*/
                 flex-direction: column;
                 gap: 1.5rem;
             }
-            
-            
             .menu-principal {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 1rem;
             }
-            
-            
             .iniciar h3 {
                 font-size: 3.5rem;
             }
-            
         }
+
+        @media (max-width: 768px) {
+
+    .menu-categorias {
+        top: 80px; 
+    }
+
+    .escolhas {
+        /*Desabilita a quebra de linha (força tudo em uma linha) */
+        flex-wrap: nowrap;
+        
+        /*Habilita o scroll horizontal */
+        overflow-x: auto;
+        
+        /*Alinha os itens à esquerda para o scroll começar certo */
+        justify-content: flex-start;
+        
+        padding: 0 10px; /* 0 topo/baixo, 10px nas laterais */
+        
+        scrollbar-width: none;
+        
+        -ms-overflow-style: none;
+    }
+
+    .escolhas::-webkit-scrollbar {
+        display: none; /* Esconde a barra de scroll */
+    }
+
+    .escolhas li {
+        flex-shrink: 0;
+        margin: 10px 12px; /* 10px topo/baixo, 12px lados */
+    }
+
+    .escolhas img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .escolhas li p {
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.4rem;
+        text-transform: none; 
+    }
+}
