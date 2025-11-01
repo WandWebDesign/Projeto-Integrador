@@ -1,4 +1,5 @@
-body{
+/* --- Configurações Globais --- */
+body {
     background: #dadada;
     font-family: 'Nunito', Arial, sans-serif;
     height: 100vh;
@@ -7,114 +8,226 @@ body{
     align-items: center;
     padding: 15px;
     box-sizing: border-box;
+    color: #333;
 }
-.pagina-colaborador{
+
+/* --- Container Principal --- */
+.pagina-colaborador {
+    position: relative; /* Para o botão 'X' */
     display: flex;
     width: 100%;
     max-width: 1200px;
     height: 100%;
     max-height: 700px;
-    box-shadow: 0 4px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     overflow: hidden;
+    background: #ffffff;
 }
-#logo-colaborador{
-    background: #818181;
+
+/* --- Seção Esquerda (Logo) --- */
+#logo-colaborador {
+    background: #fb8c00; /* Cor principal da marca */
     color: #ffffff;
     display: flex;
     flex-basis: 50%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px;
     text-align: center;
 }
-#logo-colaborador .logo{
+
+#logo-colaborador .logo {
     width: 150px;
     margin-bottom: 30px;
 }
-#logo-colaborador h1{
+
+#logo-colaborador h1 {
     font-size: 28px;
-}
-#logo-colaborador .diniz{
-    font-size: 85px;
-    color: #ffa726;
+    margin: 5px 0;
 }
 
-.conteiner-colaborador{
+#logo-colaborador .diniz {
+    font-size: 85px;
+    color: #ffffff;
+    font-weight: 900;
+}
+
+/* --- Seção Direita (Formulário) --- */
+.conteiner-colaborador {
     background: #ffffff;
     flex-basis: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Permite rolagem se o form for grande */
 }
 
-.form-colaborador{
-    position: relative;
+.form-colaborador {
     width: 100%;
     max-width: 400px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
-h2{
+h2 {
     color: #fb8c00;
     font-size: 32px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
-h3{
-    color: #f00000;
+h3 {
+    color: #555; /* Cor padronizada (era #f00000) */
     font-size: 16px;
     text-align: center;
     margin-bottom: 10px;
+    font-weight: normal;
 }
 
-.colaborador{
-    background: #ffa726;
-    border-radius: 8px;
-    padding: 12px 15px;
-}
-
-.colaborador label{
-    display: block;
-    color: #ffffff;
-    margin-bottom: 5px;
-}
-
-.colaborador input{
+/* --- Campos de Input (Estilo Moderno) --- */
+.colaborador {
     width: 100%;
-    border: 0;
-    background: 0;
-    outline: 0; /*remove a borda do input*/
-    color: #818181;
-    font-size: large;
-    font-weight: bold;
+    /* Removemos o fundo laranja daqui */
 }
 
-.mensagem-erro{
-    color: #f00000;
+.colaborador label {
+    display: block;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.colaborador input {
+    width: 100%;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    outline: 0;
+    color: #333;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.colaborador input:focus {
+    border-color: #fb8c00;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(251, 140, 0, 0.15);
+}
+
+.colaborador input::placeholder {
+    color: #999;
+}
+
+/* --- Mensagem de Erro --- */
+#mensagem-erro {
+    color: #e63946; /* Vermelho mais moderno */
     font-weight: bold;
     text-align: center;
-    padding: 5px;
-    min-height: 24px;
+    min-height: 1.2em;
+    font-size: 14px;
+    margin-top: -10px; /* Ajuste de espaço */
+    margin-bottom: -5px;
 }
 
-.botao-colaborador{
-    background: #fb8c00;
+/* --- Botão Principal --- */
+.botao-colaborador {
+    background: #ffa726;
     color: #ffffff;
-    border: 0;
+    border: 2px solid #ffa726;
     border-radius: 8px;
     padding: 15px;
-    font-size: large;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.botao-colaborador:hover {
+    background: #fb8c00;
+    border-color: #fb8c00;
+}
+
+/* --- Botão de Fechar (X) --- */
+.botao-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.3s ease;
 }
 
-.botao-colaborador:hover{
-    background: #fb8c00;
+.botao-fechar:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* --- Responsividade (Mobile) --- */
+@media (max-width: 900px) {
+    body {
+        height: 100%;
+        padding: 0;
+    }
+
+    .pagina-colaborador {
+        flex-direction: column;
+        height: 100%;
+        min-height: 100vh;
+        max-height: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #logo-colaborador {
+        display: flex;
+        flex-basis: auto;
+        padding: 30px 20px;
+    }
+
+    #logo-colaborador .logo {
+        width: 100px;
+        margin-bottom: 15px;
+    }
+
+    #logo-colaborador h1 {
+        font-size: 20px;
+    }
+
+    #logo-colaborador .diniz {
+        font-size: 50px;
+    }
+
+    .conteiner-colaborador {
+        flex-basis: auto;
+        flex-grow: 1;
+        padding: 30px 20px;
+    }
+
+    .form-colaborador {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background: none;
+    }
 }
