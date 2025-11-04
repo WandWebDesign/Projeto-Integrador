@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Padaria Diniz</title>
 
-    <link rel="stylesheet" href="pagina-agendamento.css">
+    <link rel="stylesheet" href="CSS/pagina-agendamento.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+
 </head>
 
 <body>
@@ -40,83 +42,135 @@
     </header>
 
 
-
-    <section class="container-produtos">
-        <div class="coluna-da-esquerda">
-            <div class="imagem-principal">
-                <img id="produtoimagem" alt="Variedade de pães">
-            </div>
-            <div class="lista-imagens">
-                <img id="img1" alt="imagem 1">
-                <img id="img2" alt="imagem 2">
-                <img id="img3" alt="imagem 3">
-            </div>
-        </div>
-
-        <div class="coluna-da-direita">
-            <h1 id="tituloproduto" class="titulo-produto"> </h1>
-            <p class="label-descrição">Descrição do Produto:</p>
-            <div class="Descrição">
-                <p id="descricao"> </p>
+    <main>
+        <section class="container-produtos">
+            <div class="coluna-da-esquerda">
+                <div class="imagem-principal">
+                    <img id="produtoimagem" alt="Variedade de pães">
+                </div>
+                <div class="lista-imagens">
+                    <img id="img1" alt="imagem 1">
+                    <img id="img2" alt="imagem 2">
+                    <img id="img3" alt="imagem 3">
+                </div>
             </div>
 
-            <div class="container">
-                <div class="container-qtd">
-                    <label for="Qtd">Quantidade</label>
-                    <div class="preço-box qtd-box">
-                        <button id="ret-btn" class="qtd-btn">-</button>
-                        <span id="Qtd">1</span>
-                        <button id="plus-btn" class="qtd-btn">+</button>
+            <div class="coluna-da-direita">
+                <h1 id="tituloproduto" class="titulo-produto"> </h1>
+                <p class="label-descrição">Descrição do Produto:</p>
+                <div class="Descrição">
+                    <p id="descricao"> </p>
+                </div>
+
+                <div class="container">
+                    <div class="container-qtd">
+                        <label for="Qtd">Quantidade</label>
+                        <div class="preço-box qtd-box">
+                            <button id="ret-btn" class="qtd-btn">-</button>
+                            <span id="Qtd">1</span>
+                            <button id="plus-btn" class="qtd-btn">+</button>
+                        </div>
+                    </div>
+
+                    <div class="container-qtd">
+                        <label for="preço-final">Valor Final</label>
+                        <div id="preço-final" class="preço-box valor-box">
+                        </div>
                     </div>
                 </div>
 
-                <div class="container-qtd">
-                    <label for="preço-final">Valor Final</label>
-                    <div id="preço-final" class="preço-box valor-box">
+                <div class="container-data" id="data-picker-container" style="display: none;">
+                    <label for="data-retirada">Escolha a data de retirada:</label>
+                    <input type="date" id="data-retirada">
+                </div>
+
+                <div class="container-pagamento" id="pagamento-container" style="display: none;">
+                    <label>Escolha a forma de pagamento:</label>
+                    <div class="opcoes-pagamento">
+
+                        <label class="payment-option">
+                            <input type="radio" name="pagamento" value="Pix">
+                            <span>Pix (via QR Code na retirada)</span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="pagamento" value="Cartão de Crédito">
+                            <span>Cartão de Crédito (na retirada)</span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="pagamento" value="Cartão de Débito">
+                            <span>Cartão de Débito (na retirada)</span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="pagamento" value="Dinheiro">
+                            <span>Dinheiro (na retirada)</span>
+                        </label>
+
                     </div>
                 </div>
-            </div>
 
-            <div class="container-data" id="data-picker-container" style="display: none;">
-                <label for="data-retirada">Escolha a data de retirada:</label>
-                <input type="date" id="data-retirada">
-            </div>
-
-            <div class="container-pagamento" id="pagamento-container" style="display: none;">
-                <label>Escolha a forma de pagamento:</label>
-                <div class="opcoes-pagamento">
-                    
-                    <label class="payment-option">
-                        <input type="radio" name="pagamento" value="Pix">
-                        <span>Pix (via QR Code na retirada)</span>
-                    </label>
-
-                    <label class="payment-option">
-                        <input type="radio" name="pagamento" value="Cartão de Crédito">
-                        <span>Cartão de Crédito (na retirada)</span>
-                    </label>
-                    
-                    <label class="payment-option">
-                        <input type="radio" name="pagamento" value="Cartão de Débito">
-                        <span>Cartão de Débito (na retirada)</span>
-                    </label>
-
-                    <label class="payment-option">
-                        <input type="radio" name="pagamento" value="Dinheiro">
-                        <span>Dinheiro (na retirada)</span>
-                    </label>
-
+                <div class="btn-baixo">
+                    <button class="botao-agendar">Agendar</button>
+                    <a href="padaria-landingpage.html" class="botao-voltar"> Voltar </a>
                 </div>
+
+                <script src="Script/agendamento.js"></script>
+            </div>
+        </section>
+    </main>
+
+    <!-- WHATSAPP: Botão do ícone do wpp flutuando na tela-->
+    <a href="https://web.whatsapp.com/" target="_blank" class="zap">
+        <img src="./Imagens Secundarias/whatsapp-icon-logo-svgrepo-com.svg" alt="ícone flutuante whatsapp">
+    </a>
+
+
+    <footer>
+        <div class="rodape-container">
+
+            <nav class="rodape-menu">
+                <h3>Navegue</h3>
+                <ul>
+                    <li><a href="#pedidos">Meus pedidos</a></li>
+                    <li><a href="#retiraveis">Peça e Retire</a></li>
+                    <li><a href="#padaria">Padaria</a></li>
+                    <li><a href="#açougue">Açougue</a></li>
+                    <li><a href="#hortifruti">Hortifruti</a></li>
+                    <li><a href="#mercado">Mercado</a></li>
+                </ul>
+            </nav>
+
+            <div class="rodape-sobre">
+                <h3>Sobre Nós</h3>
+                <ul>
+                    <li><a href="#">Localização</a></li>
+                    <li><a href="https://web.whatsapp.com/">WhatsApp</a></li>
+                </ul>
             </div>
 
-            <div class="btn-baixo">
-                <button class="botao-agendar">Agendar</button>
-                <a  href="padaria-landingpage.html" class="botao-voltar"> Voltar </a>
-            </div>
+            <div class="formulario-newsletter">
+                <h3>Receba Nossas Ofertas</h3>
+                <p>Cadastre-se para receber novidades!.</p>
+                <form>
+                    <label for="nome" class="sr-only">Seu nome:</label>
+                    <input id="nome" type="text" name="text" placeholder="Seu nome" required>
 
-            <script src="script.js"></script>
+                    <label for="tel" class="sr-only">Seu número:</label>
+                    <input id="tel" type="tel" name="tel" placeholder="Seu número (00) 12345-6789" required>
+
+                    <button id="cadastro" type="submit">Cadastrar</button>
+                </form>
+            </div>
         </div>
-    </section>
 
+        <div class="formas-pagamento">
+            <h3>Formas de Pagamento</h3>
+            <img src="#" alt="Formas de pagamento (Visa, Master, Pix, etc.)">
+        </div>
 
+        <p id="copyright">Padaria Diniz &copy; 2025 - Todos os direitos reservados</p>
+
+    </footer>
 </body>
