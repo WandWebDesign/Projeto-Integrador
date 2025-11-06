@@ -1,0 +1,218 @@
+
+        /*CTA INICIAL DO SITE*/
+        .CTA{
+            
+            margin: 3rem 2rem;
+            color: var(--textcard);
+            font-size: 32px;
+            text-align: center;
+        }
+
+        /*MENU CENTRAL -- Parte com os botões dos setores */
+        .menu-central{
+            color: var(--text);
+            text-align: center;
+            border: 1px solid black transparent;
+            background: var(--fundocardsdestaque);
+            width: auto;
+            height: auto;
+        }
+        
+        .menu-central h1{
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px ;
+        }
+
+        .menu-central h2{
+            font-size: 36px;
+            font-weight: lighter;
+            margin-bottom: 30px;
+        }
+
+        .btn-setores{
+            border: solid 1px transparent;
+        }
+        
+        .btn-setores a{
+            font-size: 32px;
+            font-weight: bolder;
+            background-color: var(--color-btn);
+            color: var(--textcard);
+            position: relative;
+            border: 1px solid black transparent;
+            border-radius: var(--borderadius);
+            display: flex;
+            display: inline-block;
+            /*     Cima Dir Baixo Esquerda */
+            margin: 20px 20px 20px 20px;
+            
+            padding: 50px 120px;
+        }
+
+        .btn-setores a:hover{
+            background: var(--hover-btn);
+            font-size: 3.0rem;
+            color: white;
+            box-shadow:  0px 4px 12px #E92E8950;
+        }
+
+        /*HOVER dos Icones do MENU-CENTRAL*/
+
+        /*--Icone Padaria-*/
+        .botao-produtos-padaria::after{
+            content: "🥖"; /*Deixa o icone escondido*/
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        .botao-produtos-padaria:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /*--Icone Açougue-*/
+        .botao-produtos-acougue::after{
+            content: "🥩"; /*Deixa o icone escondido*/
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        .botao-produtos-hortifruti:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+
+        /*--Icone Hortifruti-*/
+        .botao-produtos-hortifruti::after{
+            content: "🥕"; /*Deixa o icone escondido*/
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        .botao-produtos-acougue:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+
+        /*--Icone Mercado-*/
+        .botao-produtos-mercado::after{
+            content: "🧺"; /*Deixa o icone escondido*/
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        .botao-produtos-mercado:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        
+
+        /* SEÇÃO INICIAL - Imagem de fundo com texto sobreposto */
+        .iniciar {
+            background: var(--gradiente);
+            background-position: center;
+            height: 100vh;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        
+        /* TITULO PRINCIPAL - Estilização do titulo da seção inicial */
+        .iniciar h3 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Paragrafo da seção Inicial - Estilização do texto descritivo */
+        .iniciar p {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #eee;
+        }
+
+        /* Titulo das seções - Estilo para titulos das seções */
+        .titulo-secoes {
+            text-align: left;
+            font-family: 'Nunito';
+            font-weight: bold;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            color: var(--headercolor);
+            padding-top: 2rem;
+        }
+
+        .topo-cards{
+            display: flex;
+            align-items: center;
+        }
+
+        .topo-cards a{
+            margin-left: auto;
+            align-content: center;
+            text-align: center;
+            font-family: 'Nunito';
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--textcard);
+
+            background-color: var(--color-btn);
+            border-radius: var(--borderadius);
+
+            height: 36px;
+            width: 206px;
+        }
+
+        .topo-cards a:hover{
+            
+            color: var(--bg);
+            background: var(--hover-color);
+            font-size: 16px;
+            box-shadow:  0px 4px 12px var(--corcards);
+
+        }
+
+
+        /* RESPONSIVIDADE - Ajustes para telas menores (mobile) */
+            @media (max-width: 768px) { /*Limita o tamanho da tela para 768*/
+                .header section { /*Faz que todas as sections dentro do header fiquem alinhadas em uma coluna, em cima do outro*/
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
+                .menu-principal {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 1rem;
+                }
+                .iniciar h3 {
+                    font-size: 3.5rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+
+        .menu-categorias {
+            top: 80px; 
+        }
+    }

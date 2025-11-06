@@ -1,0 +1,156 @@
+/*-----------------------------------------------------------
+-----------------CARDS-LANDING-PAGE--------------------------
+-----------------------------------------------------------*/
+
+/* SEÇÃO DE PRODUTOS - Fundo levemente diferente e espaçamento */
+        .conteiner-produtos {
+            padding: 5rem 2rem;
+        }
+
+                /* GRADE DE PRODUTOS - Layout responsivo em grid */
+        .grid-produtos {
+            position: relative;
+            width: 90%;
+            max-width: auto;
+            margin: auto;
+        
+        }
+
+        /*FORMATAÇÃO DO CARROCEL DE PRODUTOS*/
+
+        .carrossel-conjunto{
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .carrossel-conjunto::-webkit-scrollbar{
+            display: none;
+        }
+
+        /* CARTAO DE PRODUTO - Estilo individual para cada produto */
+        .card-produtos  {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--borderadius);
+            border: 0.03rem solid #e6e6e6;
+            text-align: left;
+            color: var(--textcard);
+
+            /*Esses ajudam a deixar o botão "comprar" fixos abaixo dos preços, ajustados ao card*/
+            flex: 0 0 190px;
+            margin: 10px;
+        }
+
+        .card-produtos:hover{
+            transform: translateY(-5px);
+        }
+
+        /* IMAGEM DO PRODUTO - Dimensões e arredondamento */
+        .card-produtos  img {
+            width: 100%;
+            height: 150px;
+            object-fit:contain;
+            border-radius: var(--borderadius);
+            margin-bottom: 1rem;
+        }
+
+        .botao-carrossel{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0,3s ease;
+        }
+
+        .botao-carrossel:hover{
+            background-color:  rgba(0, 0, 0, 0.8);
+        }
+
+        .antes{
+            left: -20px;
+        }
+
+        .depois{
+            right: -20px;
+        }
+
+
+        /* NOME DO PRODUTO*/
+        .card-produtos  h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        /*NOME DO SETOR*/
+
+         .card-produtos h5{
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* PREÇO DO PRODUTO - Destaque com cor principal */
+        .card-produtos p {
+            font-size: 3.0rem;
+            font-weight: bold;
+            margin-bottom: -0.1rem;
+        }
+
+        /*TEXTO DO PREÇO*/
+        .card-produtos #texto-preço {
+            font-size: 2.0rem; /* Muito Reduzido (era 3.0rem) */
+            font-weight: bold;
+            margin-bottom: 0.1rem; /* Ajustado */
+        }
+
+
+        /* PREÇO DO PRODUTO ANTES DA OFERTA*/
+
+        .card-produtos #texto-info {
+            font-size: 1.2rem;
+            font-weight: lighter;
+            text-decoration: none;
+            color: var(--textcard);
+            margin-bottom: 1rem;
+        }
+
+        .produto-ofertas #texto-info{
+            color: #E65100;
+            font-size: 1.5rem;
+            text-decoration: line-through;
+        }
+
+        .botao-comprar{
+            background-color: var(--color-btn);
+            font-family: 'Nunito';
+            font-weight: 800;
+            font-size: 12px;
+            border-radius: var(--borderadius);
+            width: 100%;
+            height: 40px;
+
+
+            /*Fica alinhado pela amor*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .botao-comprar:hover{
+            cursor: pointer;
+            font-size: 1.4rem;
+            box-shadow:  0px 4px 12px var(--hover-btn);
+            color: white    ;
+            font-weight: bold;
+            background: var(--hover-btn);
+        }

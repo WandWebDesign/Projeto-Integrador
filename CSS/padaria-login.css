@@ -1,0 +1,271 @@
+/* --- Configurações Globais --- */
+body {
+    background: #dadada;
+    font-family: 'Nunito', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #333; /* Cor de texto padrão melhor */
+}
+
+/* --- Container Principal --- */
+.pagina-login {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    max-height: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ffffff; 
+}
+
+/* --- Seção Esquerda (Logo) --- */
+#logo-login {
+    background: #fb8c00; /* Cor principal da marca */
+    color: #ffffff;
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+#logo-login .logo {
+    width: 150px;
+    margin-bottom: 30px;
+}
+
+#logo-login h1 {
+    font-size: 28px;
+    margin: 5px 0; 
+}
+
+#logo-login .diniz {
+    font-size: 85px;
+    color: #ffffff; /* Logo DINIZ em branco */
+    font-weight: 900; 
+}
+
+/* --- Seção Direita (Formulário) --- */
+.conteiner-login {
+    background: #ffffff;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.form-login {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h2 {
+    color: #fb8c00;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h3 {
+    color: #555;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.login {
+    width: 100%;
+}
+
+.login label {
+    display: block;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.login input {
+    width: 100%;
+    border: 1px solid #ddd;
+    background: #f9f9f9; 
+    outline: 0;
+    color: #333;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Feedback visual ao focar no input */
+.login input:focus {
+    border-color: #fb8c00;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(251, 140, 0, 0.15);
+}
+
+/* Estilização do placeholder */
+.login input::placeholder {
+    color: #999;
+}
+
+/* --- Links e Botões --- */
+.esqueceu-senha {
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: right;
+    margin-top: -10px;
+    transition: color 0.3s ease;
+}
+
+.esqueceu-senha:hover {
+    color: #fb8c00;
+    text-decoration: underline;
+}
+
+.botao-login {
+    background: #ffa726;
+    color: #ffffff;
+    border: 0;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 18px; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-login:hover {
+    background: #fb8c00; 
+}
+
+/* Botão secundário (Ghost Button) */
+.fazer-cadastro {
+    display: block;
+    text-align: center;
+    color: #fb8c00;
+    border: 2px solid #ffa726;
+    border-radius: 8px;
+    padding: 13px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.fazer-cadastro:hover {
+    background: #ffa726;
+    color: #ffffff;
+}
+
+/* Link terciário */
+.login-colaborador {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-colaborador:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+/*Estilo do Botão Fechar*/
+.botao-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100; /* Garante que ele fique por cima de tudo */
+
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 300; /* Mais fino para um 'X' elegante */
+    line-height: 1;
+    text-decoration: none;
+    
+    /* Fundo sutil para melhor contraste */
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    
+    /* Centraliza o 'X' perfeitamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: background-color 0.3s ease;
+}
+
+.botao-fechar:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* --- Responsividade (Mobile) --- */
+@media (max-width: 900px) {
+    body {
+        height: 100%;
+        padding: 0;
+    }
+
+    .pagina-login {
+        flex-direction: column;
+        height: 100%;
+        min-height: 100vh; 
+        max-height: none;
+        border-radius: 0;
+        box-shadow: none; /* Remove sombra no mobile */
+    }
+
+    #logo-login {
+        display: flex; 
+        flex-basis: auto; /* Altura automática */
+        padding: 30px 20px;
+    }
+
+    #logo-login .logo {
+        width: 100px;
+        margin-bottom: 15px;
+    }
+
+    #logo-login h1 {
+        font-size: 20px;
+    }
+
+    #logo-login .diniz {
+        font-size: 50px;
+    }
+
+    .conteiner-login {
+        flex-basis: auto;
+        flex-grow: 1; /* Faz o container do form preencher o espaço */
+        padding: 30px 20px;
+    }
+
+    .form-login {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background: none;
+    }
+}

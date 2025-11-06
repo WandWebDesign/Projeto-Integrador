@@ -1,0 +1,214 @@
+/* --- RODAPÉ --- */
+        footer {
+            background-color: var(--footercolor);
+            padding: 3rem 2rem 0 2rem;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-top: 3rem;
+        }
+
+        /* Container principal com as 3 colunas */
+        .rodape-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 3rem;
+        }
+
+        /* Estilo de cada coluna do rodapé */
+        .rodape-menu,
+        .rodape-sobre,
+        .formulario-newsletter {
+            flex: 1;
+            min-width: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .rodape-menu ul,
+        .rodape-sobre ul {
+            list-style: none; 
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem; 
+        }
+
+
+        /* Títulos das colunas */
+        .rodape-menu h3,
+        .rodape-sobre h3, 
+        .formulario-newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-weight: 700; 
+            margin-top: 0;  
+        }
+
+        /* Links das colunas */
+        .rodape-menu a,
+        .rodape-sobre a {
+            color: #f0f0f0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        /*Seletor de .redes-sociais */
+        .rodape-menu a:hover,
+        .rodape-sobre a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* --- Formulário de Newsletter --- */
+        .formulario-newsletter{
+            background-color: #29a14d;
+            border-radius: 1.5rem;
+            padding: 20px;
+        }
+
+        .formulario-newsletter p {
+            font-size: 1.4rem;
+            color: #f0f0f0;
+        }
+
+        .formulario-newsletter form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="text"], [type="tel"] {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg, #fff);
+            border-radius: var(--borderadius);
+            padding: 12px;
+            font-size: 1.4rem;
+            
+        }
+
+        .formulario-newsletter button {
+            font-family: 'Nunito', sans-serif;
+            color: var(--bg, #fff);
+            font-weight: 700;
+            background-color: var(--headercolor);
+            height: 44px;
+            width: 100%;
+            border-radius: var(--borderadius);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1.5rem;
+            
+        }
+
+        .formulario-newsletter button:hover {
+            background-color: var(--hover-btn);
+            color: white;
+            transform: scale(1.02);
+        }
+
+        /* --- Seção de Pagamento --- */
+        .formas-pagamento {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .formas-pagamento h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .formas-pagamento img {
+            max-width: 100%;
+            height: auto;    
+            width: 250px;   
+            background: #fff3;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        /* --- Barra de Copyright --- */
+        #copyright {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 1.3rem;
+            color: #f0f0f0;
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+
+         /*ÍCONE FLUTUANTE WHATSAPP*/
+
+        .zap{
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            padding: 0;
+            border: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .zap img{
+            width: 45px;
+            height: auto;
+        }
+
+@media (max-width: 768px) {
+
+    /* --- FOOTER RESPONSIVO --- */
+
+    footer {
+        /* Reduz padding lateral e centraliza o texto globalmente no footer */
+        padding-left: 1rem;
+        padding-right: 1rem;
+        text-align: center;
+    }
+
+    .rodape-container {
+        /* Força o empilhamento das colunas (Navegue, Sobre, Newsletter) */
+        flex-direction: column;
+        /* Centraliza as colunas na tela */
+        align-items: center;
+        gap: 2.5rem; /* Aumenta o espaço entre as colunas empilhadas */
+    }
+
+    /* Garante que as colunas ocupem a largura e centralizem o conteúdo */
+    .rodape-menu,
+    .rodape-sobre,
+    .formulario-newsletter {
+        width: 100%;
+        /* Define uma largura máxima para não ficar largo demais em tablets */
+        max-width: 350px;
+        min-width: unset; /* Reseta o min-width do desktop */
+        align-items: center; /* Centraliza o conteúdo (título, lista) */
+    }
+
+    /* Centraliza as listas de links */
+    .rodape-menu ul,
+    .rodape-sobre ul {
+        padding: 0;
+        /* Permite que o 'text-align: center' do footer funcione neles */
+        display: inline-block; 
+    }
+
+    .formulario-newsletter form {
+        width: 100%;
+    }
+
+    .formas-pagamento img {
+        width: 100%; /* Imagem de pagamento responsiva */
+        max-width: 250px; /* Mantém o limite */
+    }
+}

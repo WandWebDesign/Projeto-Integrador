@@ -1,0 +1,262 @@
+/* VARIAVEIS GLOBAIS - Define cores e estilos que serÃ£o usados em todo o site */
+
+        /*Amatic SC--Titulos  Nunito-- Textos e botões    */
+         @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        
+        :root {
+            
+            --main-color: #d3ad7f;  /* Cor principal (dourado) */
+            --headercolor: #FFA726; /*Cor do Header Principal*/
+            --header-height: 70px;
+            --footercolor: #FB8C00;
+            --borderadius: 1rem;
+            --hover-color: #383838; /*Cor hover do menu principal*/
+            --color-btn: #FFB74D;   /*Cor do botao*/
+            --hover-btn: #D84315;   /*Cor hover dos botoes de compra*/
+            --corcards: #FB8C00;
+            --textcard: #383838;
+            --fundocardsdestaque: #FFE0B2;
+            --text: #161313;        /* Cor escura para textos */
+            --bg: #FFF3E0;           /* Cor de fundo escura */
+            --border: 0.1rem solid rgba(255,255,255,0.3);  /* Borda semitransparente */
+            --gradiente: linear-gradient(135deg, #FF9800, #E65100);
+            font-size: 12px;         /* Tamanho base para uso de unidades rem */
+            --borderadius: 10px;
+
+
+            }
+
+/* --- ESTILOS PARA O CABEÇALHO DO SETOR --- */
+.setor-cabecalho {
+    color: var(--textcard);
+    width: 100%;
+    max-width: 900px; 
+    margin: 20px auto; 
+    padding: 0 15px; 
+    box-sizing: border-box;
+}
+
+/* Linha com Título e Botão */
+.setor-linha-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+
+    margin-bottom: 15px; 
+}
+
+/* Estilo do Título */
+.setor-linha-titulo h1 {
+    margin: 0;
+    font-size: 2.5em; 
+}
+
+/* Estilo do Botão Voltar */
+.btn-voltar {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    transition: background-color 0.2s;
+}
+
+.btn-voltar:hover {
+    background-color: #e0e0e0;
+}
+
+/* Container da Barra de Busca */
+.setor-busca {
+    width: 100%;
+}
+
+/* Estilo da Barra de Busca */
+#barra-busca {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1.1em;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; 
+}
+
+/* --- Estilo Card Catalogos --- */
+#container-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* --- CARD: O CONTAINER GERAL --- */
+.card-container {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--borderadius);
+    border: 0.03rem solid #e6e6e6;
+    text-align: left;
+    color: var(--textcard);
+    flex: 0 0 190px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    
+    /* Efeito hover do .card-produtos */
+    transition: transform 0.3s ease;
+}
+
+.card-container:hover {
+    transform: translateY(-5px);
+}
+
+/* --- O LINK PRINCIPAL (que agrupa img, titulo, preco) --- */
+.card-produto {
+    text-decoration: none;
+    color: inherit; 
+}
+
+/* --- IMAGEM --- */
+.card-produto img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: var(--borderadius);
+    margin-bottom: 1rem;
+}
+
+/* --- TÍTULO --- */
+.card-produto h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0;
+}
+
+/* --- CONTAINER DOS PREÇOS --- */
+.card-precos {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 1rem;
+}
+
+/* --- PREÇO NORMAL --- */
+.preco-normal {
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-bottom: 0.1rem;
+    color: var(--textcard);
+}
+
+/* --- PREÇO DE OFERTA (O PREÇO FINAL) --- */
+.preco-oferta {
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-bottom: 0.1rem;
+    color: #1ec807;
+}
+
+/* --- PREÇO ANTIGO ---*/
+.preco-antigo {
+    color: #E65100; 
+    font-size: 1.5rem; 
+    text-decoration: line-through;
+    font-weight: lighter; 
+}
+
+/* --- BOTÃO AGENDAR --- */
+.btn-agendar {
+    background-color: var(--color-btn);
+    font-family: 'Nunito';
+    font-weight: 800;
+    font-size: 12px;
+    border-radius: var(--borderadius);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    text-decoration: none; 
+    color: white;
+}
+
+.btn-agendar:hover {
+    cursor: pointer;
+    font-size: 1.4rem;
+    box-shadow: 0px 4px 12px var(--hover-btn);
+    color: white;
+    font-weight: bold;
+    background: var(--hover-btn);
+}
+
+/* =================================================== */
+/* 📱 ESTILOS RESPONSIVOS (MAX-WIDTH: 768px) 📱 */
+/* =================================================== */
+
+@media (max-width: 768px) {
+
+    /* --- AJUSTES DO CABEÇALHO DO SETOR --- */
+    
+    .setor-cabecalho {
+        padding: 1rem; /* Menos padding lateral no mobile */
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .setor-linha-titulo {
+        /* Empilha o título e o botão */
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .btn-voltar {
+        /* Faz o botão ocupar mais espaço */
+        width: 100%;
+        max-width: 300px;
+    }
+
+    
+    /* --- AJUSTES DOS CARDS DE PRODUTO --- */
+
+    #container-produtos {
+        /* Adiciona um pequeno padding nas laterais 
+           para os cards não colarem na borda */
+        padding: 0 10px;
+    }
+    
+    .card-container {
+        /* Mágica da responsividade dos cards:
+           - flex-grow: 1 (podem crescer)
+           - flex-shrink: 1 (podem encolher)
+           - flex-basis: calc(50% - 20px); 
+             (Base de 50% para criar 2 colunas, 
+              menos 20px para compensar a margem de 10px de cada lado)
+        */
+        flex: 1 1 calc(50% - 20px);
+        
+        /* Define um tamanho mínimo para não ficarem 
+           pequenos demais em telas minúsculas */
+        min-width: 140px; 
+    }
+
+    /* Ajustes finos de fonte para os cards no mobile */
+    .card-produto h3 {
+        font-size: 1.4rem; /* Um pouco menor */
+    }
+
+    .preco-normal,
+    .preco-oferta {
+        font-size: 1.8rem; /* Um pouco menor */
+    }
+
+    .preco-antigo {
+        font-size: 1.4rem;
+    }
+
+    .btn-agendar {
+        height: 35px;
+        font-size: 11px;
+    }
+}

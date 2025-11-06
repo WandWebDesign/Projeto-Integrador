@@ -1,0 +1,377 @@
+/* VARIÃVEIS GLOBAIS - Define cores e estilos que serÃ£o usados em todo o site */
+
+        /*Amatic SC--Titulos  Nunito-- Textos e botões    */
+         @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        
+        :root {
+            
+            --main-color: #d3ad7f;  /* Cor principal (dourado) */
+            --headercolor: #FFA726; /*Cor do Header Principal*/
+            --header-height: 70px;
+            --footercolor: #FB8C00;
+            --borderadius: 1rem;
+            --hover-color: #383838; /*Cor hover do menu principal*/
+            --color-btn: #FFB74D;   /*Cor do botao*/
+            --hover-btn: #D84315;   /*Cor hover dos botoes de compra*/
+            --corcards: #FB8C00;
+            --textcard: #383838;
+            --fundocardsdestaque: #FFE0B2;
+            --text: #161313;        /* Cor escura para textos */
+            --bg: #FFF3E0;           /* Cor de fundo escura */
+            --border: 0.1rem solid rgba(255,255,255,0.3);  /* Borda semitransparente */
+            --gradiente: linear-gradient(135deg, #FF9800, #E65100);
+            font-size: 12px;         /* Tamanho base para uso de unidades rem */
+            --borderadius: 10px;
+
+
+            }
+
+        /* RESET CSS - Remove estilos padrão dos navegadores */
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: 0.2s linear;
+
+        }
+
+
+        /* CORPO DO DOCUMENTO - Estilos gerais da pagina */
+        body {
+            font-family: 'Amatic SC';
+            background-image: url("Images/Fundo.png");
+            color: white;
+            padding-top: var(--header-height); /* Espaço para o cabeçalho fixo */
+            margin: 0;
+        }
+
+        
+        html{
+            scroll-behavior: smooth; /*Rolagem suave: faz com que a página role suavemente até o formulário em vez de pular instantaneamente.*/ 
+        }
+
+        /* Seções - Container principal para o conteudo */
+        section {
+            padding: 3rem 2rem;
+            margin: 0 auto;
+        }
+
+        /* Cabeçalho - Menu de navegação fixo no topo */
+       .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+
+            height: var(--header-height);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: var(--headercolor);
+            padding: 0 2rem; 
+        }
+
+        /* Conteudo do cabeçalho - Alinha logo, menu e ícones */
+        .header section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 0;
+            gap: 2rem;
+        }
+
+        .logo-e-marca {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Impede que a logo e a marca sejam espremidas */
+            flex-shrink: 0; 
+        }
+
+        /* LOGO - Estilização da imagem da logo */
+        .logo img {
+            height: 50px;
+            width: auto;
+            /* Garante que a imagem não tenha espaços extras embaixo */
+            display: block; 
+        }
+
+        /* LINKS DE NAVEGAÇÃO - Estilização do menu */
+        .menu-principal {
+            /* Impede que o menu seja espremido */
+            flex-shrink: 0;
+        }
+
+        .menu-principal a {
+            margin: 0 1rem;
+
+            font-size: 1.6rem; 
+            font-family: 'Nunito', sans-serif;
+            color: #fff;
+            text-decoration: none; /* Remove sublinhado padrão */
+            position: relative;
+            padding-bottom: 5px; /* Espaço para o sublinhado animado */
+            transition: color 0.3s ease;
+        }
+
+        .menu-principal a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%; /* Começa no meio */
+            transform: translateX(-50%); /* Centraliza */
+            width: 0; /* Começa invisível */
+            height: 2px;
+            background-color: var(--hover-color);
+            transition: width 0.3s ease;
+        }
+
+        .menu-principal a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Anima o sublinhado no hover */
+        .menu-principal a:hover::after {
+            width: 100%;
+        }
+
+        /* Icones / BARRA DE PESQUISA */
+        .icones {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            /* Define uma largura máxima para a barra não ficar gigante */
+            max-width: 450px; 
+        }
+
+        .icones #pesquisar {
+            font-family: 'Nunito', sans-serif;
+            padding: 5px 20px; 
+            border-radius: 1.5rem;
+            width: 100%;
+            border: 1px solid transparent; 
+            outline: none;
+            font-size: 1.2rem; 
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+
+        #pesquisar:focus {
+            border-color: #000000; 
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .icones img {
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        /* EFEITO HOVER NOS ICONES */
+        .icones img:hover {
+            transform: scale(1.15);
+        }
+        /* BOTÕES - Estilo base para todos os botões do site */
+        .botao-produtos {
+            background: var(--color-btn);
+            color: #fff;
+            padding: 1rem 3rem;
+            font-size: 1.7rem;
+            cursor: pointer;
+            margin: 1rem 0.5rem;
+            display: inline-block;
+            border-radius: var(--borderadius);
+        }
+
+        /* EFEITO HOVER NOS BOTÕES - Leve escurecimento e aumento suave */
+        .botao-produtos:hover {
+            background: var(--hover-btn);
+            font-weight: bold;
+            transform: scale(1.05);
+        }
+
+
+        /*MENU-CATEGORIAS -- Menu com as bolinhas das categorias*/
+        .menu-categorias {
+            border: 1px solid var(--corcards);
+            background-color: var(--corcards);
+            font-family: 'Nunito';
+            font-size: large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-out;
+            /* 1. Faz a barra "grudar" no topo da tela */
+            position: sticky; 
+            top: var(--header-height);
+            /*Garante que ela fique ABAIXO do header (que é z-index: 99) */
+            z-index: 98; 
+            width: 100%; 
+            margin: 0; 
+        }
+
+
+        .escolhas{
+            list-style-type: none; /* Remove as "bolinhas" da lista */
+            display: flex;         /* Transforma a <ul> em um container flex */
+            flex-wrap: wrap;       /* Permite que os ícones quebrem a linha em telas menores */
+            justify-content: center; /* Centraliza os ícones (os <li>) */
+        }
+
+        .escolhas li{
+            cursor: pointer;
+            margin: 20px;
+            text-align: center; /* Garante que o <p> fique centralizado abaixo da <img> */
+        }
+
+        .escolhas img {
+            background-color: rgba(187, 187, 187, 0.5);
+            width: 50px;
+            border-radius: 200px;
+            box-shadow: 1px 6px 12px 0px #0000002e;
+            transition: transform 0.3s ease; /* animação suave */
+        }
+
+        /* Quando o mouse estiver sobre o LI */
+        .escolhas li:hover img {
+            transform: rotate(15deg);
+        }
+
+        .escolhas {
+            /*Desabilita a quebra de linha (força tudo em uma linha) */
+            flex-wrap: nowrap;
+            
+            /*Habilita o scroll horizontal */
+            overflow-x: auto;
+            
+            /*Alinha os itens à esquerda para o scroll começar certo */
+            justify-content: flex-start;
+            
+            padding: 0 10px; /* 0 topo/baixo, 10px nas laterais */
+            
+            scrollbar-width: none;
+            
+            -ms-overflow-style: none;
+        }
+
+        .escolhas::-webkit-scrollbar {
+            display: none; /* Esconde a barra de scroll */
+        }
+
+        .escolhas li {
+            flex-shrink: 0;
+            margin: 10px 12px; /* 10px topo/baixo, 12px lados */
+        }
+
+        .escolhas img {
+            width: 45px;
+            height: 45px;
+        }
+
+        .escolhas li p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.4rem;
+            text-transform: none; 
+        }
+
+        .escolhas li a{
+            color: inherit;            /* usa a mesma cor do texto normal */
+            text-decoration: none;
+        }
+        
+        /*FAZER DESPARECE ESSA BARRA*/
+        .menu-categorias.hidden-scroll {
+            transform: translateY(-100%);
+        }
+
+
+
+
+@media (max-width: 768px) {
+
+    /* --- AJUSTES GERAIS --- */
+
+    /* Reduz o padding lateral em seções gerais para telas menores */
+    section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* --- HEADER RESPONSIVO --- */
+
+    .header {
+        /* Remove a altura fixa para o conteúdo poder empilhar */
+        height: auto;
+        /* Remove o 'fixed' para simplificar o layout mobile. */
+        /* Se mantiver 'fixed', o body precisa de padding-top, 
+           mas com altura automática, 'relative' é mais fácil. */
+        position: relative;
+    }
+
+    .header section {
+        /* Empilha os elementos do header (logo, pesquisa, menu) */
+        flex-direction: column;
+        /* Adiciona um espaço entre os elementos empilhados */
+        gap: 1.5rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    /* O body não precisa mais do padding-top, pois o header não é 'fixed' */
+    body {
+        padding-top: 0;
+    }
+
+    .icones {
+        /* Faz a barra de pesquisa ocupar 90% da largura */
+        width: 90%;
+        max-width: 100%;
+        /* Muda a ordem: 1.Logo, 2.Menu, 3.Pesquisa */
+        order: 3;
+    }
+
+    .menu-principal {
+        /* Centraliza os links de Login/Pedidos */
+        width: 100%;
+        justify-content: center;
+        gap: 2rem;
+        margin: 0;
+        /* Coloca o menu logo abaixo da logo */
+        order: 2;
+    }
+
+    .menu-principal a {
+        margin: 0; /* Remove margens laterais dos links */
+        font-size: 1.8rem; /* Aumenta um pouco para facilitar o toque */
+    }
+
+
+    /* --- MENU CATEGORIAS RESPONSIVO --- */
+
+    .menu-categorias {
+        /* Como o header principal não é mais 'fixed', 
+           o menu de categorias agora pode grudar no topo da tela */
+        top: 0;
+        z-index: 98;
+    }
+
+    .escolhas li {
+        margin: 10px 8px; /* Espaçamento um pouco menor */
+    }
+
+    .escolhas img {
+        width: 40px; /* Ícones levemente menores */
+        height: 40px;
+    }
+
+    .escolhas li p {
+        font-size: 1.3rem; /* Texto menor */
+    }
+}

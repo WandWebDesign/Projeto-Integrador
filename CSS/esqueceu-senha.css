@@ -1,0 +1,257 @@
+/* --- Configurações Globais --- */
+body {
+    background: #dadada;
+    font-family: 'Nunito', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* --- Container Principal --- */
+.pagina-esqueceu {
+    position: relative; /* Para um futuro botão 'X' */
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    max-height: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* --- Seção Esquerda (Logo) --- */
+#logo-esqueceu {
+    background: #fb8c00; /* Cor principal da marca */
+    color: #ffffff;
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+#logo-esqueceu .logo {
+    width: 150px;
+    margin-bottom: 30px;
+}
+
+#logo-esqueceu h1 {
+    font-size: 28px;
+    margin: 5px 0;
+}
+
+#logo-esqueceu .diniz {
+    font-size: 85px;
+    color: #ffffff;
+    font-weight: 900;
+}
+
+/* --- Seção Direita (Formulário) --- */
+.conteiner-esqueceu {
+    background: #ffffff;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Permite rolagem */
+}
+
+.form-esqueceu {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento padronizado */
+}
+
+h2 {
+    color: #fb8c00;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h3 {
+    color: #555; /* Cor padronizada */
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+/* --- Campos de Input (Estilo Moderno) --- */
+.esqueceu-senha {
+    width: 100%;
+    /* Removemos o fundo laranja daqui */
+}
+
+.esqueceu-senha label {
+    display: block;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.esqueceu-senha input {
+    width: 100%;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    outline: 0;
+    color: #333;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.esqueceu-senha input:focus {
+    border-color: #fb8c00;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(251, 140, 0, 0.15);
+}
+
+.esqueceu-senha input::placeholder {
+    color: #999;
+}
+
+/* --- Mensagem de Erro --- */
+#mensagem-erro {
+    color: #e63946; /* Vermelho mais moderno */
+    font-weight: bold;
+    text-align: center;
+    min-height: 1.2em;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: -5px;
+}
+
+/* --- Botões --- */
+/* Estilo base comum */
+.botao-esqueceu {
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+/* Botão Primário (Salvar) */
+.botao-esqueceu[type="submit"] {
+    background: #ffa726;
+    color: #ffffff;
+    border: 2px solid #ffa726;
+}
+
+.botao-esqueceu[type="submit"]:hover {
+    background: #fb8c00;
+    border-color: #fb8c00;
+}
+
+/* Botão Secundário (Limpar) */
+.botao-esqueceu[type="reset"] {
+    background: #ffffff;
+    color: #fb8c00;
+    border: 2px solid #ffa726;
+}
+
+.botao-esqueceu[type="reset"]:hover {
+    background: #fff8f0; /* Laranja bem clarinho */
+    color: #fb8c00;
+}
+
+/*Estilo do Botão Fechar*/
+.botao-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100; /* Garante que ele fique por cima de tudo */
+
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 300; /* Mais fino para um 'X' elegante */
+    line-height: 1;
+    text-decoration: none;
+    
+    /* Fundo sutil para melhor contraste */
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    
+    /* Centraliza o 'X' perfeitamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: background-color 0.3s ease;
+}
+
+.botao-fechar:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* --- Responsividade (Mobile) --- */
+@media (max-width: 900px) {
+    body {
+        height: 100%;
+        padding: 0;
+    }
+
+    .pagina-esqueceu {
+        flex-direction: column;
+        height: 100%;
+        min-height: 100vh;
+        max-height: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #logo-esqueceu {
+        display: flex;
+        flex-basis: auto;
+        padding: 30px 20px;
+    }
+
+    #logo-esqueceu .logo {
+        width: 100px;
+        margin-bottom: 15px;
+    }
+
+    #logo-esqueceu h1 {
+        font-size: 20px;
+    }
+
+    #logo-esqueceu .diniz {
+        font-size: 50px;
+    }
+
+    .conteiner-esqueceu {
+        flex-basis: auto;
+        flex-grow: 1;
+        padding: 30px 20px;
+    }
+
+    .form-esqueceu {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background: none;
+    }
+}
