@@ -1,23 +1,18 @@
+
 /* ================================================= */
-/* CONFIGURAÇÃO INICIAL E DADOS             */
+/* 1. DADOS INICIAIS (SEED) E CONFIGURAÇÃO           */
 /* ================================================= */
 
-// 1. Pegar AMBOS os parâmetros da URL
 const urlParams = new URLSearchParams(window.location.search);
-const setorAtual = urlParams.get("setor");   // Ex: "padaria" ou null
-const filtroAtual = urlParams.get("filtro"); // Ex: "ofertas" ou null
+const setorAtual = urlParams.get("setor");   
+const filtroAtual = urlParams.get("filtro"); 
 
-// 2. LISTA COMPLETA DE PRODUTOS
-//    (Com a propriedade 'tags' adicionada)
-const produtos = {
+// Defina aqui os nomes exatos das categorias que virarão "Tabelas" no banco
+const SETORES_DO_BANCO = ["padaria", "acougue", "hortifruti", "mercado"];
 
-
-    //OS PRINCIPAIS POIS SÃO OS RETIRAVEIS
-    //SE UM PRODUTO FOR RETIRAVEL E TIVER UMA OFERTA APLICAVEL COLOQUE AS TAGS JUNTAS
-    //tags: ["oferta", "retiravel"] // <-- CORRETO: as duas tags no mesmo array
-
-
-    //RETIRAVEIS vvvv//
+// Mantenha sua lista completa aqui
+const produtosIniciais = {
+    // --- PADARIA ---
     pãofrances: {
         tituloproduto: "Pão Francês",
         imagem: "/Imagens/PãoFrances.webp",
@@ -395,82 +390,117 @@ const produtos = {
 
 };
 
+/* ================================================= */
+/* 2. LÓGICA DO INDEXED DB (SEPARADO POR SETOR)      */
+/* ================================================= */
 
-// 3. Pegar os elementos do HTML
+const DB_NAME = "PadariaDB";
+const DB_VERSION = 2; // Aumentei a versão para recriar a estrutura!
+
+function conectarBanco() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+        request.onerror = (event) => {
+            console.error("Erro ao abrir o banco:", event);
+            reject("Erro no DB");
+        };
+
+        // Criação das Tabelas (Stores) separadas
+        request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            
+            // 1. Cria uma store para cada setor (padaria, acougue, etc.)
+            SETORES_DO_BANCO.forEach(nomeSetor => {
+                if (!db.objectStoreNames.contains(nomeSetor)) {
+                    db.createObjectStore(nomeSetor, { keyPath: "id" });
+                }
+            });
+
+            // 2. Popula o banco distribuindo os produtos nas stores corretas
+            const transaction = event.target.transaction;
+
+            Object.entries(produtosIniciais).forEach(([chave, produto]) => {
+                const setorDoProduto = produto.setor; // ex: "padaria"
+
+                // Verifica se o setor existe na lista de stores criadas
+                if (SETORES_DO_BANCO.includes(setorDoProduto)) {
+                    const store = transaction.objectStore(setorDoProduto);
+                    store.add({ id: chave, ...produto });
+                } else {
+                    console.warn(`Produto ${chave} tem um setor desconhecido: ${setorDoProduto}`);
+                }
+            });
+            
+            console.log("Banco recriado com categorias separadas!");
+        };
+
+        request.onsuccess = (event) => {
+            resolve(event.target.result);
+        };
+    });
+}
+
+// Função Nova: Busca em TODAS as categorias e junta tudo
+function buscarTodosProdutos(db) {
+    // Vamos criar uma promessa de busca para CADA setor
+    const promessasDeBusca = SETORES_DO_BANCO.map(setor => {
+        return new Promise((resolve) => {
+            // Abrimos transação apenas para esse setor
+            const transaction = db.transaction([setor], "readonly");
+            const store = transaction.objectStore(setor);
+            const request = store.getAll();
+
+            request.onsuccess = () => {
+                // Retorna os dados dessa categoria
+                resolve(request.result);
+            };
+            
+            request.onerror = () => {
+                console.error(`Erro ao ler setor ${setor}`);
+                resolve([]); // Retorna array vazio se der erro, para não travar tudo
+            }
+        });
+    });
+
+    // Promise.all espera TODAS as categorias serem lidas
+    return Promise.all(promessasDeBusca).then(resultadosPorSetor => {
+        // resultadosPorSetor é algo tipo: [ [paes...], [carnes...], [frutas...] ]
+        // Usamos .flat() para virar um array só: [paes..., carnes..., frutas...]
+        const todosProdutosJuntos = resultadosPorSetor.flat();
+
+        // Convertemos para o formato que seu site usa: [ [id, objeto], [id, objeto] ]
+        const formatoOriginal = todosProdutosJuntos.map(item => {
+            const { id, ...resto } = item;
+            return [id, resto];
+        });
+
+        return formatoOriginal;
+    });
+}
+
+/* ================================================= */
+/* 3. ELEMENTOS E FUNÇÕES DE TELA (IGUAL AO ANTERIOR)*/
+/* ================================================= */
+
 const containerProdutos = document.getElementById("container-produtos");
 const tituloSetor = document.getElementById("titulo-setor");
 const barraBusca = document.getElementById("barra-busca");
 
-// Variável para guardar os produtos filtrados (pela URL) para a barra de busca usar
 let produtosFiltradosInicialmente = [];
 
-/* ================================================= */
-/* FUNÇÕES AUXILIARES                   */
-/* ================================================= */
-
-/**
- * Deixa a primeira letra de uma string maiúscula.
- * @param {string} str - A string para capitalizar.
- */
 function capitalizar(str) {
     if (!str) return "";
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-/**
- * Remove acentos e diacríticos de uma string.
- * Ex: "Pão" -> "Pao"
- * @param {string} str - A string para normalizar.
- */
 function removerAcentos(str) {
     if (!str) return "";
-    return str.normalize("NFD") // Separa o caractere base (ex: 'a') do acento (ex: '~')
-            .replace(/[\u0300-\u036f]/g, ""); // Remove todos os acentos (diacríticos)
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
-/**
- * Renderiza (cria e mostra) os cards de produto no HTML.
- * @param {Array} listaDeProdutos - A lista de produtos a ser mostrada.
- */
 function renderizarProdutos(listaDeProdutos) {
-    // 1. Limpa o container antes de adicionar novos cards
-    containerProdutos.innerHTML = "";
-
-    // 2. Verifica se a lista está vazia
-    if (listaDeProdutos.length === 0) {
-        if (barraBusca.value === "") {
-            // Se a busca está vazia, a culpa é do filtro da URL
-            containerProdutos.innerHTML = "<p>Nenhum produto encontrado com estes filtros.</p>";
-        } else {
-            // Se a busca tem texto, a culpa é da busca
-            containerProdutos.innerHTML = "<p>Nenhum produto encontrado com esse nome.</p>";
-        }
-        return; // Para a execução da função
-    }
-
-    // 3. Cria e adiciona cada card
-    //    (listaDeProdutos é um array [ [id, produto], [id, produto], ... ])
-    listaDeProdutos.forEach(([id, produto]) => {
-        // (Assumindo que sua página de produto individual se chama 'produto.html')
-        const cardHTML = `
-            <a href="produto.html?id=${id}" class="card-produto">
-                <img src="${produto.imagem}" alt="${produto.tituloproduto}">
-                <h3>${produto.tituloproduto}</h3>
-            </a>
-        `;
-        
-        containerProdutos.innerHTML += cardHTML;
-    });
-}
-
-// vvvv ÚNICA FUNÇÃO ALTERADA vvvv
-
-/**
- * Renderiza (cria e mostra) os cards de produto no HTML.
- * @param {Array} listaDeProdutos - A lista de produtos a ser mostrada.
- */
-function renderizarProdutos(listaDeProdutos) {
-    containerProdutos.innerHTML = ""; // Limpa o container
+    containerProdutos.innerHTML = ""; 
 
     if (listaDeProdutos.length === 0) {
         if (barraBusca.value === "") {
@@ -481,40 +511,26 @@ function renderizarProdutos(listaDeProdutos) {
         return;
     }
 
-    // Para cada produto na lista...
     listaDeProdutos.forEach(([id, produto]) => {
-        
-        // --- 1. LÓGICA DO PREÇO ---
         let precoHTML = "";
-        
-        // Se tiver precoOferta (e ele não for null/vazio)
         if (produto.precoOferta) {
             precoHTML = `
                 <div class="card-precos">
                     <span class="preco-antigo">R$ ${produto.preco}</span>
                     <span class="preco-oferta">R$ ${produto.precoOferta}</span>
-                </div>
-            `;
-        } 
-        // Se não tem oferta, mas tem o preço normal
-        else if (produto.preco) {
+                </div>`;
+        } else if (produto.preco) {
             precoHTML = `
                 <div class="card-precos">
                     <span class="preco-normal">R$ ${produto.preco}</span>
-                </div>
-            `;
+                </div>`;
         }
-        // (Se não tiver nenhum preço, o precoHTML ficará vazio "")
-
         
-        // --- 2. LÓGICA DO BOTÃO ---
         let botaoHTML = ""; 
         if (produto.tags && produto.tags.includes("retiravel")) {
             botaoHTML = `<a href="pagina-agendamento.html?id=${id}" class="btn-agendar">Agendar</a>`;
         }
 
-        // --- 3. MONTAGEM DO CARD ---
-        // Adicionamos a variável ${precoHTML} abaixo do <h3>
         const cardCompletoHTML = `
             <div class="card-container">
                 <a href="produto.html?id=${id}" class="card-produto">
@@ -522,103 +538,65 @@ function renderizarProdutos(listaDeProdutos) {
                     <h3>${produto.tituloproduto}</h3>
                     ${precoHTML} 
                 </a>
-                
                 ${botaoHTML} 
             </div>
         `;
-        
         containerProdutos.innerHTML += cardCompletoHTML;
     });
 }
 
-    // vvvv ESTE BLOCO FOI REMOVIDO vvvv
-    // O 'addEventListener' não é mais necessário,
-    // pois o <a> (link) cuida da navegação.
-    /* document.querySelectorAll('.btn-agendar').forEach(botao => {
-        botao.addEventListener('click', (event) => {
-            // ... código do alert removido ...
-        });
-    });
-    */
-    // ^^^^ ESTE BLOCO FOI REMOVIDO ^^^^
-
-// ^^^^ ÚNICA FUNÇÃO ALTERADA ^^^^
 /* ================================================= */
-/* EXECUÇÃO PRINCIPAL (AO CARREGAR)        */
+/* 4. EXECUÇÃO PRINCIPAL                             */
 /* ================================================= */
 
-// Verifica se há *algum* parâmetro para filtrar (setor OU filtro)
-if (setorAtual || filtroAtual) {
-
-    // --- LÓGICA DO TÍTULO ATUALIZADA ---
-    let tituloPagina = "";
-    if (setorAtual) {
-        tituloPagina = capitalizar(setorAtual); // Ex: "Padaria"
-    }
-    if (filtroAtual) {
-        const filtroCapitalizado = capitalizar(filtroAtual); // Ex: "Ofertas"
+async function iniciarApp() {
+    try {
+        const db = await conectarBanco();
         
-        // Se tem setor: "Padaria (Ofertas)"
-        // Se não tem setor: "Ofertas"
-        tituloPagina = tituloPagina ? `${tituloPagina} (${filtroCapitalizado})` : filtroCapitalizado;
-    }
-    tituloSetor.innerText = tituloPagina;
+        // Aqui ele busca em todas as pastas (padaria, açougue...) e junta tudo
+        const listaCompleta = await buscarTodosProdutos(db);
 
+        if (setorAtual || filtroAtual) {
+            let tituloPagina = "";
+            if (setorAtual) tituloPagina = capitalizar(setorAtual);
+            if (filtroAtual) {
+                const filtroCapitalizado = capitalizar(filtroAtual);
+                tituloPagina = tituloPagina ? `${tituloPagina} (${filtroCapitalizado})` : filtroCapitalizado;
+            }
+            tituloSetor.innerText = tituloPagina;
 
-    // --- LÓGICA DE FILTRO INICIAL (BASEADA NA URL) ---
-    const listaCompleta = Object.entries(produtos);
+            produtosFiltradosInicialmente = listaCompleta.filter(([id, produto]) => {
+                let setorMatch = true;
+                if (setorAtual) setorMatch = (produto.setor === setorAtual);
 
-    produtosFiltradosInicialmente = listaCompleta.filter(([id, produto]) => {
-        
-        // Condição 1: Filtro de Setor
-        let setorMatch = true; // Começa como verdadeiro (passa por padrão)
-        if (setorAtual) {
-            // Se um setor foi pedido, o produto DEVE ser desse setor
-            setorMatch = (produto.setor === setorAtual);
+                let filtroMatch = true;
+                if (filtroAtual) filtroMatch = (produto.tags && produto.tags.includes(filtroAtual));
+
+                return setorMatch && filtroMatch;
+            });
+
+            
+
+            renderizarProdutos(produtosFiltradosInicialmente);
+
+            barraBusca.addEventListener("input", () => {
+                const termoBusca = removerAcentos(barraBusca.value.toLowerCase());
+                const produtosFiltradosPelaBusca = produtosFiltradosInicialmente.filter(([id, produto]) => {
+                    const tituloNormalizado = removerAcentos(produto.tituloproduto.toLowerCase());
+                    return tituloNormalizado.includes(termoBusca);
+                });
+                renderizarProdutos(produtosFiltradosPelaBusca);
+            });
+
+        } else {
+            tituloSetor.innerText = "Nenhum filtro aplicado";
+            containerProdutos.innerHTML = "<p>Por favor, selecione um setor ou filtro.</p>";
+            barraBusca.style.display = 'none';
         }
 
-        // Condição 2: Filtro de Tag (ex: "ofertas")
-        let filtroMatch = true; // Começa como verdadeiro (passa por padrão)
-        if (filtroAtual) {
-            // Se um filtro foi pedido, o produto DEVE ter a tag
-            // (Verifica se 'produto.tags' existe E se inclui a tag da URL)
-            filtroMatch = (produto.tags && produto.tags.includes(filtroAtual));
-        }
-
-        // O produto só aparece se AMBAS as condições forem verdadeiras
-        return setorMatch && filtroMatch;
-    });
-
-
-    // ETAPA 2: MOSTRAR OS PRODUTOS FILTRADOS INICIALMENTE
-    renderizarProdutos(produtosFiltradosInicialmente);
-
-    
-    // ETAPA 3: ADICIONAR O FILTRO DA BARRA DE BUSCA
-    barraBusca.addEventListener("input", () => {
-        // 1. Pega o termo da busca, põe em minúsculo E remove acentos
-        const termoBusca = removerAcentos(barraBusca.value.toLowerCase());
-
-        // Filtra a lista 'produtosFiltradosInicialmente' (que já foi filtrada por setor/oferta)
-        const produtosFiltradosPelaBusca = produtosFiltradosInicialmente.filter(([id, produto]) => {
-            
-            // 2. Pega o título do produto, põe em minúsculo E remove acentos
-            const tituloNormalizado = removerAcentos(produto.tituloproduto.toLowerCase());
-            
-            // 3. Compara as duas strings "limpas"
-            return tituloNormalizado.includes(termoBusca);
-        });
-
-        // 4. Mostra na tela apenas os produtos que passaram no filtro da busca
-        renderizarProdutos(produtosFiltradosPelaBusca);
-    });
-
-} else {
-    // Se alguém acessar 'setor.html' sem NENHUM parâmetro
-    tituloSetor.innerText = "Nenhum filtro aplicado";
-    containerProdutos.innerHTML = "<p>Por favor, selecione um setor ou filtro.</p>";
-    barraBusca.style.display = 'none'; // Esconde a barra de busca
+    } catch (erro) {
+        console.error("Erro fatal na aplicação:", erro);
+    }
 }
 
-
-
+iniciarApp();
