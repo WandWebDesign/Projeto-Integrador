@@ -116,7 +116,7 @@
                     <a href="padaria-landingpage.html" class="botao-voltar"> Voltar </a>
                 </div>
 
-                <script src="Script/agendamento.js"></script>
+
             </div>
         </section>
     </main>
@@ -173,4 +173,37 @@
         <p id="copyright">Padaria Diniz &copy; 2025 - Todos os direitos reservados</p>
 
     </footer>
+
+
+
+    <div id="modal-confirmacao" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h2>✅ Agendamento Confirmado!</h2>
+        </div>
+        
+        <div class="modal-body">
+            <p class="texto-codigo">Seu código de retirada é:</p>
+            <div id="display-codigo" class="codigo-destaque">000000</div>
+            
+            <hr>
+            
+            <div class="detalhes-pedido">
+                <p><strong>Produto:</strong> <span id="modal-produto">Nome</span></p>
+                <p><strong>Quantidade:</strong> <span id="modal-qtd">0</span></p>
+                <p><strong>Total:</strong> <span id="modal-total">R$ 0,00</span></p>
+                <p><strong>Retirada em:</strong> <span id="modal-data">00/00/0000</span></p>
+                <p><strong>Pagamento:</strong> <span id="modal-pagamento">Forma</span></p>
+            </div>
+            
+            <p class="aviso-final">Tire um print ou anote o código e apresente no caixa.</p>
+        </div>
+
+        <div class="modal-footer">
+            <button id="btn-fechar-modal" class="botao-agendar">Entendi, fechar</button>
+        </div>
+    </div>
+</div>
+
+      <script src="Script/agendamento.js"></script>
 </body>
