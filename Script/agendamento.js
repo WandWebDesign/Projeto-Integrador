@@ -1,290 +1,277 @@
-/*PAGINA INDIVIDUAL DE COMPRA--------------MUDANÇA DOS PREÇOS-------------------*/
-// --- CONFIGURAÇÃO ---
-        // Defina o preço
-        const PRECO_UNITARIO = 15.50;
+/* ================================================= */
+/* 1. FUNÇÕES AUXILIARES (CONVERSÃO DE PREÇO)        */
+/* ================================================= */
 
-        // --- LÓGICA DO CÓDIGO ---
+function converterPrecoParaNumero(precoTexto) {
+    if (!precoTexto) return 0;
+    // Pega apenas o número antes da barra ou espaço (ex: "16,90 / Kg" -> "16,90")
+    let apenasValor = precoTexto.split(' ')[0]; 
+    // Troca vírgula por ponto para o cálculo matemático
+    let valorComPonto = apenasValor.replace(',', '.');
+    return parseFloat(valorComPonto);
+}
 
-        // 1. Seleciona os elementos do HTML com os quais vamos interagir
-        const minusButton = document.getElementById('ret-btn');
-        const plusButton = document.getElementById('plus-btn');
-        const quantityDisplay = document.getElementById('Qtd');
-        const finalPriceDisplay = document.getElementById('preço-final');
+/* ================================================= */
+/* 2. DADOS DOS PRODUTOS (COM PREÇOS)                */
+/* ================================================= */
 
-        // 2. Define o valor inicial da quantidade
-        let quantidadeAtual = 1;
+const produtos = {
+    // --- PADARIA ---
+    pãofrances: {
+        tituloproduto: "Pão Francês",
+        imagem: "/Imagens/PãoFrances.webp",
+        img1: "/Imagens Secundarias/PãoFrances 1.jpeg",
+        img2: "/Imagens Secundarias/Pão Francês 2.jpeg",
+        img3: "/Imagens Secundarias/Pão Francês 3.jpg",
+        setor: "padaria",
+        preco: "16,90 / Kg", 
+        descricao: "Pão quentinho, feito na hora! Crocante por fora e macio por dentro.",
+    },
+    pãodequeijo: {
+        tituloproduto: "Pão de Queijo",
+        imagem: "/Imagens/Pão de Queijo .webp",
+        img1: "/Imagens Secundarias/pão de queijo 1.webp",
+        img2: "/Imagens Secundarias/pão de queijo 2.webp",
+        img3: "/Imagens Secundarias/pão de queijo 3.webp",
+        setor: "padaria",
+        preco: "3,00 / Un", 
+        descricao: "Irresistível aroma e sabor mineiro! Feito com polvilho e queijo de qualidade.",
+    },
+    coxinhadefrango: {
+        tituloproduto: "Coxinha de Frango",
+        imagem: "Imagens/Coxinha de Frango .webp",
+        img1: "/Imagens Secundarias/coxinha de frango 1.jpeg",
+        img2: "/Imagens Secundarias/coxinha de frango 2.webp",
+        img3: "/Imagens Secundarias/coxinha de frango 3.jpg",
+        setor: "padaria",
+        preco: "8,50 / Un",
+        descricao: "Delícia dourada e crocante! Recheada com frango temperado.",
+    },
+    pãodeleite: {
+        tituloproduto: "Pão de Leite",
+        imagem: "/Imagens/Pão de Leite .webp",
+        img1: "/Imagens Secundarias/pao de leite 1.webp",
+        img2: "/Imagens Secundarias/pao de leite 2.webp",
+        img3: "/Imagens Secundarias/pao de leite 3.webp",
+        setor: "padaria",
+        preco: "22,90 / Kg",
+        descricao: "Maciez e sabor que derretem na boca! Feito com leite e manteiga.",
+    },
+    esfirradecarne: {
+        tituloproduto: "Esfirra de Carne",
+        imagem: "/Imagens/Esfirra de Carne.webp",
+        img1: "/Imagens Secundarias/esfirra de carne 1.webp",
+        img2: "/Imagens Secundarias/esfirra de carne 2.jpg",
+        img3: "/Imagens Secundarias/esfirra de carne 3.webp",
+        setor: "padaria",
+        preco: "8,50 / Un",
+        descricao: "Sabor árabe com um toque brasileiro! Recheada com carne moída temperada.",
+    },
 
-        // 3. Cria uma função para calcular e atualizar o preço na tela
-        function atualizarPreco() {
-            // Calcula o valor total
-            const valorTotal = quantidadeAtual * PRECO_UNITARIO;
+    // --- FRIOS E OUTROS ---
+    mussarela: {
+        tituloproduto: "Mussarela",
+        imagem: "/Imagens/Mussarela.webp",
+        img1: "/Imagens Secundarias/mussarela 1.webp",
+        img2: "/Imagens Secundarias/mussarela 2.jpg",
+        img3: "/Imagens Secundarias/mussarela 3.jpeg",
+        setor: "frios",
+        preco: "5,99 / 100g",
+        descricao: "Fresquinha e saborosa, derrete na boca! Rica em cálcio e proteínas.",
+    },
+    mortandela: {
+        tituloproduto: "Mortadela",
+        imagem: "/Imagens Secundarias/mortandela 1.webp",
+        img1: "/Imagens/Mortandela.webp",
+        img2: "/Imagens Secundarias/mortandela 2.jpg",
+        img3: "/Imagens Secundarias/mortandela 3.webp",
+        setor: "frios",
+        preco: "5,99 / 100g",
+        descricao: "Tradição e sabor em cada fatia! Clássica nos lanches de padaria.",
+    },
+    presunto: {
+        tituloproduto: "Presunto",
+        imagem: "/Imagens Secundarias/presunto 1.png",
+        img1: "/Imagens/Presunto.webp",
+        img2: "/Imagens Secundarias/presunto 2.webp",
+        img3: "/Imagens Secundarias/presunto 3.jpg",
+        setor: "frios",
+        preco: "5,49 / 100g",
+        descricao: "Fresco, leve e saboroso! O presunto é uma opção rica em proteínas.",
+    },
+    bolodefuba: {
+        tituloproduto: "Bolo de Fubá",
+        imagem: "/Imagens/Bolo de fubá.webp",
+        img1: "/Imagens Secundarias/bolo de fuba 1.webp",
+        img2: "/Imagens Secundarias/bolo de fuba 2.webp",
+        img3: "/Imagens Secundarias/bolo de fuba 3.webp",
+        setor: "padaria",
+        preco: "45,00 / Un",
+        descricao: "Cheirinho de casa e café passado na hora. Feito com fubá de milho.",
+    },
+    bolodemilho: {
+        tituloproduto: "Bolo de Milho",
+        imagem: "/Imagens Secundarias/bolo de milho 2.webp",
+        img1: "/Imagens/Bolo de Milho.webp",
+        img2: "/Imagens Secundarias/bolo de milho 1.webp",
+        img3: "/Imagens Secundarias/bolo de milho 3.webp",
+        setor: "padaria",
+        preco: "45,00 / Un",
+        descricao: "Sabor de fazenda em cada pedaço! Preparado com milho natural.",
+    }
+};
 
-            // Formata o valor para o padrão brasileiro (R$ XX,XX)
-            const valorFormatado = valorTotal.toLocaleString('pt-BR', { 
-                style: 'currency', 
-                currency: 'BRL' 
-            });
-            
-            // Atualiza os elementos na tela
-            quantityDisplay.textContent = quantidadeAtual;
-            finalPriceDisplay.textContent = valorFormatado;
-        }
+/* ================================================= */
+/* 3. LÓGICA DE CARREGAMENTO DO PRODUTO              */
+/* ================================================= */
 
-        // 4. Adiciona os "escutadores de eventos" aos botões
-        
-        // Quando o botão de mais (+) for clicado:
-        plusButton.addEventListener('click', () => {
-            quantidadeAtual++; // Aumenta a quantidade
-            atualizarPreco(); // Chama a função para recalcular e mostrar o novo preço
-        });
+const params = new URLSearchParams(window.location.search);
+const produtoId = params.get("id");
+const produtoSelecionado = produtos[produtoId];
 
-        // Quando o botão de menos (-) for clicado:
-        minusButton.addEventListener('click', () => {
-            // Impede que a quantidade seja menor que 1
-            if (quantidadeAtual > 1) {
-                quantidadeAtual--; // Diminui a quantidade
-                atualizarPreco(); // Chama a função para recalcular e mostrar o novo preço
-            }
-        });
+let precoUnitarioAtual = 0; 
 
-        // 5. Roda a função uma vez no início para mostrar o valor inicial
-        atualizarPreco();
-;
-/*PAGINA INDIVIDUAL DE COMPRA--------------MUDANÇA DOS PREÇOS-------------------*/
+if (produtoSelecionado) {
+    // Preenche textos e imagens
+    document.getElementById("tituloproduto").innerText = produtoSelecionado.tituloproduto;
+    document.getElementById("descricao").innerText = produtoSelecionado.descricao;
+    document.getElementById("produtoimagem").src = produtoSelecionado.imagem;
+    
+    if(document.getElementById("img1")) document.getElementById("img1").src = produtoSelecionado.img1 || "";
+    if(document.getElementById("img2")) document.getElementById("img2").src = produtoSelecionado.img2 || "";
+    if(document.getElementById("img3")) document.getElementById("img3").src = produtoSelecionado.img3 || "";
 
+    // Converte o preço
+    precoUnitarioAtual = converterPrecoParaNumero(produtoSelecionado.preco);
+    
+} else {
+    document.getElementById("tituloproduto").innerText = "Produto não encontrado";
+    document.getElementById("descricao").innerText = "O produto não foi encontrado.";
+    precoUnitarioAtual = 0;
+}
 
+/* ================================================= */
+/* 4. LÓGICA DA CALCULADORA (QTD * PREÇO)            */
+/* ================================================= */
 
-/*PAGINA INDIVIDUAL DE COMPRA------------------------*/
- // Captura o parâmetro "id" da URL
-            const listaprodutos = new URLSearchParams(window.location.search);
-            const produtoId = listaprodutos.get("id");
+const minusButton = document.getElementById('ret-btn');
+const plusButton = document.getElementById('plus-btn');
+const quantityDisplay = document.getElementById('Qtd');
+const finalPriceDisplay = document.getElementById('preço-final');
 
-            // Lista dos produtos da loja
-            const produtos = {
+let quantidadeAtual = 1;
 
-                //Produtos Retiraveis
-                pãofrances: {
-                    tituloproduto: "Pão Francês",
-                    imagem: "/Imagens/PãoFrances.webp",
-                    img1: "/Imagens Secundarias/PãoFrances 1.jpeg",
-                    img2: "/Imagens Secundarias/Pão Francês 2.jpeg",
-                    img3: "/Imagens Secundarias/Pão Francês 3.jpg",
-                    setor: "padaria", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Pão quentinho, feito na hora! \n Crocante por fora e macio por dentro, o pão francês é fonte de carboidratos que fornecem energia para o seu dia. Perfeito para acompanhar manteiga, requeijão ou aquele café fresquinho da manhã.",
-                },
+function atualizarPrecoNaTela() {
+    const valorTotal = quantidadeAtual * precoUnitarioAtual;
 
-                pãodequeijo: {
-                    tituloproduto: "Pão de Queijo",
-                    imagem: "/Imagens/Pão de Queijo .webp",
-                    img1: "/Imagens Secundarias/pão de queijo 1.webp",
-                    img2: "/Imagens Secundarias/pão de queijo 2.webp",
-                    img3: "/Imagens Secundarias/pão de queijo 3.webp",
-                    setor: "padaria", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Irresistível aroma e sabor mineiro! \n Feito com polvilho e queijo de qualidade, é naturalmente sem glúten e cheio de sabor. Rico em cálcio e com textura leve, é ideal para o café da tarde ou um lanche rápido."
-                },
+    const valorFormatado = valorTotal.toLocaleString('pt-BR', { 
+        style: 'currency', 
+        currency: 'BRL' 
+    });
+    
+    quantityDisplay.textContent = quantidadeAtual;
+    finalPriceDisplay.textContent = valorFormatado;
+}
 
-                coxinhadefrango: {
-                    tituloproduto: "Coxinha de Frango",
-                    imagem: "Imagens/Coxinha de Frango .webp",
-                    img1: "/Imagens Secundarias/coxinha de frango 1.jpeg",
-                    img2: "/Imagens Secundarias/coxinha de frango 2.webp",
-                    img3: "/Imagens Secundarias/coxinha de frango 3.jpg",
-                    setor: "padaria", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Delícia dourada e crocante! \n Recheada com frango temperado e envolta em massa leve e sequinha, a coxinha é uma ótima fonte de proteínas e energia. Perfeita para matar a fome com muito sabor."
-                },
+plusButton.addEventListener('click', () => {
+    quantidadeAtual++;
+    atualizarPrecoNaTela();
+});
 
-                pãodeleite: {
-                    tituloproduto: "Pão de Leite",
-                    imagem: "/Imagens/Pão de Leite .webp",
-                    img1: "/Imagens Secundarias/pao de leite 1.webp",
-                    img2: "/Imagens Secundarias/pao de leite 2.webp",
-                    img3: "/Imagens Secundarias/pao de leite 3.webp",
-                    setor: "padaria", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Maciez e sabor que derretem na boca! \n Feito com leite e manteiga, o pão de leite é levemente adocicado e rico em cálcio. Ideal para acompanhar café, achocolatado ou ser recheado com frios."
-                },
+minusButton.addEventListener('click', () => {
+    if (quantidadeAtual > 1) {
+        quantidadeAtual--;
+        atualizarPrecoNaTela();
+    }
+});
 
-                esfirradecarne: {
-                    tituloproduto: "Esfirra de Carne",
-                    imagem: "/Imagens/Esfirra de Carne.webp",
-                    img1: "/Imagens Secundarias/esfirra de carne 1.webp",
-                    img2: "/Imagens Secundarias/esfirra de carne 2.jpg",
-                    img3: "/Imagens Secundarias/esfirra de carne 3.webp",
-                    setor: "padaria", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Sabor árabe com um toque brasileiro! \n Recheada com carne moída temperada e massa leve, é uma opção rica em proteínas e ferro. Uma combinação perfeita de nutrição e sabor caseiro."
-                },
+// Inicializa o preço na tela
+atualizarPrecoNaTela();
 
-                mussarela: {
-                    tituloproduto: "Mussarela",
-                    imagem: "/Imagens/Mussarela.webp",
-                    img1: "/Imagens Secundarias/mussarela 1.webp",
-                    img2: "/Imagens Secundarias/mussarela 2.jpg",
-                    img3: "/Imagens Secundarias/mussarela 3.jpeg",
-                    setor: "frios", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Fresquinha e saborosa, derrete na boca! \n Rica em cálcio e proteínas, a mussarela é perfeita para rechear pães, sanduíches ou acompanhar bolos salgados. Combina nutrição e cremosidade em cada fatia."
-                },
+/* ================================================= */
+/* 5. FUNCIONALIDADE DO BOTÃO AGENDAR (COM POP-UP)   */
+/* ================================================= */
 
-                 mortandela: {
-                    tituloproduto: "Mortandela",
-                    imagem: "/Imagens Secundarias/mortandela 1.webp",
-                    img1: "/Imagens/Mortandela.webp",
-                    img2: "/Imagens Secundarias/mortandela 2.jpg",
-                    img3: "/Imagens Secundarias/mortandela 3.webp",
-                    setor: "frios", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Tradição e sabor em cada fatia! \n Clássica nos lanches de padaria, a mortadela é fonte de proteínas e ferro. Fatiada fininha, traz aquele sabor marcante que todo mundo adora no pão francês."
-                },
-
-                presunto: {
-                    tituloproduto: "Presunto",
-                    imagem: "/Imagens Secundarias/presunto 1.png",
-                    img1: "/Imagens/Presunto.webp",
-                    img2: "/Imagens Secundarias/presunto 2.webp",
-                    img3: "/Imagens Secundarias/presunto 3.jpg",
-                    setor: "frios", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Fresco, leve e saboroso! \n O presunto é uma opção rica em proteínas magras e baixo teor de gordura. Ideal para sanduíches, mistos ou recheios de pães e salgados."
-                },
-
-                bolodefuba: {
-                    tituloproduto: "Bolo de Fubá",
-                    imagem: "/Imagens/Bolo de fubá.webp",
-                    img1: "/Imagens Secundarias/bolo de fuba 1.webp",
-                    img2: "/Imagens Secundarias/bolo de fuba 2.webp",
-                    img3: "/Imagens Secundarias/bolo de fuba 3.webp",
-                    setor: "padaria", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Cheirinho de casa e café passado na hora \n Feito com fubá de milho, ovos e leite, é fonte de energia e fibras. Um clássico das padarias, leve e saboroso, perfeito para acompanhar o café da tarde."
-                },
-
-                bolodemilho: {
-                    tituloproduto: "Bolo de Milho",
-                    imagem: "/Imagens Secundarias/bolo de milho 2.webp",
-                    img1: "/Imagens/Bolo de Milho.webp",
-                    img2: "/Imagens Secundarias/bolo de milho 1.webp",
-                    img3: "/Imagens Secundarias/bolo de milho 3.webp",
-                    setor: "frios", //<--Vai puxar isso na pagina dos Setores
-                    descricao: "Sabor de fazenda em cada pedaço! \n Preparado com milho natural, leite e um toque de coco, é rico em fibras e vitaminas. Um bolo úmido, macio e cheio de sabor caseiro."
-                },
-
-
-            };
-
-            const produto = produtos[produtoId];
-
-
-            if (produto) {
-                document.getElementById("tituloproduto").innerText = produto.tituloproduto;
-                document.getElementById("descricao").innerText = produto.descricao;
-
-
-                document.getElementById("produtoimagem").src = produto.imagem;
-                document.getElementById("img1").src = produto.img1;
-                document.getElementById("img2").src = produto.img2;
-                document.getElementById("img3").src = produto.img3;
-
-            } else {
-                document.getElementById("tituloproduto").innerText = "Produto não encontrado";
-                document.getElementById("descricao").innerText = "O produto que você está tentando acessar não existe ou não foi encontrado.";
-            }
-
-/*PAGINA INDIVIDUAL DE COMPRA------------------------*/       
-
-
-/* FUNCIONALIDADE DO BOTÃO AGENDAR---------------------- */
-/* ============================================ */
-/* FUNCIONALIDADE DO BOTÃO AGENDAR (FLUXO DE 3 ETAPAS) */
-/* ============================================ */
-
-// 1. Selecionar os elementos que vamos usar
 const agendarBtn = document.querySelector('.botao-agendar');
 const dataContainer = document.getElementById('data-picker-container');
 const dataInput = document.getElementById('data-retirada');
 const pagamentoContainer = document.getElementById('pagamento-container');
 
-// Função para gerar um código de retirada aleatório (6 dígitos)
 function gerarCodigoRetirada() {
-    // Gera um número entre 100000 e 999999
     return Math.floor(100000 + Math.random() * 900000);
 }
 
-// 2. Adicionar o 'escutador' de clique no botão
 agendarBtn.addEventListener('click', () => {
-    
-    // 3. Verificar em qual etapa do fluxo estamos
     const dataVisivel = dataContainer.style.display === 'block';
     const pagamentoVisivel = pagamentoContainer.style.display === 'block';
 
     if (pagamentoVisivel) {
-        // --- ETAPA 3: CONFIRMAR PAGAMENTO E GERAR CÓDIGO ---
+        // --- ETAPA 3: FINALIZAR E MOSTRAR POP-UP ---
         
         const formaPagamento = document.querySelector('input[name="pagamento"]:checked');
 
         if (!formaPagamento) {
             alert('Por favor, escolha uma forma de pagamento.');
-            return; // Para a execução
+            return;
         }
 
-        // Todos os dados estão prontos!
-        const dataSelecionada = dataInput.value;
-        const nomeProduto = document.getElementById('tituloproduto').innerText;
-        const quantidade = document.getElementById('Qtd').innerText;
-        const dataFormatada = dataSelecionada.split('-').reverse().join('/');
-        const pagamentoEscolhido = formaPagamento.value;
+        // --- CORREÇÃO AQUI: Forma mais segura de pegar os dados ---
         
-        // Gerar o código!
+        // 1. Pega a data
+        const dataSelecionada = dataInput.value;
+        const dataFormatada = dataSelecionada ? dataSelecionada.split('-').reverse().join('/') : "Data inválida";
+        
+        // 2. Pega o nome e pagamento
+        const nomeProduto = document.getElementById('tituloproduto').innerText; // Pega do título
+        const pagamentoEscolhido = formaPagamento.value;
         const codigo = gerarCodigoRetirada();
 
-        // Exibir a confirmação final
-        alert(
-`Agendamento Confirmado! 
+        // 3. Pega Quantidade e Valor (USANDO TEXTCONTENT E TRIM PARA EVITAR ERROS)
+        // Usamos a variável global 'quantidadeAtual' que é mais segura que ler o HTML
+        const qtdFinal = quantidadeAtual; 
+        // Lemos o preço e removemos espaços em branco extras
+        const valorFinal = document.getElementById('preço-final').textContent.trim();
 
-Seu código de retirada é: ${codigo}
+        // --- FIM DA COLETA DE DADOS ---
 
----
-Detalhes do Pedido:
-Produto: ${nomeProduto}
-Quantidade: ${quantidade}
-Data de Retirada: ${dataFormatada}
-Pagamento: ${pagamentoEscolhido} (a ser efetuado na retirada)
----
+        // 4. Preencher o HTML do Modal com os dados
+        // Usamos textContent que é mais rápido e compatível
+        document.getElementById('display-codigo').textContent = codigo;
+        document.getElementById('modal-produto').textContent = nomeProduto;
+        document.getElementById('modal-qtd').textContent = qtdFinal;
+        document.getElementById('modal-total').textContent = valorFinal;
+        document.getElementById('modal-data').textContent = dataFormatada;
+        document.getElementById('modal-pagamento').textContent = pagamentoEscolhido;
 
-Guarde seu código e apresente no caixa.`
-        );
+        // 5. Mostrar o Modal
+        const modal = document.getElementById('modal-confirmacao');
+        modal.style.display = 'flex';
 
-        // Resetar o formulário para o estado inicial
-        dataContainer.style.display = 'none';
-        pagamentoContainer.style.display = 'none';
-        agendarBtn.innerText = 'Agendar';
-        dataInput.value = '';
-        
-        // Desmarcar o radio button
-        if(formaPagamento) formaPagamento.checked = false;
-
-
+        // 6. Botão para fechar
+        document.getElementById('btn-fechar-modal').onclick = function() {
+            modal.style.display = 'none';
+            window.location.reload();
+        };
+    
     } else if (dataVisivel) {
-        // --- ETAPA 2: CONFIRMAR DATA E MOSTRAR PAGAMENTO ---
-        
-        const dataSelecionada = dataInput.value;
-        
-        if (!dataSelecionada) {
+        // --- ETAPA 2 ---
+        if (!dataInput.value) {
             alert('Por favor, escolha uma data para a retirada.');
-            return; // Para a execução
+            return;
         }
-
-        // Mostrar o container de pagamento
         pagamentoContainer.style.display = 'block';
-        // Mudar o texto do botão
         agendarBtn.innerText = 'Confirmar Pagamento e Gerar Código';
 
     } else {
-        // --- ETAPA 1: MOSTRAR SELETOR DE DATA ---
-        
-        // 1. Mostra o container do seletor de data
+        // --- ETAPA 1 ---
         dataContainer.style.display = 'block';
-
-        // 2. Define a data mínima como "hoje"
-        const hoje = new Date().toISOString().split('T')[0];
-        dataInput.min = hoje;
-
-        // 3. Muda o texto do botão
+        // Define data mínima como hoje
+        const hoje = new Date();
+        const ano = hoje.getFullYear();
+        const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+        const dia = String(hoje.getDate()).padStart(2, '0');
+        dataInput.min = `${ano}-${mes}-${dia}`;
+        
         agendarBtn.innerText = 'Selecionar Pagamento';
     }
 });
-/* FUNCIONALIDADE DO BOTÃO AGENDAR---------------------- */
