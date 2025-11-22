@@ -667,3 +667,94 @@
         margin-top: 0; /* Remove margem individual */
     }
 }
+
+/* Fundo escuro atrás do modal */
+.modal-overlay {
+    display: none; /* Começa invisível */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Preto meio transparente */
+    z-index: 1000; /* Fica em cima de tudo */
+    justify-content: center;
+    align-items: center; /* Centraliza vertical e horizontalmente */
+}
+
+/* A caixa branca do modal */
+.modal-box {
+    background-color: #fff;
+    width: 90%;
+    max-width: 400px; /* Largura máxima no PC */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    animation: aparecer 0.3s ease-out; /* Efeito de entrada */
+}
+
+/* Animação suave */
+@keyframes aparecer {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+    background-color: #4CAF50; /* Cor verde de sucesso */
+    color: rgb(255, 255, 255);
+    padding: 15px;
+}
+
+.modal-header h2 {
+    color: var(--text);
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.modal-body {
+    padding: 20px;
+    text-align: left;
+}
+
+.codigo-destaque {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 10px 0;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    letter-spacing: 2px;
+    border: 2px dashed #ccc;
+}
+
+.texto-codigo {
+    text-align: center;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.detalhes-pedido p {
+    color: var(--text);
+    margin: 8px 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+}
+
+.aviso-final {
+    font-size: 0.8rem;
+    color: #d9534f; /* Vermelho suave para alerta */
+    text-align: center;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.modal-footer {
+    padding: 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
