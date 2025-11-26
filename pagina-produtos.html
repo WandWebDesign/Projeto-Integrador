@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Padaria Diniz</title> <link rel="stylesheet" href="CSS/paginaprodutos.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/cards.css">
+
+    <script src="script.js" defer></script> </head>
+
+<body>
+    <header class="header">
+        <section>
+            <div class="logo-e-marca">
+
+                <div class="marca">
+                    <h1>Padaria Diniz</h1>
+                </div>
+
+                <div class="logo">
+                    <a href="padaria-landingpage.html" class="logo img" aria-label="Ir para a página inicial">
+                        <img src="./Imagens/Logo.png" alt="Logo da Padaria Diniz">
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="icones">
+                <input type="text" id="pesquisar" placeholder="digite o produto desejado..." aria-label="Pesquisar produtos na padaria">
+                <button type="submit" style="border:none; background:none; cursor:pointer;" aria-label="Buscar">
+                    <img src="./Imagens Secundarias/search-alt-2-svgrepo-com (1).svg" alt="">
+                </button>
+            </div>
+
+            <nav class="menu-principal" aria-label="Menu Principal">
+                <a href="pagina-produtos.html"> Meus pedidos </a>
+                <a href="padaria-login.html"> Login </a>
+            </nav>
+        </section>
+    </header>
+
+    <nav class="menu-categorias">
+
+        <ul class="escolhas">
+
+            <li>
+                <a href="pagina-catalogo.html?setor=acougue">
+                    <img id="Frios" src="./Imagens Secundarias/Frios.svg" alt="Imagem da categoria">
+                    <p> Frios </p>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagina-catalogo.html?setor=hortifruti">
+                    <img id="Hortifruti" src="./Imagens Secundarias/Hortifruti.svg" alt="Imagem da categoria">
+                    <p>Hortifruti</p>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagina-catalogo.html?setor=padaria">
+                    <img id="Padaria" src="./Imagens Secundarias/Pão.svg" alt="Imagem da categoria">
+                    <p>Pães</p>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagina-catalogo.html?setor=mercado">
+                    <img id="Laticinios" src="./Imagens Secundarias/Milk.svg" alt="Imagem da categoria">
+                    <p> Laticinios </p>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagina-catalogo.html?setor=mercado">
+                    <img id="Pets" src="./Imagens Secundarias/Pets.svg" alt="Imagem da categoria">
+                    <p> Pets </p>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagina-catalogo.html?setor=mercado">
+                    <img id="Doces" src="./Imagens Secundarias/Doces.svg" alt="Imagem da categoria">
+                    <p> Doces </p>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagina-catalogo.html?setor=mercado">
+                    <img id="Bebidas" src="./Imagens Secundarias/soda..svg" alt="Imagem da categoria">
+                    <p> Bebidas </p>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagina-catalogo.html?setor=mercado">
+                    <img id="Especiarias" src="./Imagens Secundarias/Especiarias.svg" alt="Imagem da categoria">
+                    <p> Especiarias </p>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagina-catalogo.html?setor=mercado">
+                    <img id="Limpeza" src="./Imagens Secundarias/Limpeza.svg" alt="Imagem da categoria">
+                    <p>Limpeza/Higiene</p>
+                </a>
+            </li>
+            <script src="Script/barra.js"></script>
+        </nav>
+
+    <main class="container-carrinho">
+        <section class="produtos-agendados" aria-labelledby="titulo-agendados">
+            <div class="header-agendados">
+                <h2 id="titulo-agendados">Produtos Agendados</h2>
+                <a href="padaria-landingpage.html" class="voltar-compras">Voltar as Compras</a>
+            </div>
+
+            <div class="lista-produtos-agendados">
+                <article class="card-agendado">
+                    <div class="card-agendado-header">
+                        <span>Código do Pedido: 001</span>
+                        <button class="remover-item" aria-label="Remover Produto 1 do carrinho">X</button>
+                    </div>
+                    <div class="card-agendado-body">
+                        <img class="imagem-placeholder" src="/Imagens/PãoFrances.webp" alt="Foto de Pão Francês">
+                        <div class="card-agendado-info">
+                            <span class="setor-tag">Padaria</span> 
+                            <h3>Produto 1</h3>             
+                            <p class="preco">R$ 10,00</p>
+                            <div class="campo-info">Quantidade: 2</div>
+                            <div class="campo-info">Valor Total: R$ 20,00</div>
+                            <div class="campo-info">Data: 25/11/2025</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-agendado">
+                    <div class="card-agendado-header">
+                        <span>Código do Pedido: 002</span>
+                        <button class="remover-item" aria-label="Remover Produto 2 do carrinho">X</button>
+                    </div>
+                    <div class="card-agendado-body">
+                        <img class="imagem-placeholder" src="/Imagens/Pão de Forma.webp" alt="Foto de Pão de Forma">
+                        <div class="card-agendado-info">
+                            <span class="setor-tag">Padaria</span>
+                            <h3>Produto 2</h3>
+                            <p class="preco">R$ 12,50</p>
+                            <div class="campo-info">Quantidade: 1</div>
+                            <div class="campo-info">Valor Total: R$ 12,50</div>
+                            <div class="campo-info">Data: 25/11/2025</div>
+              
+                        </div>
+                    </div>
+                </article>
+
+                </div>
+        </section>
+
+        <section class="recomendados" aria-labelledby="titulo-recomendados">
+            <h2 id="titulo-recomendados">Recomendados</h2>
+            <div class="lista-recomendados">
+                
+                <article class="card-produtos">
+                    <img class="imagem-placeholder" src="/Imagens/Arroz Camil.webp" alt="Pacote de Arroz Camil">
+                    <span class="setor-tag">Grãos</span>
+                    <h3>Produto Recomendado 1</h3>
+                    <p class="texto-preco">R$ 25,00</p> 
+                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 1">Agendar compra</button>
+                </article>
+
+                <article class="card-produtos">
+                    <img class="imagem-placeholder" src="/Imagens/Arroz Camil.webp" alt="Pacote de Arroz Camil">
+                    <span class="setor-tag">Grãos</span>
+                    <h3>Produto Recomendado 2</h3>
+                    <p class="texto-preco">R$ 22,00</p>
+                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 2">Agendar compra</button>
+                </article>
+
+                 <article class="card-produtos">
+                    <img class="imagem-placeholder" src="/Imagens/Arroz Camil.webp" alt="Pacote de Arroz Camil">
+                    <span class="setor-tag">Grãos</span>
+                    <h3>Produto Recomendado 3</h3>
+                    <p class="texto-preco">R$ 22,00</p>
+                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 3">Agendar compra</button>
+                </article>
+
+                 <article class="card-produtos">
+                    <img class="imagem-placeholder" src="/Imagens/Arroz Camil.webp" alt="Pacote de Arroz Camil">
+                    <span class="setor-tag">Grãos</span>
+                    <h3>Produto Recomendado 4</h3>
+                    <p class="texto-preco">R$ 22,00</p>
+                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 4">Agendar compra</button>
+                </article>
+
+                 <article class="card-produtos">
+                    <img class="imagem-placeholder" src="/Imagens/Arroz Camil.webp" alt="Pacote de Arroz Camil">
+                    <span class="setor-tag">Grãos</span>
+                    <h3>Produto Recomendado 5</h3>
+                    <p class="texto-preco">R$ 22,00</p>
+                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 5">Agendar compra</button>
+                </article>
+
+                
+
+            </div>
+        </section>
+    </main>
+
+    <a href="https://web.whatsapp.com/" target="_blank" class="zap" aria-label="Fale conosco pelo WhatsApp">
+        <img src="./Imagens Secundarias/whatsapp-icon-logo-svgrepo-com.svg" alt="" aria-hidden="true">
+    </a>
+
+    <footer>
+        <div class="rodape-container">
+
+            <nav class="rodape-menu" aria-label="Menu do rodapé">
+                <h3>Navegue</h3>
+                <ul>
+                    <li><a href="#pedidos">Meus pedidos</a></li>
+                    <li><a href="#retiraveis">Peça e Retire</a></li>
+                    </ul>
+            </nav>
+
+            <div class="rodape-sobre">
+                <h3>Sobre Nós</h3>
+                <ul>
+                    <li><a href="#">Localização</a></li>
+                    <li><a href="https://web.whatsapp.com/" aria-label="WhatsApp da Padaria">WhatsApp</a></li>
+                </ul>
+            </div>
+
+            <div class="formulario-newsletter">
+                <h3>Receba Nossas Ofertas</h3>
+                <p>Cadastre-se para receber novidades!</p>
+                <form>
+                    <label for="nome" class="sr-only">Seu nome:</label>
+                    <input id="nome" type="text" name="text" placeholder="Seu nome" required autocomplete="name">
+
+                    <label for="tel" class="sr-only">Seu número:</label>
+                    <input id="tel" type="tel" name="tel" placeholder="(00) 12345-6789" required autocomplete="tel">
+
+                    <button id="cadastro" type="submit">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="formas-pagamento">
+            <h3>Formas de Pagamento</h3>
+            <img src="#" alt="Aceitamos Visa, Master, Pix e Vale Refeição">
+        </div>
+
+        <p id="copyright">Padaria Diniz &copy; 2025 - Todos os direitos reservados</p>
+
+    </footer>
+</body>
+</html>
