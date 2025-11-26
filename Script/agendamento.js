@@ -206,7 +206,7 @@ agendarBtn.addEventListener('click', () => {
     const pagamentoVisivel = pagamentoContainer.style.display === 'block';
 
     if (pagamentoVisivel) {
-        // --- ETAPA 3: FINALIZAR E MOSTRAR POP-UP ---
+        // --- ETAPA 3: SALVAR E REDIRECIONAR ---
         
         const formaPagamento = document.querySelector('input[name="pagamento"]:checked');
 
@@ -215,43 +215,37 @@ agendarBtn.addEventListener('click', () => {
             return;
         }
 
-        // --- CORREÇÃO AQUI: Forma mais segura de pegar os dados ---
-        
-        // 1. Pega a data
+        // 1. Coleta os dados
         const dataSelecionada = dataInput.value;
         const dataFormatada = dataSelecionada ? dataSelecionada.split('-').reverse().join('/') : "Data inválida";
-        
-        // 2. Pega o nome e pagamento
-        const nomeProduto = document.getElementById('tituloproduto').innerText; // Pega do título
+        const nomeProduto = document.getElementById('tituloproduto').innerText;
         const pagamentoEscolhido = formaPagamento.value;
         const codigo = gerarCodigoRetirada();
-
-        // 3. Pega Quantidade e Valor (USANDO TEXTCONTENT E TRIM PARA EVITAR ERROS)
-        // Usamos a variável global 'quantidadeAtual' que é mais segura que ler o HTML
         const qtdFinal = quantidadeAtual; 
-        // Lemos o preço e removemos espaços em branco extras
         const valorFinal = document.getElementById('preço-final').textContent.trim();
+        // Pegamos a imagem atual para ficar bonito na lista
+        const imagemProduto = document.getElementById("produtoimagem").src;
 
-        // --- FIM DA COLETA DE DADOS ---
-
-        // 4. Preencher o HTML do Modal com os dados
-        // Usamos textContent que é mais rápido e compatível
-        document.getElementById('display-codigo').textContent = codigo;
-        document.getElementById('modal-produto').textContent = nomeProduto;
-        document.getElementById('modal-qtd').textContent = qtdFinal;
-        document.getElementById('modal-total').textContent = valorFinal;
-        document.getElementById('modal-data').textContent = dataFormatada;
-        document.getElementById('modal-pagamento').textContent = pagamentoEscolhido;
-
-        // 5. Mostrar o Modal
-        const modal = document.getElementById('modal-confirmacao');
-        modal.style.display = 'flex';
-
-        // 6. Botão para fechar
-        document.getElementById('btn-fechar-modal').onclick = function() {
-            modal.style.display = 'none';
-            window.location.reload();
+        // 2. Cria o objeto do pedido
+        const novoPedido = {
+            id: codigo,
+            produto: nomeProduto,
+            quantidade: qtdFinal,
+            total: valorFinal,
+            dataRetirada: dataFormatada,
+            pagamento: pagamentoEscolhido,
+            imagem: imagemProduto,
+            dataPedido: new Date().toLocaleDateString() // Data de hoje
         };
+
+        // 3. Salva no LocalStorage (Bando de dados do navegador)
+        let listaPedidos = JSON.parse(localStorage.getItem('pedidosPadaria')) || [];
+        listaPedidos.push(novoPedido);
+        localStorage.setItem('pedidosPadaria', JSON.stringify(listaPedidos));
+
+        // 4. Mostra o Modal Rapidamente e Redireciona (Opcional, pode redirecionar direto)
+        // Vamos redirecionar direto para a página de pedidos para ver o resultado:
+        window.location.href = "pagina-produtos.html";
     
     } else if (dataVisivel) {
         // --- ETAPA 2 ---
@@ -275,3 +269,5 @@ agendarBtn.addEventListener('click', () => {
         agendarBtn.innerText = 'Selecionar Pagamento';
     }
 });
+
+//Logica de Captura de Pedidos
