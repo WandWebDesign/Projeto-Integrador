@@ -15,7 +15,7 @@ const produtosIniciais = {
     // --- PADARIA ---
     pãofrances: {
         tituloproduto: "Pão Francês",
-        imagem: "/Imagens/PãoFrances.webp",
+        imagem: "./Imagens/PãoFrances.webp", // Atenção: Verifique se o arquivo tem acento mesmo
         preco: "16,90",
         precoOferta: "15,90 / Kg",
         setor: "padaria", 
@@ -23,7 +23,8 @@ const produtosIniciais = {
     },
     pãodequeijo: {
         tituloproduto: "Pão de Queijo",
-        imagem: "/Imagens/Pão de Queijo .webp",
+        
+        imagem: "./Imagens/Pão de Queijo .webp", 
         preco: "3,00 / Un",
         precoOferta: null,
         setor: "padaria", 
@@ -31,7 +32,7 @@ const produtosIniciais = {
     },
     coxinhadefrango: {
         tituloproduto: "Coxinha de Frango",
-        imagem: "Imagens/Coxinha de Frango .webp",
+        imagem: "./Imagens/Coxinha de Frango .webp",
         preco: "8,50 / Un",
         precoOferta: null,
         setor: "padaria", 
@@ -39,7 +40,7 @@ const produtosIniciais = {
     },
     pãodeleite: {
         tituloproduto: "Pão de Leite",
-        imagem: "/Imagens/Pão de Leite .webp",
+        imagem: "./Imagens/Pão de Leite .webp", 
         preco: "22,90 / Kg",
         precoOferta: null,
         setor: "padaria", 
@@ -47,7 +48,7 @@ const produtosIniciais = {
     },
     esfirradecarne: {
         tituloproduto: "Esfirra de Carne",
-        imagem: "/Imagens/Esfirra de Carne.webp",
+        imagem: "./Imagens/Esfirra de Carne.webp",
         preco: "8,50",
         precoOferta: null,
         setor: "padaria", 
@@ -55,7 +56,7 @@ const produtosIniciais = {
     },
     mussarela: {
         tituloproduto: "Mussarela",
-        imagem: "/Imagens/Mussarela.webp",
+        imagem: "./Imagens/Mussarela.webp",
         preco: "5,99 / 100g",
         precoOferta: null,
         setor: "acougue", 
@@ -63,15 +64,15 @@ const produtosIniciais = {
     },
     mortandela: { 
         tituloproduto: "Mortadela",
-        imagem: "/Imagens Secundarias/mortandela 1.webp",
-        preco: "5,99 / 100g",
+        imagem: "./Imagens/Mortandela.webp", 
+        preco: "4,49 / 100g", // Ajustei o preço para bater com seu HTML (estava 5,99)
         precoOferta: null,
         setor: "acougue", 
         tags: ["retiravel"]
     },
     presunto: {
         tituloproduto: "Presunto Fatiado",
-        imagem: "/Imagens Secundarias/presunto 1.png",
+        imagem: "./Imagens/Presunto.webp", 
         preco: "5,49 / 100g",
         precoOferta: null,
         setor: "acougue", 
@@ -79,7 +80,7 @@ const produtosIniciais = {
     },
     bolodefuba: {
         tituloproduto: "Bolo de Fubá - R$7,50 Fatia",
-        imagem: "/Imagens/Bolo de fubá.webp",
+        imagem: "./Imagens/MistoQuente.jpg",
         preco: "45,00 / Un",
         precoOferta: null,
         setor: "padaria", 
@@ -87,11 +88,11 @@ const produtosIniciais = {
     },
     bolodemilho: {
         tituloproduto: "Bolo de Milho - R$7,50 Fatia",
-        imagem: "/Imagens Secundarias/bolo de milho 2.webp",
+        imagem: "./Imagens/Bolo de Milho.webp", 
         preco: "45,00 / Un",
         precoOferta: null,
         setor: "padaria", 
-        tags: ["retiravel"] 
+        tags: ["retiravel"]
     },
 
     // O RESTANTE DOS PRODUTOS - OS QUE NÃO FORAM CITADOS ACIMA //
@@ -394,8 +395,8 @@ const produtosIniciais = {
 /* 2. LÓGICA DO INDEXED DB (SEPARADO POR SETOR)      */
 /* ================================================= */
 
-const DB_NAME = "PadariaDB";
-const DB_VERSION = 2; // Aumentei a versão para recriar a estrutura!
+const DB_NAME = "PadariaDB_V5";
+const DB_VERSION = 2; 
 
 function conectarBanco() {
     return new Promise((resolve, reject) => {
