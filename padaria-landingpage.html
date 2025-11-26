@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras - Padaria Diniz</title> <link rel="stylesheet" href="CSS/paginaprodutos.css">
+    <title>Padaria Diniz</title>
+
+    <link rel="stylesheet" href="CSS/landingstyle.css">
     <link rel="stylesheet" href="CSS/header.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/cards.css">
 
-    <script src="script.js" defer></script> </head>
+    <script src="Script/script.js"> </script>
+    <script src="Script/carrocel.js"></script>
+</head>
 
 <body>
     <header class="header">
@@ -21,219 +25,825 @@
                 </div>
 
                 <div class="logo">
-                    <a href="padaria-landingpage.html" class="logo img" aria-label="Ir para a página inicial">
-                        <img src="./Imagens/Logo.png" alt="Logo da Padaria Diniz">
+                    <a href="padaria-landingpage.html" class="logo img">
+                        <img src="./Imagens/Logo.png" alt="Logo da Padaria">
                     </a>
                 </div>
 
             </div>
 
-            <nav class="menu-principal" aria-label="Menu Principal">
+            <nav class="menu-principal">
                 <a href="pagina-produtos.html"> Meus pedidos </a>
                 <a href="padaria-login.html"> Login </a>
             </nav>
         </section>
     </header>
-
     <nav class="menu-categorias">
 
         <ul class="escolhas">
 
             <li>
                 <a href="pagina-catalogo.html?setor=acougue">
-                    <img id="Frios" src="./Imagens Secundarias/Frios.svg" alt="Imagem da categoria">
-                    <p> Frios </p>
+                    <img id="Frios" src="./Imagens Secundarias/Frios.svg" alt="" aria-hidden="true">
+                    <p>Frios</p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=hortifruti">
-                    <img id="Hortifruti" src="./Imagens Secundarias/Hortifruti.svg" alt="Imagem da categoria">
+                    <img id="Hortifruti" src="./Imagens Secundarias/Hortifruti.svg" alt="" aria-hidden="true">
                     <p>Hortifruti</p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=padaria">
-                    <img id="Padaria" src="./Imagens Secundarias/Pão.svg" alt="Imagem da categoria">
+                    <img id="Padaria" src="./Imagens Secundarias/Pão.svg" alt="" aria-hidden="true">
                     <p>Pães</p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Laticinios" src="./Imagens Secundarias/Milk.svg" alt="Imagem da categoria">
+                    <img id="Laticinios" src="./Imagens Secundarias/Milk.svg" alt="" aria-hidden="true">
                     <p> Laticinios </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Pets" src="./Imagens Secundarias/Pets.svg" alt="Imagem da categoria">
+                    <img id="Pets" src="./Imagens Secundarias/Pets.svg" alt="" aria-hidden="true">
                     <p> Pets </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Doces" src="./Imagens Secundarias/Doces.svg" alt="Imagem da categoria">
+                    <img id="Doces" src="./Imagens Secundarias/Doces.svg" alt="" aria-hidden="true">
                     <p> Doces </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Bebidas" src="./Imagens Secundarias/soda..svg" alt="Imagem da categoria">
+                    <img id="Bebidas" src="./Imagens Secundarias/soda..svg" alt="" aria-hidden="true">
                     <p> Bebidas </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Especiarias" src="./Imagens Secundarias/Especiarias.svg" alt="Imagem da categoria">
+                    <img id="Especiarias" src="./Imagens Secundarias/Especiarias.svg" alt="" aria-hidden="true">
                     <p> Especiarias </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Limpeza" src="./Imagens Secundarias/Limpeza.svg" alt="Imagem da categoria">
+                    <img id="Limpeza" src="./Imagens Secundarias/Limpeza.svg" alt="" aria-hidden="true">
                     <p>Limpeza/Higiene</p>
                 </a>
             </li>
             <script src="Script/barra.js"></script>
-        </nav>
+    </nav>
 
-    <main class="container-carrinho">
-        <section class="produtos-agendados" aria-labelledby="titulo-agendados">
-            <div class="header-agendados">
-                <h2 id="titulo-agendados">Produtos Agendados</h2>
-                <a href="padaria-landingpage.html" class="voltar-compras">Voltar as Compras</a>
+    <section class="iniciar">
+        <div class="banner-principal" id="inicio">
+            <h3>A PADARIA COM OS MELHORES PRODUTOS DA REGIÃO</h3>
+            <p>Experimente nossas receitas exclusivas que matam sua fome</p>
+        </div>
+    </section>
+
+    <main>
+        <!-- SEÇÃO DE PRODUTOS: Peça e Retire-->
+        <div class="CTA">
+            <h3> "Alguns dos nossos melhores produtos agora podem ser agendados: peça e retire no momento certo!”</h3>
+        </div>
+
+        <section class="secao-peça-retire" aria-labelledby="titulo-peca-retire">
+            <div class="topo-cards">
+                <h3 id="titulo-peca-retire" class="titulo-secoes"> Peça & Retire </h3>
+                <a href="pagina-catalogo.html?filtro=retiravel"
+                    aria-label="Ver todos os produtos disponíveis para retirar"> Ver Disponíveis </a>
             </div>
 
-            <div class="lista-produtos-agendados">
-                <article class="card-agendado">
-                    <div class="card-agendado-header">
-                        <span>Código do Pedido: 001</span>
-                        <button class="remover-item" aria-label="Remover Produto 1 do carrinho">X</button>
-                    </div>
-                    <div class="card-agendado-body">
-                        <img class="imagem-placeholder" src="/Imagens/PãoFrances.webp" alt="Foto de Pão Francês">
-                        <div class="card-agendado-info">
-                            <span class="setor-tag">Padaria</span> 
-                            <h3>Produto 1</h3>             
-                            <p class="preco">R$ 10,00</p>
-                            <div class="campo-info">Quantidade: 2</div>
-                            <div class="campo-info">Valor Total: R$ 20,00</div>
-                            <div class="campo-info">Data: 25/11/2025</div>
-                        </div>
-                    </div>
-                </article>
+            <div id="carrossel-peça-e-retire" class="grid-produtos">
 
-                <article class="card-agendado">
-                    <div class="card-agendado-header">
-                        <span>Código do Pedido: 002</span>
-                        <button class="remover-item" aria-label="Remover Produto 2 do carrinho">X</button>
-                    </div>
-                    <div class="card-agendado-body">
-                        <img class="imagem-placeholder" src="/Imagens/Pão de Forma.webp" alt="Foto de Pão de Forma">
-                        <div class="card-agendado-info">
-                            <span class="setor-tag">Padaria</span>
-                            <h3>Produto 2</h3>
-                            <p class="preco">R$ 12,50</p>
-                            <div class="campo-info">Quantidade: 1</div>
-                            <div class="campo-info">Valor Total: R$ 12,50</div>
-                            <div class="campo-info">Data: 25/11/2025</div>
-              
-                        </div>
-                    </div>
-                </article>
+                <button class="botao-carrossel antes botao-antes" aria-label="Ver produtos anteriores"> &lsaquo;
+                </button>
 
+                <div class="carrossel-conjunto">
+
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/PãoFrances.webp" alt="Pão Francês crocante">
+                        <h4> Pão Francês </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 15,90 / Kg </p>
+                        <p id="texto-info"> (Un) R$ 0,80 (aprox. 50g) </p>
+                        <a href="pagina-agendamento.html?id=pãofrances" class="botao-comprar"
+                            aria-label="Agendar Pão Francês"> Agendar </a>
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Coxinha de Frango .webp" alt="Coxinha de Frango frita">
+                        <h4> Coxinha de Frango </h4>
+                        <h5> Padaria </h5>
+                        <p  id="texto-preço"> R$ 8,50 </p>
+                        <p  id="texto-info"> (Unidade) </p>
+                        <a href="pagina-agendamento.html?id=coxinhadefrango" class="botao-comprar"
+                            aria-label="Agendar Coxinha de Frango"> Agendar </a>
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Coxinha de Frango .webp" alt="Coxinha de Frango ">
+                        <h4> Coxinha de Frango </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 8,50 </p>
+                        <p id="texto-info"> (Unidade) </p>
+                        <a href="pagina-agendamento.html?id=coxinhadefrango" class="botao-comprar"
+                            aria-label="Agendar Coxinha de Frango"> Agendar </a>
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Pão de Queijo .webp" alt="Pão de Quejo">
+                        <h4> Pão de Queijo </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 3,00 </p>
+                        <p id="texto-info"> (Unidade) </p>
+                        <a href="pagina-agendamento.html?id=pãodequeijo" class="botao-comprar"
+                            aria-label="Agendar Pão de Queijo"> Agendar </a>
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Esfirra de Carne.webp" alt="Esfirra de Carne">
+                        <h4> Esfiha de Carne </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 8,50 </p>
+                        <p id="texto-info"> (Unidade) </p>
+                        <a href="pagina-agendamento.html?id=esfirradecarne" class="botao-comprar"
+                            aria-label="Agendar Esfiha de Carne"> Agendar </a>
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Mussarela.webp" alt="Mussarela">
+                        <h4> Mussarela Fatiada </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 5,99 </p>
+                        <p id="texto-info"> Preço (a cada 100g) </p>
+                        <a href="pagina-agendamento.html?id=mussarela" class="botao-comprar"
+                            aria-label="Agendar Mussarela Fatiada"> Agendar </a>
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Mortandela.webp" alt="Mortadela">
+                        <h4> Mortadela Fatiada </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 4,49 </p>
+                        <p id="texto-info"> Preço (a cada 100g) </p>
+                        <a href="pagina-agendamento.html?id=mortandela" class="botao-comprar"
+                            aria-label="Agendar Mortadela Fatiada"> Agendar </a>
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Presunto.webp" alt="Presunto">
+                        <h4> Presunto Fatiado </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 5,49 </p>
+                        <p id="texto-info"> Preço (a cada 100g) </p>
+                        <a href="pagina-agendamento.html?id=presunto" class="botao-comprar"
+                            aria-label="Agendar Presunto Fatiado"> Agendar </a>
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Bolo de fubá.webp" alt="Bolo de Fubá">
+                        <h4> Bolo de Fubá </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 7,50 / Fatia </p>
+                        <p id="texto-info"> R$ 45,00 (Inteiro) </p>
+                        <a href="pagina-agendamento.html?id=bolodefuba" class="botao-comprar"
+                            aria-label="Agendar Bolo de Fubá"> Agendar </a>
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Bolo de Milho.webp" alt="Bolo de Milho">
+                        <h4> Bolo de Milho </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 7,50 / Fatia </p>
+                        <p id="texto-info"> R$ 45,00 (Inteiro) </p>
+                        <a href="pagina-agendamento.html?id=bolodemilho" class="botao-comprar"
+                            aria-label="Agendar Bolo de Milho"> Agendar </a>
+                    </article>
                 </div>
+
+                <button class="botao-carrossel depois botao-depois" aria-label="Ver mais produtos"> &rsaquo; </button>
+
+            </div>
         </section>
 
-        <section class="recomendados" aria-labelledby="titulo-recomendados">
-            <h2 id="titulo-recomendados">Recomendados</h2>
-            <div class="lista-recomendados">
-                
-                <article class="card-produtos">
-                    <img class="imagem-placeholder" src="/Imagens/Arroz Camil.webp" alt="Pacote de Arroz Camil">
-                    <span class="setor-tag">Grãos</span>
-                    <h3>Arroz Branco 5kg</h3>
-                    <p class="texto-preco">R$ 25,00</p> 
-                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 1">Agendar compra</button>
-                </article>
 
-                <article class="card-produtos">
-                    <img class="imagem-placeholder" src="/Imagens/Feijão Carioca.webp" alt="Pacote de Arroz Camil">
-                    <span class="setor-tag">Grãos</span>
-                    <h3>Feijão Carioca 1kg</h3>
-                    <p class="texto-preco">R$ 9,99</p>
-                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 2">Agendar compra</button>
-                </article>
+        <section class="menu-central">
+            <h1> Descubra todos os nossos produtos </h1>
 
-                 <article class="card-produtos">
-                    <img class="imagem-placeholder" src="/Imagens/Arroz Camil.webp" alt="Pacote de Arroz Camil">
-                    <span class="setor-tag">Grãos</span>
-                    <h3>Produto Recomendado 3</h3>
-                    <p class="texto-preco">R$ 22,00</p>
-                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 3">Agendar compra</button>
-                </article>
+            <div class="btn-setores">
+                <h2> Catégorias </h2>
 
-                 <article class="card-produtos">
-                    <img class="imagem-placeholder" src="/Imagens/Arroz Camil.webp" alt="Pacote de Arroz Camil">
-                    <span class="setor-tag">Grãos</span>
-                    <h3>Produto Recomendado 4</h3>
-                    <p class="texto-preco">R$ 22,00</p>
-                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 4">Agendar compra</button>
-                </article>
-
-                 <article class="card-produtos">
-                    <img class="imagem-placeholder" src="/Imagens/Arroz Camil.webp" alt="Pacote de Arroz Camil">
-                    <span class="setor-tag">Grãos</span>
-                    <h3>Produto Recomendado 5</h3>
-                    <p class="texto-preco">R$ 22,00</p>
-                    <button class="btn-agendar-compra" aria-label="Agendar compra de Produto Recomendado 5">Agendar compra</button>
-                </article>
-
-                
+                <a id="padaria-icone" href="pagina-catalogo.html?setor=padaria" class="botao-produtos-padaria">
+                    Padaria</a>
+                <a id="açougue-icone" href="pagina-catalogo.html?setor=acougue" class="botao-produtos-acougue">
+                    Açougue</a>
+                <a id="hortifruti-icone" href="pagina-catalogo.html?setor=hortifruti" class="botao-produtos-hortifruti">
+                    Hortifruti</a>
+                <a id="mercado-icone" href="pagina-catalogo.html?setor=mercado" class="botao-produtos-mercado"> Mercado
+                </a>
 
             </div>
+        </section>
+
+
+
+        <!-- SEÇÃO DE PRODUTOS: Ofertas-->
+        <section class="produto-ofertas" id="produto-ofertas">
+
+            <div class="topo-cards">
+                <h3 class="titulo-secoes"> Ofertas de Semana </h3>
+                <a href="pagina-catalogo.html?filtro=oferta"> Ver Catálogo </a>
+            </div>
+
+
+            <div id="carrossel-ofertas" class="grid-produtos">
+
+                <button class="botao-carrossel antes botao-antes"> &lsaquo; </button>
+
+                <div class="carrossel-conjunto">
+
+                    <!-- PRODUTO: Cartão de item individual -->
+                    <article class="card-produtos">
+                        <img src="./Imagens/Coxa de Frango.webp" alt="Coxa e Sobrecoxa de Frango">
+                        <h4> Coxa e Sobrecoxa de Frango </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 10,99 / Kg </p>
+                        <p id="texto-info"> R$ 14,99 / Kg</p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Linguiça Toscada Sadia.webp" alt="Linguiça Toscana">
+                        <h4> Linguiça Toscana Sadia </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 23,90 / Kg </p>
+                        <p id="texto-info"> R$ 29,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Batata Lavada.webp" alt="Batata">
+                        <h4> Batata Lavada </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 3,99 / Kg </p>
+                        <p id="texto-info"> R$ 5,99 / Kg</p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Tomate Italiano.webp" alt="Tomate Italiano">
+                        <h4> Tomate Italiano </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 6,99 / Kg </p>
+                        <p id="texto-info"> R$ 9,99 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/PãoFrances.webp" alt="Pão-Francês">
+                        <h4> Pão Francês </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 15,90 / Kg </p>
+                        <p id="texto-info"> R$ 16,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Arroz Camil.webp" alt="Arroz Camil">
+                        <h4> Arroz Agulhinha Tipo 1 Camil (5Kg) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 27,90 </p>
+                        <p id="texto-info"> R$ 32,90 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Café Pilão.webp" alt="Café Pilão">
+                        <h4> Café Tradicional Pilão (500g) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 15,90 </p>
+                        <p id="texto-info"> R$ 18,90 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/oleo_de_soja_liza_900ml.webp" alt="Café Pilão">
+                        <h4> Óleo de Soja Liza (900ml) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 6,99 </p>
+                        <p id="texto-info"> R$ 8,49 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Sabão em pó.webp" alt="Café Pilão">
+                        <h4> Sabão em Pó OMO Lavagem Perfeita (800g) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 15,90 </p>
+                        <p id="texto-info"> R$ 19,90 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/CocaCola.webp" alt="Café Pilão">
+                        <h4> Refrigerante Coca-Cola (2L) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 7,99 </p>
+                        <p id="texto-info"> R$ 9,99 </p>
+
+                    </article>
+
+                </div>
+
+                <button class="botao-carrossel depois botao-depois"> &rsaquo; </button>
+
+            </div>
+
+        </section>
+
+        <!-- SEÇÃO DE PRODUTOS: Padaria -->
+        <section class="produto-padaria" id="produto-padaria">
+
+            <div class="topo-cards">
+                <h3 class="titulo-secoes"> Padaria </h3>
+                <a href="pagina-catalogo.html?setor=padaria"> Ver Catálogo </a>
+            </div>
+
+
+            <div id="carrossel-padaria" class="grid-produtos">
+
+                <button class="botao-carrossel antes botao-antes"> &lsaquo; </button>
+
+                <div class="carrossel-conjunto">
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/PãoFrances.webp" alt="Pão-Francês">
+                        <h4> Pão Francês </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 15,90 / Kg </p>
+                        <p id="texto-info">(Un) R$ 0,80 (aprox. 50g) </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Pão de Leite .webp" alt="Pão-de-leite">
+                        <h4> Pão de Leite </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 22,90 / Kg </p>
+                        <p id="texto-info"> (Un) R$ 1,50 (aprox. 65g)</p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Pão de Queijo .webp" alt="Pão de Queijo">
+                        <h4> Pão de Queijo </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 3,00 </p>
+                        <p id="texto-info"> (Unidade) </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Esfirra de Carne.webp" alt="Esfirra de Carne">
+                        <h4> Esfirra de Carne </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 8,50 </p>
+                        <p id="texto-info"> (Unidade) </p>
+
+                    </article>
+
+
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Pão de Forma.webp" alt="Pão de Forma">
+                        <h4> Pão de Forma </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 8,50 </p>
+                        <p id="texto-info"> (Unidade) </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Coxinha de Frango .webp" alt="Coxinha de Frango">
+                        <h4> Coxinha de Frango </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 8,50 </p>
+                        <p id="texto-info"> (Unidade)</p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/MistoQuente.jpg" alt="Misto Quente">
+                        <h4> Misto Quente </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 7,00 </p>
+                        <p id="texto-info"> (Unidade) </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Bolo de fubá.webp" alt="Esfirra de Carne">
+                        <h4> Bolo de Fubá </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 7,50 / Fatia</p>
+                        <p id="texto-info"> R$ 45,00 (Inteiro) </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Bolo de Milho.webp" alt="Presunto">
+                        <h4> Bolo de Milho </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 7,50 / Fatia </p>
+                        <p id="texto-info"> R$ 45,00 (Inteiro) </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Sonho de Creme.webp" alt="Sonho de Creme">
+                        <h4> Sonho de Creme </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 7,50 </p>
+                        <p id="texto-info"> (Unidade) </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/TortaDefrango.webp" alt="Torta de Frango">
+                        <h4> Torta de Frango </h4>
+                        <h5> Padaria </h5>
+                        <p id="texto-preço"> R$ 8,90 / Fatia </p>
+                        <p id="texto-info"> R$ 25,40 (Inteiro) </p>
+
+                    </article>
+                </div>
+
+                <button class="botao-carrossel depois botao-depois"> &rsaquo; </button>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE PRODUTOS: Açougue -->
+        <section class="produto-açougue" id="produto-açougue">
+
+            <div class="topo-cards">
+                <h3 class="titulo-secoes"> Açougue/Frios </h3>
+                <a href="pagina-catalogo.html?setor=acougue"> Ver Catálogo </a>
+            </div>
+
+
+            <div id="carrossel-açougue" class="grid-produtos">
+
+                <button class="botao-carrossel antes botao-antes"> &lsaquo; </button>
+
+                <div class="carrossel-conjunto">
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Acém Bovino.webp" alt="Acém Moido">
+                        <h4> Acém Bovino Moído </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 32,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Patinho Bife.webp" alt="Patinho Bovino">
+                        <h4> Patinho Bovino em Bife </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 42,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Contrafile.webp" alt="Contrafilé">
+                        <h4> Contrafilé </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 54,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/File Peito de Frango.webp" alt="Peito de Frango">
+                        <h4> Filé de Peito de Frango </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 19,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Coxa de Frango.webp" alt="Coxa e Sobrecoxa do Frango">
+                        <h4> Coxa e Sobrecoxa de Frango </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 10,99 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Linguiça Toscana.webp" alt="Linguiça Toscana">
+                        <h4> Linguiça Toscana </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 25,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Bisteca Suina.webp" alt="Bisteca Suina">
+                        <h4> Bisteca Suína </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 24,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Bacon.webp" alt="Bacon">
+                        <h4> Bacon em Pedaço </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 44,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Salsicha perdigão.webp" alt="Salsicha">
+                        <h4> Salsicha (Perdigão) </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 17,90 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Lombo Suino.jpg" alt="Lombo Suino">
+                        <h4> Lombo Suíno </h4>
+                        <h5> Açougue </h5>
+                        <p id="texto-preço"> R$ 29,90 / Kg </p>
+
+                    </article>
+                </div>
+
+                <button class="botao-carrossel depois botao-depois"> &rsaquo; </button>
+
+            </div>
+        </section>
+
+
+        <!-- SEÇÃO DE PRODUTOS: Hortifruti -->
+        <section class="produto-hortifruti" id="produto-hortifruti">
+
+            <div class="topo-cards">
+                <h3 class="titulo-secoes"> Hortifruti </h3>
+                <a href="pagina-catalogo.html?setor=hortifruti"> Ver Catálogo </a>
+            </div>
+
+
+            <div id="carrossel-hortifruti" class="grid-produtos">
+
+                <button class="botao-carrossel antes botao-antes"> &lsaquo; </button>
+
+                <div class="carrossel-conjunto">
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Batata Lavada.webp" alt="Batata Lavada">
+                        <h4> Batata Lavada </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 3,99 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Cenoura.webp" alt="Cenoura">
+                        <h4> Cenoura </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 6,99 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Cebola.webp" alt="Cebola">
+                        <h4> Cebola </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 7,99 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Tomate Débora.webp" alt="Tomate Débora">
+                        <h4> Tomate Débora </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 8,99 / Kg </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Alface Crespa.webp" alt="Alface">
+                        <h4> Alface Crespa </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 3,99 </p>
+                        <p id="texto-info"> (Unidade) </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Alho.webp" alt="Alho">
+                        <h4> Alho </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 3,50 </p>
+                        <p id="texto-info"> Preço (A cada 100g)</p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Banana Nanica.webp" alt="Banana Nanica">
+                        <h4> Banana Nanica </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 5,49 / Kg</p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Maça Gala.webp" alt="Maça Gala">
+                        <h4> Maçã Gala </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 11,90 / Kg</p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Laranja.webp" alt="Laranja Pera ">
+                        <h4> Laranja Pera </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 4,99 / Kg</p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Ovos Brancos.webp" alt="Ovos Brancos ">
+                        <h4> Ovos Brancos </h4>
+                        <h5> Hortifruti </h5>
+                        <p id="texto-preço"> R$ 12,99</p>
+                        <p id="texto-info"> (A dúzia)</p>
+
+                    </article>
+                </div>
+
+                <button class="botao-carrossel depois botao-depois"> &rsaquo; </button>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE PRODUTOS: Mercado -->
+        <section class="produto-mercado" id="produto-mercado">
+
+            <div class="topo-cards">
+                <h3 class="titulo-secoes"> Mercado </h3>
+                <a href="pagina-catalogo.html?setor=mercado"> Ver Catálogo </a>
+            </div>
+
+
+            <div id="carrossel-mercado" class="grid-produtos">
+
+                <button class="botao-carrossel antes botao-antes"> &lsaquo; </button>
+
+                <div class="carrossel-conjunto">
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Arroz Camil.webp" alt="Arroz Camil">
+                        <h4> Arroz Agulhinha Tipo 1 Camil (5Kg) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 27,90 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Feijão Carioca.webp" alt="Feijão Carioca">
+                        <h4> Feijão Carioca (1Kg) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 9,99 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Açucar Refinado.webp" alt="Açúcar Refinado">
+                        <h4> Açúcar Refinado (1Kg) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 5,49 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Café Tradicional jpg.jpg" alt="Café em Pó">
+                        <h4> Café em Pó Tradicional (500g) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 18,90 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Leite Integral.webp" alt="Leite Integral">
+                        <h4> Leite Integral (1L) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 5,99 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Biscoito Recheado .webp" alt="Biscoito">
+                        <h4> Biscoito Recheado (Pacote) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 3,99 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Macarrão.webp" alt="Macarrão Espaguete">
+                        <h4> Macarrão Espaguete (500g) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 4,79 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Detergente.webp" alt="Detergente">
+                        <h4> Detergente Líquido Ypê (500ml) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 2,99 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Ração para cachorro.jpeg" alt="Detergente">
+                        <h4> Ração para Cães Adultos (1Kg) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 21,90 </p>
+
+                    </article>
+
+                    <article class="card-produtos">
+                        <img src="./Imagens/Candida.webp" alt="Detergente">
+                        <h4> Água Sanitária (1L) </h4>
+                        <h5> Mercado </h5>
+                        <p id="texto-preço"> R$ 4,49 </p>
+
+                    </article>
+                </div>
+
+                <button class="botao-carrossel depois botao-depois"> &rsaquo; </button>
+            </div>
+
         </section>
     </main>
 
-    <a href="https://web.whatsapp.com/" target="_blank" class="zap" aria-label="Fale conosco pelo WhatsApp">
-        <img src="./Imagens Secundarias/whatsapp-icon-logo-svgrepo-com.svg" alt="" aria-hidden="true">
+    <!-- WHATSAPP: Botão do ícone do wpp flutuando na tela-->
+    <a href="https://web.whatsapp.com/" target="_blank" class="zap">
+        <img src="./Imagens Secundarias/whatsapp-icon-logo-svgrepo-com.svg" alt="ícone flutuante whatsapp">
     </a>
 
+    <!-- RODAPÉ: Informações de copyright e final da página -->
     <footer>
         <div class="rodape-container">
 
-            <nav class="rodape-menu" aria-label="Menu do rodapé">
+            <nav class="rodape-menu">
                 <h3>Navegue</h3>
                 <ul>
-                    <li><a href="#pedidos">Meus pedidos</a></li>
-                    <li><a href="#retiraveis">Peça e Retire</a></li>
-                    </ul>
+                    <li><a href="pagina-produtos.html">Meus pedidos</a></li>
+                    <li><a href="pagina-catalogo.html?filtro=retiravel">Peça e Retire</a></li>
+                    <li><a href="pagina-catalogo.html?setor=padaria">Padaria</a></li>
+                    <li><a href="pagina-catalogo.html?setor=acougue">Açougue</a></li>
+                    <li><a href="pagina-catalogo.html?setor=hortifruti">Hortifruti</a></li>
+                    <li><a href="pagina-catalogo.html?setor=mercado">Mercado</a></li>
+                </ul>
             </nav>
 
             <div class="rodape-sobre">
                 <h3>Sobre Nós</h3>
                 <ul>
                     <li><a href="#">Localização</a></li>
-                    <li><a href="https://web.whatsapp.com/" aria-label="WhatsApp da Padaria">WhatsApp</a></li>
+                    <li><a href="https://web.whatsapp.com/">WhatsApp</a></li>
                 </ul>
             </div>
 
             <div class="formulario-newsletter">
                 <h3>Receba Nossas Ofertas</h3>
-                <p>Cadastre-se para receber novidades!</p>
+                <p>Cadastre-se para receber novidades!.</p>
                 <form>
                     <label for="nome" class="sr-only">Seu nome:</label>
-                    <input id="nome" type="text" name="text" placeholder="Seu nome" required autocomplete="name">
+                    <input id="nome" type="text" name="text" placeholder="Seu nome" required>
 
                     <label for="tel" class="sr-only">Seu número:</label>
-                    <input id="tel" type="tel" name="tel" placeholder="(00) 12345-6789" required autocomplete="tel">
+                    <input id="tel" type="tel" name="tel" placeholder="Seu número (00) 12345-6789" required>
 
                     <button id="cadastro" type="submit">Cadastrar</button>
                 </form>
@@ -242,11 +852,12 @@
 
         <div class="formas-pagamento">
             <h3>Formas de Pagamento</h3>
-            <img src="#" alt="Aceitamos Visa, Master, Pix e Vale Refeição">
+            <img src="#" alt="Formas de pagamento (Visa, Master, Pix, etc.)">
         </div>
 
         <p id="copyright">Padaria Diniz &copy; 2025 - Todos os direitos reservados</p>
 
     </footer>
 </body>
+
 </html>
