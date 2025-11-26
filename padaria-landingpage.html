@@ -33,85 +33,88 @@
             </div>
 
             <div class="icones">
-                <input type="text" id="pesquisar" placeholder="digite o produto desejado...">
-                <img src="./Imagens Secundarias/search-alt-2-svgrepo-com (1).svg">
+                <input type="text" id="pesquisar" placeholder="digite o produto desejado..."
+                    aria-label="Buscar produto">
+
+                <button type="submit" style="border:none; background:none; cursor:pointer;" aria-label="Pesquisar">
+                    <img src="./Imagens Secundarias/search-alt-2-svgrepo-com (1).svg" alt="" aria-hidden="true">
+                </button>
             </div>
 
             <nav class="menu-principal">
                 <a href="pagina-produtos.html"> Meus pedidos </a>
                 <a href="padaria-login.html"> Login </a>
-
             </nav>
         </section>
     </header>
-    <div class="menu-categorias">
+    <nav class="menu-categorias">
 
         <ul class="escolhas">
 
             <li>
                 <a href="pagina-catalogo.html?setor=acougue">
-                    <img id="Frios" src="./Imagens Secundarias/Frios.svg" alt="Imagem da categoria">
-                    <p> Frios </p>
+                    <img id="Frios" src="./Imagens Secundarias/Frios.svg" alt="" aria-hidden="true">
+                    <p>Frios</p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=hortifruti">
-                    <img id="Hortifruti" src="./Imagens Secundarias/Hortifruti.svg" alt="Imagem da categoria">
+                    <img id="Hortifruti" src="./Imagens Secundarias/Hortifruti.svg" alt="" aria-hidden="true">
                     <p>Hortifruti</p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=padaria">
-                    <img id="Padaria" src="./Imagens Secundarias/Pão.svg" alt="Imagem da categoria">
+                    <img id="Padaria" src="./Imagens Secundarias/Pão.svg" alt="" aria-hidden="true">
                     <p>Pães</p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Laticinios" src="./Imagens Secundarias/Milk.svg" alt="Imagem da categoria">
+                    <img id="Laticinios" src="./Imagens Secundarias/Milk.svg" alt="" aria-hidden="true">
                     <p> Laticinios </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Pets" src="./Imagens Secundarias/Pets.svg" alt="Imagem da categoria">
+                    <img id="Pets" src="./Imagens Secundarias/Pets.svg" alt="" aria-hidden="true">
                     <p> Pets </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Doces" src="./Imagens Secundarias/Doces.svg" alt="Imagem da categoria">
+                    <img id="Doces" src="./Imagens Secundarias/Doces.svg" alt="" aria-hidden="true">
                     <p> Doces </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Bebidas" src="./Imagens Secundarias/soda..svg" alt="Imagem da categoria">
+                    <img id="Bebidas" src="./Imagens Secundarias/soda..svg" alt="" aria-hidden="true">
                     <p> Bebidas </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Especiarias" src="./Imagens Secundarias/Especiarias.svg" alt="Imagem da categoria">
+                    <img id="Especiarias" src="./Imagens Secundarias/Especiarias.svg" alt="" aria-hidden="true">
                     <p> Especiarias </p>
                 </a>
             </li>
 
             <li>
                 <a href="pagina-catalogo.html?setor=mercado">
-                    <img id="Limpeza" src="./Imagens Secundarias/Limpeza.svg" alt="Imagem da categoria">
+                    <img id="Limpeza" src="./Imagens Secundarias/Limpeza.svg" alt="" aria-hidden="true">
                     <p>Limpeza/Higiene</p>
                 </a>
             </li>
             <script src="Script/barra.js"></script>
-    </div>
+    </nav>
 
     <section class="iniciar">
         <div class="banner-principal" id="inicio">
@@ -126,39 +129,39 @@
             <h3> "Alguns dos nossos melhores produtos agora podem ser agendados: peça e retire no momento certo!”</h3>
         </div>
 
-        <section class="secao-peça-retire">
-
+        <section class="secao-peça-retire" aria-labelledby="titulo-peca-retire">
             <div class="topo-cards">
-                <h3 class="titulo-secoes"> Peça & Retire </h3>
-                <a href="pagina-catalogo.html?filtro=retiravel"> Ver Disponiveis </a>
+                <h3 id="titulo-peca-retire" class="titulo-secoes"> Peça & Retire </h3>
+                <a href="pagina-catalogo.html?filtro=retiravel"
+                    aria-label="Ver todos os produtos disponíveis para retirar"> Ver Disponíveis </a>
             </div>
 
             <div id="carrossel-peça-e-retire" class="grid-produtos">
 
-
-                <!--Botão para rolar para esquerda -- "&lsaquo;"-->
-                <button class="botao-carrossel antes botao-antes"> &lsaquo; </button>
+                <button class="botao-carrossel antes botao-antes" aria-label="Ver produtos anteriores"> &lsaquo;
+                </button>
 
                 <div class="carrossel-conjunto">
-                    
+
 
                     <article class="card-produtos">
-                        <img src="./Imagens/PãoFrances.webp" alt="pão-frances">
+                        <img src="./Imagens/PãoFrances.webp" alt="Pão Francês crocante">
                         <h4> Pão Francês </h4>
                         <h5> Padaria </h5>
                         <p id="texto-preço"> R$ 15,90 / Kg </p>
                         <p id="texto-info"> (Un) R$ 0,80 (aprox. 50g) </p>
-                        <!-- BOTÃO DE COMPRA: Adiciona produto ao carrinho -->
-                    <a href="pagina-agendamento.html?id=pãofrances" class="botao-comprar"> Agendar </a>
+                        <a href="pagina-agendamento.html?id=pãofrances" class="botao-comprar"
+                            aria-label="Agendar Pão Francês"> Agendar </a>
                     </article>
 
                     <article class="card-produtos">
-                        <img src="./Imagens/Pão de Leite .webp" alt="Pão de Leite">
-                        <h4> Pão de Leite </h4>
+                        <img src="./Imagens/Coxinha de Frango .webp" alt="Coxinha de Frango frita">
+                        <h4> Coxinha de Frango </h4>
                         <h5> Padaria </h5>
-                        <p id="texto-preço"> R$ 22,90 / Kg </p>
-                        <p id="texto-info"> (Un) R$ 1,50 (aprox. 65g) </p>
-                        <a href="pagina-agendamento.html?id=pãodeleite" class="botao-comprar"> Agendar </a>
+                        <p  id="texto-preço"> R$ 8,50 </p>
+                        <p  id="texto-info"> (Unidade) </p>
+                        <a href="pagina-agendamento.html?id=coxinhadefrango" class="botao-comprar"
+                            aria-label="Agendar Coxinha de Frango"> Agendar </a>
                     </article>
 
                     <article class="card-produtos">
@@ -167,7 +170,8 @@
                         <h5> Padaria </h5>
                         <p id="texto-preço"> R$ 8,50 </p>
                         <p id="texto-info"> (Unidade) </p>
-                        <a href="pagina-agendamento.html?id=coxinhadefrango" class="botao-comprar"> Agendar </a>
+                        <a href="pagina-agendamento.html?id=coxinhadefrango" class="botao-comprar"
+                            aria-label="Agendar Coxinha de Frango"> Agendar </a>
                     </article>
 
                     <article class="card-produtos">
@@ -176,7 +180,8 @@
                         <h5> Padaria </h5>
                         <p id="texto-preço"> R$ 3,00 </p>
                         <p id="texto-info"> (Unidade) </p>
-                        <a href="pagina-agendamento.html?id=pãodequeijo" class="botao-comprar"> Agendar </a>
+                        <a href="pagina-agendamento.html?id=pãodequeijo" class="botao-comprar"
+                            aria-label="Agendar Pão de Queijo"> Agendar </a>
                     </article>
 
                     <article class="card-produtos">
@@ -185,7 +190,8 @@
                         <h5> Padaria </h5>
                         <p id="texto-preço"> R$ 8,50 </p>
                         <p id="texto-info"> (Unidade) </p>
-                        <a href="pagina-agendamento.html?id=esfirradecarne" class="botao-comprar"> Agendar </a>
+                        <a href="pagina-agendamento.html?id=esfirradecarne" class="botao-comprar"
+                            aria-label="Agendar Esfiha de Carne"> Agendar </a>
                     </article>
 
                     <article class="card-produtos">
@@ -194,7 +200,8 @@
                         <h5> Açougue </h5>
                         <p id="texto-preço"> R$ 5,99 </p>
                         <p id="texto-info"> Preço (a cada 100g) </p>
-                        <a href="pagina-agendamento.html?id=mussarela" class="botao-comprar"> Agendar </a>
+                        <a href="pagina-agendamento.html?id=mussarela" class="botao-comprar"
+                            aria-label="Agendar Mussarela Fatiada"> Agendar </a>
                     </article>
 
                     <article class="card-produtos">
@@ -203,7 +210,8 @@
                         <h5> Açougue </h5>
                         <p id="texto-preço"> R$ 4,49 </p>
                         <p id="texto-info"> Preço (a cada 100g) </p>
-                        <a href="pagina-agendamento.html?id=mortandela" class="botao-comprar"> Agendar </a>
+                        <a href="pagina-agendamento.html?id=mortandela" class="botao-comprar"
+                            aria-label="Agendar Mortadela Fatiada"> Agendar </a>
                     </article>
 
                     <article class="card-produtos">
@@ -212,7 +220,8 @@
                         <h5> Açougue </h5>
                         <p id="texto-preço"> R$ 5,49 </p>
                         <p id="texto-info"> Preço (a cada 100g) </p>
-                        <a href="pagina-agendamento.html?id=presunto" class="botao-comprar"> Agendar </a>
+                        <a href="pagina-agendamento.html?id=presunto" class="botao-comprar"
+                            aria-label="Agendar Presunto Fatiado"> Agendar </a>
                     </article>
 
                     <article class="card-produtos">
@@ -221,7 +230,8 @@
                         <h5> Padaria </h5>
                         <p id="texto-preço"> R$ 7,50 / Fatia </p>
                         <p id="texto-info"> R$ 45,00 (Inteiro) </p>
-                        <a href="pagina-agendamento.html?id=bolodefuba" class="botao-comprar"> Agendar </a>
+                        <a href="pagina-agendamento.html?id=bolodefuba" class="botao-comprar"
+                            aria-label="Agendar Bolo de Fubá"> Agendar </a>
                     </article>
 
                     <article class="card-produtos">
@@ -230,12 +240,12 @@
                         <h5> Padaria </h5>
                         <p id="texto-preço"> R$ 7,50 / Fatia </p>
                         <p id="texto-info"> R$ 45,00 (Inteiro) </p>
-                        <a href="pagina-agendamento.html?id=bolodemilho" class="botao-comprar"> Agendar </a>
+                        <a href="pagina-agendamento.html?id=bolodemilho" class="botao-comprar"
+                            aria-label="Agendar Bolo de Milho"> Agendar </a>
                     </article>
                 </div>
 
-                <!--Botão para rolar para direita -- "&rsaquo;"-->
-                <button class="botao-carrossel depois botao-depois"> &rsaquo; </button>
+                <button class="botao-carrossel depois botao-depois" aria-label="Ver mais produtos"> &rsaquo; </button>
 
             </div>
         </section>
@@ -247,10 +257,14 @@
             <div class="btn-setores">
                 <h2> Catégorias </h2>
 
-                <a id="padaria-icone" href="pagina-catalogo.html?setor=padaria" class="botao-produtos-padaria"> Padaria</a>
-                <a id="açougue-icone" href="pagina-catalogo.html?setor=acougue" class="botao-produtos-acougue"> Açougue</a>
-                <a id="hortifruti-icone" href="pagina-catalogo.html?setor=hortifruti" class="botao-produtos-hortifruti"> Hortifruti</a>
-                <a id="mercado-icone" href="pagina-catalogo.html?setor=mercado" class="botao-produtos-mercado"> Mercado </a>
+                <a id="padaria-icone" href="pagina-catalogo.html?setor=padaria" class="botao-produtos-padaria">
+                    Padaria</a>
+                <a id="açougue-icone" href="pagina-catalogo.html?setor=acougue" class="botao-produtos-acougue">
+                    Açougue</a>
+                <a id="hortifruti-icone" href="pagina-catalogo.html?setor=hortifruti" class="botao-produtos-hortifruti">
+                    Hortifruti</a>
+                <a id="mercado-icone" href="pagina-catalogo.html?setor=mercado" class="botao-produtos-mercado"> Mercado
+                </a>
 
             </div>
         </section>
@@ -413,7 +427,7 @@
 
                     </article>
 
-                     <article class="card-produtos">
+                    <article class="card-produtos">
                         <img src="./Imagens/Esfirra de Carne.webp" alt="Esfirra de Carne">
                         <h4> Esfirra de Carne </h4>
                         <h5> Padaria </h5>
@@ -422,7 +436,7 @@
 
                     </article>
 
-    
+
 
                     <article class="card-produtos">
                         <img src="./Imagens/Pão de Forma.webp" alt="Pão de Forma">
